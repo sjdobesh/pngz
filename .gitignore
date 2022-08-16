@@ -1,0 +1,34 @@
+#files being edited
+*~
+
+# make and build files
+*.lst
+*.o
+*.eep
+*.lss
+*.map
+*.sym
+
+# build folder
+build/
+build/*
+
+# caches
+.cache/
+.cache/*
+
+# clang
+.clangd/
+.clangd/*
+
+# binaries
+bin/
+bin/*
+
+# documentation
+dox/
+dox/*
+.dox/
+.dox/*
+html
+html/*
