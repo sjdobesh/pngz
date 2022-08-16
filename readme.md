@@ -1,2 +1,0 @@
-# spng
-simple png interface
