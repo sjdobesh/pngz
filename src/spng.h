@@ -3,6 +3,9 @@
  * simple png
  *--------------------------------------------------------------------------80*/
 
+#ifndef _SPNG_H_
+#define _SPNG_H_
+
 #include <png.h>
 
 /**
@@ -22,3 +25,5 @@ int spng_write(char* path, spng* p);
 int spng_filter(spng* p, void(*filter)(unsigned char*));
 void spng_print(spng p);
 void spng_print_rgba(unsigned char*);
+
+#endif
