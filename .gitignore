@@ -24,6 +24,10 @@ build/*
 # binaries
 bin/
 bin/*
+lib/
+lib/*
+obj/
+obj/*
 
 # documentation
 dox/
