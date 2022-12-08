@@ -22,28 +22,27 @@ typedef struct pixel {
  * pixel buffer is [height][width] ([row][col])
  */
 typedef struct spng {
-  unsigned int width;
-  unsigned int height;
+  unsigned height, width;
   pixel** pixels;
 } spng;
 
 /* prototypes */
 
 /* allocate & free */
-pixel** spng_alloc_pixels(unsigned int rows, unsigned int cols);
-unsigned char** spng_alloc_bytes(unsigned int rows, unsigned int cols);
-int spng_free_pixels(pixel** pixels, unsigned int rows);
-int spng_free_bytes(unsigned char** bytes, unsigned int rows);
+pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
+unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols);
+int spng_free_pixels(pixel** pixels, unsigned rows);
+int spng_free_bytes(unsigned char** bytes, unsigned rows);
 int spng_free(spng* p);
 
 /* load and save */
 int spng_pack_pixels(
   unsigned char** bytes_src, pixel** pixels_dest,
-  unsigned int rows, unsigned int cols
+  unsigned rows, unsigned cols
 );
 int spng_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
-  unsigned int rows, unsigned int cols
+  unsigned rows, unsigned cols
 );
 int spng_load(spng* p, char* path);
 int spng_save(spng p, char* path);
