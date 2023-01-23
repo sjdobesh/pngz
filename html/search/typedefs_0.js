@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spng_27',['spng',['../spng_8h.html#ae0e919eb22552c0ddcc4414a263e2b2c',1,'spng.h']]]
+  ['pixel_55',['pixel',['../spng_8h.html#adbb58f7670e1dd0e03e1529819c3688a',1,'spng.h']]]
 ];

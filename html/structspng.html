@@ -33,7 +33,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">spng
    </div>
-   <div id="projectbrief">a simple png library in c</div>
+   <div id="projectbrief">a probably very bad simple png library in c</div>
   </td>
  </tr>
  </tbody>
@@ -100,67 +100,76 @@ $(document).ready(function(){initNavTree('structspng.html',''); initResizable();
  <a href="structspng.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="spng_8h_source.html">spng.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for spng:</div>
+<div class="dyncontent">
+<div class="center"><img src="structspng__coll__graph.png" border="0" usemap="#spng_coll__map" alt="Collaboration graph"/></div>
+<map name="spng_coll__map" id="spng_coll__map">
+<area shape="rect" title="simplified png structure." alt="" coords="5,95,59,121"/>
+<area shape="rect" href="structpixel.html" title="pixel in RGBA8 format." alt="" coords="5,5,59,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9ae6e08aff4e0189bc71bd68959fb4fb"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#a9ae6e08aff4e0189bc71bd68959fb4fb">width</a></td></tr>
-<tr class="separator:a9ae6e08aff4e0189bc71bd68959fb4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e0369161b154aabccc9a794c665aa3f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#a9e0369161b154aabccc9a794c665aa3f">height</a></td></tr>
-<tr class="separator:a9e0369161b154aabccc9a794c665aa3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8bba09c48ad60026d7e1e008d79115c"><td class="memItemLeft" align="right" valign="top">unsigned char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#af8bba09c48ad60026d7e1e008d79115c">pixels</a></td></tr>
-<tr class="separator:af8bba09c48ad60026d7e1e008d79115c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a266c24921f2bf4e166ef40c6dad6a7c6"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#a266c24921f2bf4e166ef40c6dad6a7c6">height</a></td></tr>
+<tr class="separator:a266c24921f2bf4e166ef40c6dad6a7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6558af17cf1e17a225c26d9ee4106a81"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#a6558af17cf1e17a225c26d9ee4106a81">width</a></td></tr>
+<tr class="separator:a6558af17cf1e17a225c26d9ee4106a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3df58e4d2f5a4940fe77ed695d4834"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpixel.html">pixel</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structspng.html#a5d3df58e4d2f5a4940fe77ed695d4834">pixels</a></td></tr>
+<tr class="separator:a5d3df58e4d2f5a4940fe77ed695d4834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>simplified png structure. </p>
-<p>always contains RGBA8 color. </p>
+<p>always contains RGBA8 color. width and height are in pixels. pixel buffer is [height][width] ([row][col]) </p>
 
-<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00012">12</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00024">24</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9e0369161b154aabccc9a794c665aa3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e0369161b154aabccc9a794c665aa3f">&#9670;&nbsp;</a></span>height</h2>
+<a id="a266c24921f2bf4e166ef40c6dad6a7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a266c24921f2bf4e166ef40c6dad6a7c6">&#9670;&nbsp;</a></span>height</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int spng::height</td>
+          <td class="memname">unsigned spng::height</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00014">14</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00025">25</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
 
 </div>
 </div>
-<a id="af8bba09c48ad60026d7e1e008d79115c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8bba09c48ad60026d7e1e008d79115c">&#9670;&nbsp;</a></span>pixels</h2>
+<a id="a5d3df58e4d2f5a4940fe77ed695d4834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3df58e4d2f5a4940fe77ed695d4834">&#9670;&nbsp;</a></span>pixels</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char** spng::pixels</td>
+          <td class="memname"><a class="el" href="structpixel.html">pixel</a>** spng::pixels</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00015">15</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00026">26</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
 
 </div>
 </div>
-<a id="a9ae6e08aff4e0189bc71bd68959fb4fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ae6e08aff4e0189bc71bd68959fb4fb">&#9670;&nbsp;</a></span>width</h2>
+<a id="a6558af17cf1e17a225c26d9ee4106a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6558af17cf1e17a225c26d9ee4106a81">&#9670;&nbsp;</a></span>width</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int spng::width</td>
+          <td class="memname">unsigned spng::width</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00013">13</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="spng_8h_source.html#l00025">25</a> of file <a class="el" href="spng_8h_source.html">spng.h</a>.</p>
 
 </div>
 </div>
