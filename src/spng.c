@@ -216,14 +216,13 @@ int spng_unpack_pixels(
 }
 
 /**
- * load a png image as a spng struct as  RGBA8.
+ * load a spng object into memory
  *
- * @param path char* file path to load
+ *
  * @param p spng* simple png ptr to load into
  * @return exit code
  */
-int spng_load(spng* s, char* path) {
-
+int spng_load(spng* s) {
   FILE *fp;
   png_structp png;
   png_infop info;
@@ -231,10 +230,15 @@ int spng_load(spng* s, char* path) {
   unsigned char bit_depth, color_type;
   unsigned char** byte_ptrs;
   errno = 0;
-  fprintf(stderr, "spng loading png at '%s'\n", path);
+
+  /* defaults */
+  s->path = s->path ? s->path : "default.png";
+
+  fprintf(stderr, "spng loading png at '%s'\n", s->path);
+
 
   /* open the file and read into info struct */
-  if(!(fp = fopen(path, "rb"))) {
+  if(!(fp = fopen(s->path, "rb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
@@ -314,11 +318,21 @@ int spng_load(spng* s, char* path) {
 /**
  * write a png back out to file
  *
+ * @param p spng* simple png ptr to write to file
+ * @return exit code
+ */
+int spng_save(spng s) {
+  return spng_save_to(s, s.path);
+}
+
+/**
+ * write a png back out to file with a new name
+ *
  * @param path char* file path to save to
  * @param p spng* simple png ptr to write to file
  * @return exit code
  */
-int spng_save(spng s, char* path) {
+int spng_save_to(spng s, char* path) {
 
   FILE *fp;
   png_structp png;

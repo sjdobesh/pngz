@@ -19,10 +19,18 @@ typedef struct pixel {
  * simplified png structure.
  * always contains RGBA8 color.
  * width and height are in pixels.
- * pixel buffer is [height][width] ([row][col])
+ * pixel buffer is [height][width] ([rows][cols])
  */
 typedef struct spng {
-  unsigned height, width;
+  char* path;
+  union {
+    unsigned height;
+    unsigned rows;
+  };
+  union {
+    unsigned width;
+    unsigned cols;
+  };
   pixel** pixels;
 } spng;
 
@@ -44,8 +52,9 @@ int spng_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int spng_load(spng* p, char* path);
-int spng_save(spng p, char* path);
+int spng_load(spng* p);
+int spng_save(spng p);
+int spng_save_to(spng p, char* path);
 
 /* utility functions */
 int spng_filter(spng* p, void(*filter)(pixel*));
