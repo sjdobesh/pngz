@@ -5,9 +5,10 @@
  * normal use case:
  *
  * // load in an image and resave it elsewhere
- * spng s;
- * spng_load(&s, "./img.png");
- * spng_save(s, "./TEST.png");
+ * spng s = {.path = "./img.png"};
+ * spng_load(&s");
+ * spng_save(&s");
+ * spng_save_as(s, "./TEST.png");
  * spng_free(&s);
  *
  * sources:
@@ -16,11 +17,62 @@
  * https://gist.github.com/niw/5963798
  *--------------------------------------------------------------------------80*/
 
-#include <png.h>
-#include <errno.h>
+#include <pthread.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <errno.h>
+#include <png.h>
 #include "spng.h"
 
+/* multithreaded test ground *------------------------------------------------*/
+#define THREADS 4
+pthread_barrier_t thread_barrier;
+
+void* threadfn(void* params) {
+  struct thread_parameters* tp = (thread_parameters*) params;
+  printf("[THREAD START] > %d\n", tp->thread_id);
+  printf("[THREAD PARAMS]\n> row_start: %ld\n> row_end: %ld\n\n", tp->row_start, tp->row_stop);
+  /* apply the filter here */
+  for (unsigned i = tp->row_start; i < tp->row_stop; i++)
+    for (unsigned j = 0; j < tp->image->width; j++)
+      tp->filter_function(&(tp->image->pixels[i][j]));
+  /* halt threads */
+  pthread_barrier_wait(&thread_barrier);
+  return NULL;
+}
+
+void apply_filter(spng* s, void (*filter) (pixel*)) {
+
+  /* thread containers and barrier */
+  pthread_t threads[THREADS];
+  thread_parameters tps[THREADS];
+
+  /* set barrier */
+  pthread_barrier_init(&thread_barrier, NULL, THREADS);
+
+  /* calc how much to do */
+  unsigned divisions = s->height / THREADS;
+
+  /* launch threads */
+  for (int i = 0; i < THREADS; i++) {
+    /* initialize thread params here */
+    tps[i] = (thread_parameters) {
+      .image = s, 
+      .filter_function = filter,
+      .row_start = i * divisions,
+      .row_stop = (i + 1) * divisions > s->height ? s->height : (i+1) * divisions
+    };
+    if (pthread_create(&threads[i], NULL, threadfn, (void*)&tps[i])) {
+      fprintf(stderr, "[ERROR] unable to create thread %d\n", i);
+    }
+  }
+
+  /* join threads and remove barrier */
+  for (int i = 0; i < THREADS; i++) {
+    pthread_join(threads[i], NULL);
+  }
+  pthread_barrier_destroy(&thread_barrier);
+}
 
 /* alloc & free *-------------------------------------------------------------*/
 
@@ -322,7 +374,7 @@ int spng_load(spng* s) {
  * @return exit code
  */
 int spng_save(spng s) {
-  return spng_save_to(s, s.path);
+  return spng_save_as(s, s.path);
 }
 
 /**
@@ -332,7 +384,7 @@ int spng_save(spng s) {
  * @param p spng* simple png ptr to write to file
  * @return exit code
  */
-int spng_save_to(spng s, char* path) {
+int spng_save_as(spng s, char* path) {
 
   FILE *fp;
   png_structp png;
@@ -392,6 +444,7 @@ int spng_save_to(spng s, char* path) {
 /**
  * simple png filter.
  * maps a function onto every pixel.
+ * errors if spng isn't loaded
  *
  * @param p spng* simple png to filter
  * @param filter void(*)(unsigned char*), a filter function that take pixel ptr
@@ -399,6 +452,11 @@ int spng_save_to(spng s, char* path) {
  */
 int spng_filter(spng* s, void(*filter)(pixel*)) {
   unsigned row, col;
+  if (!s->pixels) {
+    fprintf(stderr, "ERROR > filtering failed due to no loaded image.\n");
+    errno = EPERM;
+    return 1;
+  }
   for (row = 0; row < s->height; row++) {
     for (col = 0; col < s->width; col++) {
       filter(&(s->pixels[row][col]));

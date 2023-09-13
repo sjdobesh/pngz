@@ -26,9 +26,9 @@ SHARED_LIB := $(LIB_DIR)/lib$(STEM).so
 
 # set flags
 CPPFLAGS := -fpic -MMD -MP
-CFLAGS := -Wall -Wextra -Werror -std=c11 -pedantic -Os
+CFLAGS := -Wall -Wextra -Werror -std=gnu11 -pedantic -Os
 # LDFLAGS :=
-LDLIBS := -lpng
+LDLIBS := -lpthread -lpng
 LIBFLAGS := -shared
 
 # set rules

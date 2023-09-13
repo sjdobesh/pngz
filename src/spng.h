@@ -34,7 +34,21 @@ typedef struct spng {
   pixel** pixels;
 } spng;
 
+/**
+ * thread parameters for multithreaded image filtering
+ */
+typedef struct thread_parameters {
+  spng* image; /* reference to the image */
+  void (*filter_function) (pixel*); /* filter function to apply */
+  unsigned long row_start, row_stop;
+  int thread_id;
+} thread_parameters;
+
 /* prototypes */
+
+/* multithreading stuff TODO organize */
+void* threadfn(void* params);
+void apply_filter(spng* s, void(*filter)(pixel*));
 
 /* allocate & free */
 pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
@@ -54,7 +68,7 @@ int spng_unpack_pixels(
 );
 int spng_load(spng* p);
 int spng_save(spng p);
-int spng_save_to(spng p, char* path);
+int spng_save_as(spng p, char* path);
 
 /* utility functions */
 int spng_filter(spng* p, void(*filter)(pixel*));
