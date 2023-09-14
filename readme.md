@@ -112,10 +112,21 @@ int spng_save_to(spng_s, char* path);
 ```
 
 ### utility functions
+
 ```c
 int spng_filter(spng*_s, pixel(*filter)(pixel));
 int spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
 
+```
+
+multithreading efficiency is CPU dependent, my machine testing with 16 threads I found the following
+```
+SPNG [
+  rows x cols : 14397 x 11517
+  pixels : loaded
+]
+single threaded: 19.589864 seconds
+multi threaded: 2.614882 seconds
 ```
 
 ### print
