@@ -17,6 +17,7 @@ compiles a static and shared library in `./lib`. the shared library and header a
 git clone https://sjdobesh.github/spng.git
 ./install
 ```
+you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
 
 include with `#include "spng.h"` and link when compiling
 
