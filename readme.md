@@ -1,7 +1,6 @@
 # spng
-*a probably very bad simple png library.*
 
-essentially a simplified interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation such as loading, saving, printing, and function mapping.
+a simplified interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation such as loading, saving, printing, and multithreaded filtering.
 
 ## dependencies
 standard png library (`<png.h>`), available through apt. 
