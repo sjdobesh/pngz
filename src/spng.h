@@ -12,7 +12,17 @@
  * pixel in RGBA8 format.
  */
 typedef struct pixel {
+  /* value */
   unsigned char r, g, b, a;
+  /* coordinates */
+  union {
+    unsigned height;
+    unsigned row;
+  };
+  union {
+    unsigned width;
+    unsigned col;
+  };
 } pixel;
 
 /**
@@ -38,17 +48,14 @@ typedef struct spng {
  * thread parameters for multithreaded image filtering
  */
 typedef struct thread_parameters {
-  spng* image; /* reference to the image */
-  void (*filter_function) (pixel*); /* filter function to apply */
+  spng* i_image; /* reference to the image */
+  pixel** o_buf; /* reference to the output */
+  pixel (*filter_function) (pixel); /* filter function to apply */
   unsigned long row_start, row_stop;
   int thread_id;
 } thread_parameters;
 
 /* prototypes */
-
-/* multithreading stuff TODO organize */
-void* threadfn(void* params);
-void apply_filter(spng* s, void(*filter)(pixel*));
 
 /* allocate & free */
 pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
@@ -70,8 +77,10 @@ int spng_load(spng* p);
 int spng_save(spng p);
 int spng_save_as(spng p, char* path);
 
-/* utility functions */
-int spng_filter(spng* p, void(*filter)(pixel*));
+/* filter functions */
+void* spng_filter_threadfn(void* params);
+void spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
+int spng_filter(spng* p, pixel(*filter)(pixel));
 
 /* print */
 void spng_print(spng p);
