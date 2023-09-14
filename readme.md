@@ -41,21 +41,40 @@ typedef struct spng {
 
 typedef struct pixel {
   unsigned char r, g, b, a;
+  union {
+    unsigned height;
+    unsigned row;
+  };
+  union {
+    unsigned width;
+    unsigned col;
+  };
 } pixel;
 ```
 
 ## example
 ```c
 #include "spng.h"
-//load
-spng s = {.path = "./image.png"};
-spng_load(&s);
-spng_print(s);
-// edit
-s.pixels[0][0].r = 50;
-//save and free
-spng_save(s);
-spng_free(&s);
+#define THREADS 8
+
+pixel filterfoo(pixel p) {
+  p.r = 0xFF;
+  return p;
+}
+
+int main() {
+  //load
+  spng s = {.path = "./image.png"};
+  spng_load(&s);
+  spng_print(s);
+  // multithreaded filter map
+  spng_filter_threaded(s, filterfoo, THREADS);
+  // directly edit values
+  s.pixels[0][0].r = 50;
+  //save and free
+  spng_save(s);
+  spng_free(&s);
+}
 ```
 
 ## functions
@@ -67,7 +86,7 @@ pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
 unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols);
 int spng_free_pixels(pixel** pixels, unsigned rows);
 int spng_free_bytes(unsigned char** bytes, unsigned rows);
-int spng_free(spng* p);
+int spng_free(spng*_s);
 ```
 
 ### load and save
@@ -81,18 +100,20 @@ int spng_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int spng_load(spng* p);
-int spng_save(spng p);
-int spng_save_to(spng p, char* path);
+int spng_load(spng*_s);
+int spng_save(spng_s);
+int spng_save_to(spng_s, char* path);
 ```
 
 ### utility functions
 ```c
-int spng_filter(spng* p, void(*filter)(pixel*));
+int spng_filter(spng*_s, pixel(*filter)(pixel));
+int spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
+
 ```
 
 ### print
 ```c
-void spng_print(spng p);
+void spng_print(spng_s);
 void spng_print_pixel(pixel p);
 ```

@@ -297,6 +297,7 @@ int spng_unpack_pixels(
  * @return exit code
  */
 int spng_load(spng* s) {
+
   errno = 0;
 
   /* defaults */
