@@ -64,7 +64,7 @@ typedef struct pixel {
 #define THREADS 8
 
 pixel filterfoo(pixel p) {
-  p.r = 0xFF;
+  /* do stuff... */
   return p;
 }
 
