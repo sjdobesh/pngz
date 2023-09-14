@@ -61,7 +61,7 @@ typedef struct pixel {
 ## example
 ```c
 #include "spng.h"
-#define THREADS 8
+#define THREADS 12
 
 pixel filterfoo(pixel p) {
   /* do stuff... */
@@ -119,14 +119,15 @@ int spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
 
 ```
 
-multithreading efficiency is CPU dependent, my machine testing with 16 threads I found the following
+multithreading efficiency is CPU dependent, on my machine (ryzen 5 2600) testing with 12 threads I found the following
+
 ```
 SPNG [
   rows x cols : 14397 x 11517
   pixels : loaded
 ]
-single threaded: 19.589864 seconds
-multi threaded: 2.614882 seconds
+single threaded: 19.560991 seconds
+multi threaded: 2.779957 seconds
 ```
 
 ### print

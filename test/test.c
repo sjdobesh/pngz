@@ -11,7 +11,7 @@ pixel filter_test(pixel p) {
   return p;
 }
 
-#define THREADS 16
+#define THREADS 12
 
 int main() {
   /* timer set up */
