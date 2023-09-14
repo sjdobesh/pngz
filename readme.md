@@ -7,7 +7,7 @@ standard png library (`<png.h>`), available through apt.
 ```
 sudo apt-get install libpng-dev
 ```
-on windows you can find the download [here](https://gnuwin32.sourceforge.net/packages/libpng.htm).
+on windows you can find the download [here](https://gnuwin32.sourceforge.net/packages/libpng.htm), or use [wsl](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ## usage
 compiles a static and shared library in `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
@@ -24,7 +24,9 @@ include with `#include "spng.h"` and link when compiling
 gcc foo.c -lspng -lpng
 ```
 
-## the spng data structure
+## data structures
+
+### spng (simple png)
 ```c
 typedef struct spng {
   char* path;
@@ -38,7 +40,11 @@ typedef struct spng {
   };
   pixel** pixels;
 } spng;
+```
 
+### pixel
+coordinates are embedded in pixels to enable convolution filtering.
+```c
 typedef struct pixel {
   unsigned char r, g, b, a;
   union {
