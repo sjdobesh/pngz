@@ -1,6 +1,6 @@
-# spng
+# pngz
 
-a simplified interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation such as loading, saving, printing, and multithreaded filtering.
+a simplified interface for the standard `<png.h>` header that handles png io and converts all images to 8bit RGBA pngs for basic pixel manipulation.
 
 ## dependencies
 standard png library (`<png.h>`), available through apt. 
@@ -13,22 +13,22 @@ on windows you can find the download [here](https://gnuwin32.sourceforge.net/pac
 compiles a static and shared library in `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
 
 ```
-git clone https://sjdobesh.github/spng.git
+git clone https://sjdobesh.github/pngz.git
 ./install
 ```
 you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
 
-include with `#include "spng.h"` and link when compiling
+include with `#include "pngz.h"` and link when compiling
 
 ```
-gcc foo.c -lspng -lpng
+gcc foo.c -lpngz -lpng
 ```
 
 ## data structures
 
-### spng (simple png)
+### pngz (simple png)
 ```c
-typedef struct spng {
+typedef struct pngz {
   char* path;
   union {
     unsigned height;
@@ -39,7 +39,7 @@ typedef struct spng {
     unsigned cols;
   };
   pixel** pixels;
-} spng;
+} pngz;
 ```
 
 ### pixel
@@ -60,78 +60,50 @@ typedef struct pixel {
 
 ## example
 ```c
-#include "spng.h"
-#define THREADS 12
-
-pixel filterfoo(pixel p) {
-  /* do stuff... */
-  return p;
-}
+#include "pngz.h"
 
 int main() {
   //load
-  spng s = {.path = "./image.png"};
-  spng_load(&s);
-  spng_print(s);
-  // multithreaded filter map
-  spng_filter_threaded(s, filterfoo, THREADS);
+  pngz s = {.path = "./image.png"};
+  pngz_load(&s);
+  pngz_print(s);
   // directly edit values
   s.pixels[0][0].r = 50;
   //save and free
-  spng_save(s);
-  spng_free(&s);
+  pngz_save(s);
+  pngz_free(&s);
 }
 ```
 
 ## functions
 
 ### allocate & free
-allocating can be manually done to create pixel buffers from sctach, however `spng_load()` handles its own allocation.
+allocating can be manually done to create pixel buffers from sctach, however `pngz_load()` handles its own allocation.
 ```c
-pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
-unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols);
-int spng_free_pixels(pixel** pixels, unsigned rows);
-int spng_free_bytes(unsigned char** bytes, unsigned rows);
-int spng_free(spng*_s);
+pixel** pngz_alloc_pixels(unsigned rows, unsigned cols);
+unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols);
+int pngz_free_pixels(pixel** pixels, unsigned rows);
+int pngz_free_bytes(unsigned char** bytes, unsigned rows);
+int pngz_free(pngz*_s);
 ```
 
 ### load and save
 
 ```c
-int spng_pack_pixels(
+int pngz_pack_pixels(
   unsigned char** bytes_src, pixel** pixels_dest,
   unsigned rows, unsigned cols
 );
-int spng_unpack_pixels(
+int pngz_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int spng_load(spng*_s);
-int spng_save(spng_s);
-int spng_save_to(spng_s, char* path);
+int pngz_load(pngz*_s);
+int pngz_save(pngz_s);
+int pngz_save_to(pngz_s, char* path);
 ```
-
-### utility functions
-
-```c
-int spng_filter(spng*_s, pixel(*filter)(pixel));
-int spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
-
-```
-
-multithreading efficiency is CPU dependent, on my machine (ryzen 5 2600) testing with 12 threads I found the following
-
-```
-SPNG [
-  rows x cols : 14397 x 11517
-  pixels : loaded
-]
-single threaded: 19.560991 seconds
-multi threaded: 2.779957 seconds
-```
-
 ### print
 ```c
-void spng_print(spng_s);
-void spng_print_pixel(pixel p);
+void pngz_print(pngz_s);
+void pngz_print_pixel(pixel p);
 ```

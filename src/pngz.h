@@ -7,7 +7,6 @@
 #define _SPNG_H_
 
 #include <png.h>
-
 /**
  * pixel in RGBA8 format.
  */
@@ -50,7 +49,10 @@ typedef struct spng {
 typedef struct thread_parameters {
   spng* i_image; /* reference to the image */
   pixel** o_buf; /* reference to the output */
-  pixel (*filter_function) (pixel); /* filter function to apply */
+  filter_type f_type; /* enum to determine filtering method */
+  union {
+    pixel (*filter_function) (pixel);
+    pixel (*filter_function) (spng, unsigned, unsigned);
   unsigned long row_start, row_stop;
   int thread_id;
 } thread_parameters;
@@ -76,11 +78,6 @@ int spng_unpack_pixels(
 int spng_load(spng* s);
 int spng_save(spng s);
 int spng_save_as(spng s, char* path);
-
-/* filter functions */
-void* spng_filter_threadfn(void* params);
-int spng_filter_threaded(spng* s, pixel(*filter)(pixel), unsigned thread_count);
-int spng_filter(spng* s, pixel(*filter)(pixel));
 
 /* print */
 void spng_print(spng s);

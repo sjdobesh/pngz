@@ -1,15 +1,15 @@
-/* spng.c
+/* pngz.c
  * samantha jane
  * simple png library to handle loading, saving, filtering, and printing.
  *
  * normal use case:
  *
  * // load in an image and resave it elsewhere
- * spng s = {.path = "./img.png"};
- * spng_load(&s");
- * spng_save(&s");
- * spng_save_as(s, "./TEST.png");
- * spng_free(&s);
+ * pngz z = {.path = "./img.png"};
+ * pngz_load(&s");
+ * pngz_save(&s");
+ * pngz_save_as(s, "./TEST.png");
+ * pngz_free(&s);
  *
  * sources:
  * http://www.libpng.org/pub/png/libpng-manual.txt
@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <png.h>
-#include "spng.h"
+#include "pngz.h"
 
 
 /* alloc & free *-------------------------------------------------------------*/
@@ -35,7 +35,7 @@
  * @param cols number pixels per col to allocate
  * @return exit code, setting errno on failure
  */
-pixel** spng_alloc_pixels(unsigned rows, unsigned cols) {
+pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
   pixel** pixels;
   errno = 0;
   /* allocate rows to hold addresses */
@@ -69,7 +69,7 @@ pixel** spng_alloc_pixels(unsigned rows, unsigned cols) {
  * @param cols number bytes per row to allocate
  * @return a ptr to buffer, returns null and sets errno on failure
  */
-unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols) {
+unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
   errno = 0;
   /* allocate rows to hold addresses */
   unsigned char** bytes = malloc(sizeof(void *) * rows);
@@ -96,7 +96,7 @@ unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols) {
  * @param rows number of rows to free
  * @return exit code
  */
-int spng_free_pixels(pixel** pixels, unsigned rows) {
+int pngz_free_pixels(pixel** pixels, unsigned rows) {
   errno = 0;
   int exit_code = 0;
   for (unsigned i = 0; i < rows; i++) {
@@ -127,7 +127,7 @@ int spng_free_pixels(pixel** pixels, unsigned rows) {
  * @param rows number of rows to free
  * @return exit code
  */
-int spng_free_bytes(unsigned char** bytes, unsigned rows) {
+int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
   int exit_code;
   errno = 0;
   exit_code = 0;
@@ -153,13 +153,13 @@ int spng_free_bytes(unsigned char** bytes, unsigned rows) {
 }
 
 /**
- * free a spng structs pixels.
+ * free a pngz ztructs pixels.
  *
  * @param img png* loaded into memory
  * @return exit code, error if you try to free a NULL ptr
  */
-int spng_free(spng* s) {
-  return spng_free_pixels(s->pixels, s->height);
+int pngz_free(pngz* s) {
+  return pngz_free_pixels(s->pixels, z->height);
 }
 
 /* loading and saving *-------------------------------------------------------*/
@@ -173,7 +173,7 @@ int spng_free(spng* s) {
  * @param cols cols of pixels (IN PIXELS NOT BYTES)
  * @return exit code
  **/
-int spng_pack_pixels(
+int pngz_pack_pixels(
   unsigned char** bytes_src, pixel** pixels_dest,
   unsigned rows, unsigned cols
 ) {
@@ -200,7 +200,7 @@ int spng_pack_pixels(
  * @param cols cols of pixels (IN PIXELS NOT BYTES)
  * @return exit code
  **/
-int spng_unpack_pixels(
+int pngz_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 ) {
@@ -216,20 +216,21 @@ int spng_unpack_pixels(
 }
 
 /**
- * load a spng object into memory
+ * load a pngz object into memory
  *
  *
- * @param p spng* simple png ptr to load into
+ * @param p pngz* simple png ptr to load into
  * @return exit code
  */
-int spng_load(spng* s) {
+// pngz zpng_load_from_path(char* path) {
+int pngz_load_from_struct(pngz* z) {
 
   errno = 0;
 
   /* defaults */
-  s->path = s->path ? s->path : "default.png";
+  z->path = s->path ? s->path : "default.png";
 
-  fprintf(stderr, "spng loading png at '%s'\n", s->path);
+  fprintf(stderr, "pngz loading png at '%s'\n", z->path);
 
 
   /* open the file and read into info struct */
@@ -297,40 +298,40 @@ int spng_load(spng* s) {
   png_read_update_info(png, info);
 
   /* malloc pixel buffers */
-  unsigned char** byte_ptrs = spng_alloc_bytes(height, width * 4);
-  s->pixels = spng_alloc_pixels(height, width);
+  unsigned char** byte_ptrs = pngz_alloc_bytes(height, width * 4);
+  z->pixels = pngz_alloc_pixels(height, width);
   /* load into byte buffer, transfer to pixels */
   png_read_image(png, byte_ptrs);
-  spng_pack_pixels(byte_ptrs, s->pixels, height, width);
+  pngz_pack_pixels(byte_ptrs, z->pixels, height, width);
   /* clean up */
-  spng_free_bytes(byte_ptrs, height);
+  pngz_free_bytes(byte_ptrs, height);
   png_destroy_read_struct(&png, &info, NULL);
   fclose(fp);
 
   /* if we got here, pack referenced struct and return */
-  s->width  = width;
-  s->height = height;
+  z->width  = width;
+  z->height = height;
   return 0;
 }
 
 /**
  * write a png back out to file
  *
- * @param p spng* simple png ptr to write to file
+ * @param p pngz* simple png ptr to write to file
  * @return exit code
  */
-int spng_save(spng s) {
-  return spng_save_as(s, s.path);
+int pngz_save(pngz z) {
+  return pngz_save_as(s, s.path);
 }
 
 /**
  * write a png back out to file with a new name
  *
  * @param path char* file path to save to
- * @param p spng* simple png ptr to write to file
+ * @param p pngz* simple png ptr to write to file
  * @return exit code
  */
-int spng_save_as(spng s, char* path) {
+int pngz_save_as(pngz z, char* path) {
 
   FILE *fp;
   png_structp png;
@@ -374,127 +375,28 @@ int spng_save_as(spng s, char* path) {
     PNG_FILTER_TYPE_DEFAULT
   );
   png_write_info(png, info);
-  unsigned char** bytes = spng_alloc_bytes(s.height, s.width * 4);
-  spng_unpack_pixels(s.pixels, bytes, s.height, s.width);
+  unsigned char** bytes = pngz_alloc_bytes(s.height, s.width * 4);
+  pngz_unpack_pixels(s.pixels, bytes, s.height, s.width);
   png_write_image(png, bytes);
   png_write_end(png, NULL);
 
   /* clean up */
-  spng_free_bytes(bytes, s.height);
+  pngz_free_bytes(bytes, s.height);
   png_destroy_write_struct(&png, &info);
   fclose(fp);
   return 0;
 }
 
-/**
- * simple png filter.
- * maps a function onto every pixel.
- * errors if spng isn't loaded
- *
- * @param p spng* simple png to filter
- * @param filter void(*)(unsigned char*), a filter function that take pixel ptr
- * @return exit code
- */
-int spng_filter(spng* s, pixel(*filter)(pixel)) {
-  if (!s->pixels) {
-    fprintf(stderr, "ERROR > filtering failed due to no loaded image.\n");
-    errno = EPERM;
-    return 1;
-  }
-  pixel** output = spng_alloc_pixels(s->rows, s->cols);
-  for (unsigned row = 0; row < s->rows; row++) {
-    for (unsigned col = 0; col < s->cols; col++) {
-      output[row][col] = filter(s->pixels[row][col]);
-    }
-  }
-  spng_free_pixels(s->pixels, s->rows);
-  s->pixels = output;
-  return 0;
-}
-
-/* multithreaded filtering *--------------------------------------------------*/
-pthread_barrier_t thread_barrier;
+/* printing functions *-------------------------------------------------------*/
 
 /**
- * thread functions that accesses rows of pixels.
+ * print a pngz ztruct contents.
  *
- * @param params thread parameter struct 
- * @return void*, works via ptr reference 
- */
-void* spng_filter_threadfn(void* params) {
-  /* read in params */
-  struct thread_parameters* tp = (thread_parameters*) params;
-  /* apply the filter here for subsection of rows */
-  for (unsigned i = tp->row_start; i < tp->row_stop; i++) {
-    for (unsigned j = 0; j < tp->i_image->width; j++) {
-      tp->o_buf[i][j] = tp->filter_function(tp->i_image->pixels[i][j]);
-    }
-  }
-  /* halt threads */
-  pthread_barrier_wait(&thread_barrier);
-  return NULL;
-}
-
-/**
- * dispatches multithreaded filter.
- *
- * @param s spng reference to filter 
- * @param filter some filter function taking and returning a pixel 
- * @return exit code, setting errno on failure
- */
-int spng_filter_threaded(spng* s, pixel (*filter)(pixel), unsigned thread_count) {
-
-  /* make an empty spng */
-  pixel** output = spng_alloc_pixels(s->rows, s->cols);
-
-  /* thread containers and barrier */
-  pthread_t* threads = malloc(sizeof(pthread_t) * thread_count);
-  thread_parameters* tps = malloc(sizeof(thread_parameters) * thread_count);
-
-  /* set barrier */
-  pthread_barrier_init(&thread_barrier, NULL, thread_count);
-
-  /* calc how much to do */
-  unsigned divisions = s->height / thread_count;
-
-  /* launch threads */
-  for (unsigned i = 0; i < thread_count; i++) {
-    /* initialize thread params here */
-    tps[i] = (thread_parameters) {
-      .i_image = s, 
-      .o_buf = output,
-      .filter_function = filter,
-      .row_start = i * divisions,
-      .row_stop = (i + 1) * divisions > s->height ? s->height : (i+1) * divisions,
-      .thread_id = i
-    };
-    if (pthread_create(&threads[i], NULL, spng_filter_threadfn, (void*)&tps[i])) {
-      fprintf(stderr, "[ERROR] unable to create thread %d\n", i);
-    }
-  }
-
-  /* clean up threads */
-  for (unsigned i = 0; i < thread_count; i++) {
-    pthread_join(threads[i], NULL);
-  }
-  pthread_barrier_destroy(&thread_barrier);
-  free(threads);
-  free(tps);
-
-  /* free input and swap */
-  spng_free_pixels(s->pixels, s->rows);
-  s->pixels = output;
-  return 0;
-}
-
-/**
- * print a spng struct contents.
- *
- * @param p spng to print
+ * @param p pngz to print
  * @return void
  */
-void spng_print(spng s) {
-  printf("SPNG [\n");
+void pngz_print(pngz z) {
+  printf("PNGZ [\n");
   printf("  rows x cols : %d x %d\n", s.rows, s.cols);
   if (s.pixels) {
     printf("  pixels : loaded\n");
@@ -512,7 +414,7 @@ void spng_print(spng s) {
  * @return void
  *
  */
-void spng_print_pixel(pixel p) {
+void pngz_print_pixel(pixel p) {
   printf(
     "PIXEL [ row x col: *%u, %u), #%02X%02X%02X%02X ]\n",
     p.row, p.col, p.r, p.g, p.g, p.a
@@ -530,14 +432,14 @@ void print_indent(int indent) {
 }
 
 /**
- * print a spng struct contents.
+ * print a pngz ztruct contents.
  *
- * @param p spng to print
+ * @param p pngz to print
  * @return void
  */
-void spng_print_indent(spng s, int indent) {
+void pngz_print_indent(pngz z, int indent) {
   print_indent(indent);
-  printf("SPNG [\n");
+  printf("PNGZ [\n");
   print_indent(indent);
   printf("  row x col : %d x %d\n", s.height, s.width);
   print_indent(indent);
@@ -558,7 +460,7 @@ void spng_print_indent(spng s, int indent) {
  * @return void
  *
  */
-void spng_print_pixel_indent(pixel p, int indent) {
+void pngz_print_pixel_indent(pixel p, int indent) {
   print_indent(indent);
   printf(
     "PIXEL [ #%02X%02X%02X%02X ]\n",
