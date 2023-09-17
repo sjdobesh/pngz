@@ -64,14 +64,14 @@ typedef struct pixel {
 
 int main() {
   //load
-  pngz s = {.path = "./image.png"};
-  pngz_load(&s);
-  pngz_print(s);
+  pngz z = {.path = "./image.png"};
+  pngz_load(&z);
+  pngz_print(z);
   // directly edit values
-  s.pixels[0][0].r = 50;
+  z.pixels[0][0].r = 50;
   //save and free
-  pngz_save(s);
-  pngz_free(&s);
+  pngz_save(z);
+  pngz_free(&z);
 }
 ```
 
