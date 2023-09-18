@@ -29,7 +29,9 @@ gcc foo.c -lpngz -lpng
 ### pngz (simple png)
 ```c
 typedef struct pngz {
+  /* path to load and save to */
   char* path;
+  /* dimensions */
   union {
     unsigned height;
     unsigned rows;
@@ -38,23 +40,16 @@ typedef struct pngz {
     unsigned width;
     unsigned cols;
   };
+  /* pixel buffer */
   pixel** pixels;
 } pngz;
 ```
 
 ### pixel
-coordinates are embedded in pixels to enable convolution filtering.
 ```c
 typedef struct pixel {
+  /* channel values 0x0-0xFF (0-255) */
   unsigned char r, g, b, a;
-  union {
-    unsigned height;
-    unsigned row;
-  };
-  union {
-    unsigned width;
-    unsigned col;
-  };
 } pixel;
 ```
 

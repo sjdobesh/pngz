@@ -11,17 +11,8 @@
  * pixel in RGBA8 format.
  */
 typedef struct pixel {
-  /* value */
+  /* channel values */
   unsigned char r, g, b, a;
-  /* coordinates */
-  union {
-    unsigned height;
-    unsigned row;
-  };
-  union {
-    unsigned width;
-    unsigned col;
-  };
 } pixel;
 
 /**
