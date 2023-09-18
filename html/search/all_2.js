@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['doxyreadme_2emd_2',['doxyreadme.md',['../doxyreadme_8md.html',1,'']]]
+  ['cols_2',['cols',['../structpngz.html#a2a718b0e52fd9aa5472d2eab011f5623',1,'pngz']]]
 ];

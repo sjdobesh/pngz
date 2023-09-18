@@ -1,21 +1,5 @@
 var searchData=
 [
-  ['spng_9',['spng',['../index.html',1,'']]],
-  ['spng_10',['spng',['../structspng.html',1,'spng'],['../spng_8h.html#ae0e919eb22552c0ddcc4414a263e2b2c',1,'spng():&#160;spng.h']]],
-  ['spng_2ec_11',['spng.c',['../spng_8c.html',1,'']]],
-  ['spng_2eh_12',['spng.h',['../spng_8h.html',1,'']]],
-  ['spng_5falloc_5fbytes_13',['spng_alloc_bytes',['../spng_8c.html#ace1ee21a0e5808c4a01d03bd855cc693',1,'spng_alloc_bytes(unsigned rows, unsigned cols):&#160;spng.c'],['../spng_8h.html#ace1ee21a0e5808c4a01d03bd855cc693',1,'spng_alloc_bytes(unsigned rows, unsigned cols):&#160;spng.c']]],
-  ['spng_5falloc_5fpixels_14',['spng_alloc_pixels',['../spng_8c.html#af712916db19179a8a722ea41a50a69f4',1,'spng_alloc_pixels(unsigned rows, unsigned cols):&#160;spng.c'],['../spng_8h.html#af712916db19179a8a722ea41a50a69f4',1,'spng_alloc_pixels(unsigned rows, unsigned cols):&#160;spng.c']]],
-  ['spng_5ffilter_15',['spng_filter',['../spng_8c.html#ab4849298d51510009044e90c7466aeff',1,'spng_filter(spng *s, void(*filter)(pixel *)):&#160;spng.c'],['../spng_8h.html#a5e7e19fbf6cf731e9434e0a1ae3f1fab',1,'spng_filter(spng *p, void(*filter)(pixel *)):&#160;spng.c']]],
-  ['spng_5ffree_16',['spng_free',['../spng_8c.html#a51659adca10b29d5e5d478a993b5157a',1,'spng_free(spng *s):&#160;spng.c'],['../spng_8h.html#ac17a29aa9beaaff7e6297fba075d80a6',1,'spng_free(spng *p):&#160;spng.c']]],
-  ['spng_5ffree_5fbytes_17',['spng_free_bytes',['../spng_8c.html#a0d502125b13fb2ae10d27343fbad7ed1',1,'spng_free_bytes(unsigned char **bytes, unsigned rows):&#160;spng.c'],['../spng_8h.html#a0d502125b13fb2ae10d27343fbad7ed1',1,'spng_free_bytes(unsigned char **bytes, unsigned rows):&#160;spng.c']]],
-  ['spng_5ffree_5fpixels_18',['spng_free_pixels',['../spng_8c.html#ad4130a8b73383b9a4740ca4b999f3c99',1,'spng_free_pixels(pixel **pixels, unsigned rows):&#160;spng.c'],['../spng_8h.html#ad4130a8b73383b9a4740ca4b999f3c99',1,'spng_free_pixels(pixel **pixels, unsigned rows):&#160;spng.c']]],
-  ['spng_5fload_19',['spng_load',['../spng_8c.html#a79b84b6d0140e54ee85c43b922015494',1,'spng_load(spng *s, char *path):&#160;spng.c'],['../spng_8h.html#a829577196de33371dd5658cce01ea819',1,'spng_load(spng *p, char *path):&#160;spng.c']]],
-  ['spng_5fpack_5fpixels_20',['spng_pack_pixels',['../spng_8c.html#a5f3d252d63e804afbaad88e6094ed018',1,'spng_pack_pixels(unsigned char **bytes_src, pixel **pixels_dest, unsigned rows, unsigned cols):&#160;spng.c'],['../spng_8h.html#a5f3d252d63e804afbaad88e6094ed018',1,'spng_pack_pixels(unsigned char **bytes_src, pixel **pixels_dest, unsigned rows, unsigned cols):&#160;spng.c']]],
-  ['spng_5fprint_21',['spng_print',['../spng_8c.html#aa3cd3bdbf4f4f6bd4b87ed2748db1735',1,'spng_print(spng s):&#160;spng.c'],['../spng_8h.html#a797371ffc1e5909ae61bc5ed97673c07',1,'spng_print(spng p):&#160;spng.c']]],
-  ['spng_5fprint_5findent_22',['spng_print_indent',['../spng_8c.html#acfb0ff67ae58a74b963d3b672321866c',1,'spng_print_indent(spng s, int indent):&#160;spng.c'],['../spng_8h.html#abe116603383ca3847ca00bf0ac20185b',1,'spng_print_indent(spng p, int indent):&#160;spng.c']]],
-  ['spng_5fprint_5fpixel_23',['spng_print_pixel',['../spng_8c.html#a43e099f0f00f05370ba56dc3ab615aa5',1,'spng_print_pixel(pixel p):&#160;spng.c'],['../spng_8h.html#a43e099f0f00f05370ba56dc3ab615aa5',1,'spng_print_pixel(pixel p):&#160;spng.c']]],
-  ['spng_5fprint_5fpixel_5findent_24',['spng_print_pixel_indent',['../spng_8c.html#a03cee673ba78038710cd8b06eb9c3c97',1,'spng_print_pixel_indent(pixel p, int indent):&#160;spng.c'],['../spng_8h.html#a03cee673ba78038710cd8b06eb9c3c97',1,'spng_print_pixel_indent(pixel p, int indent):&#160;spng.c']]],
-  ['spng_5fsave_25',['spng_save',['../spng_8c.html#afa630519098ca765f4f3fade6b2e16d4',1,'spng_save(spng s, char *path):&#160;spng.c'],['../spng_8h.html#ae01dc802cdc99f919ccd7d5f98e8e4b4',1,'spng_save(spng p, char *path):&#160;spng.c']]],
-  ['spng_5funpack_5fpixels_26',['spng_unpack_pixels',['../spng_8c.html#a8cb4a66a3054d8dda3611bf4f7f49adf',1,'spng_unpack_pixels(pixel **pixels_src, unsigned char **bytes_dest, unsigned rows, unsigned cols):&#160;spng.c'],['../spng_8h.html#a8cb4a66a3054d8dda3611bf4f7f49adf',1,'spng_unpack_pixels(pixel **pixels_src, unsigned char **bytes_dest, unsigned rows, unsigned cols):&#160;spng.c']]]
+  ['r_28',['r',['../structpixel.html#a741ba0727d1d3f7a9028804b486f9125',1,'pixel']]],
+  ['rows_29',['rows',['../structpngz.html#a3464aca78e99b569ff372c961fb3462e',1,'pngz']]]
 ];

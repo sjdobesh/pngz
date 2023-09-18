@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_4',['height',['../structspng.html#a266c24921f2bf4e166ef40c6dad6a7c6',1,'spng']]]
+  ['g_4',['g',['../structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b',1,'pixel']]]
 ];

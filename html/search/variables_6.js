@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['width_54',['width',['../structspng.html#a6558af17cf1e17a225c26d9ee4106a81',1,'spng']]]
+  ['r_59',['r',['../structpixel.html#a741ba0727d1d3f7a9028804b486f9125',1,'pixel']]],
+  ['rows_60',['rows',['../structpngz.html#a3464aca78e99b569ff372c961fb3462e',1,'pngz']]]
 ];

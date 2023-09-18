@@ -1,5 +1,5 @@
 var files_dup =
 [
-    [ "spng.c", "spng_8c.html", "spng_8c" ],
-    [ "spng.h", "spng_8h.html", "spng_8h" ]
+    [ "pngz.c", "pngz_8c.html", "pngz_8c" ],
+    [ "pngz.h", "pngz_8h.html", "pngz_8h" ]
 ];

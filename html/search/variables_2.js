@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_50',['g',['../structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b',1,'pixel']]]
+  ['cols_54',['cols',['../structpngz.html#a2a718b0e52fd9aa5472d2eab011f5623',1,'pngz']]]
 ];
