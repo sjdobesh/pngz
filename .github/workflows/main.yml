@@ -20,8 +20,8 @@ jobs:
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.1.0
       with:
-        doxyfile-path: "./.dox/doxy.config"
-        working-directory: "."
+        doxyfile-path: "doxy.config"
+        working-directory: "./dox/"
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
