@@ -21,7 +21,7 @@ you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system 
 include with `#include "pngz.h"` and link when compiling, including the png header dependency.
 
 ```
-gcc foo.c -lpngz -lpng
+gcc prog.c -lpngz -lpng
 ```
 
 ## data structures
