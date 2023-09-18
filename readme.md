@@ -10,7 +10,7 @@ sudo apt-get install libpng-dev
 on windows you can find the download [here](https://gnuwin32.sourceforge.net/packages/libpng.htm), or use [wsl](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ## usage
-compiles a static and shared library in `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
+the install script compiles a static and shared library into `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
 
 ```
 git clone https://sjdobesh.github/pngz.git
@@ -18,7 +18,7 @@ git clone https://sjdobesh.github/pngz.git
 ```
 you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
 
-include with `#include "pngz.h"` and link when compiling
+include with `#include "pngz.h"` and link when compiling, including the png header dependency.
 
 ```
 gcc foo.c -lpngz -lpng
@@ -98,6 +98,7 @@ int pngz_unpack_pixels(
   unsigned rows, unsigned cols
 );
 int pngz_load(pngz* z);
+int pngz_load_from(pngz* z, char* path);
 int pngz_save(pngz z);
 int pngz_save_to(pngz z, char* path);
 ```
