@@ -210,7 +210,7 @@ int pngz_unpack_pixels(
   return 0;
 }
 
-/* load a pngz from a path directly passed into the call,
+/** load a pngz from a path directly passed into the call,
  * just indirectly calls the standard pngz_load()
  *
  * @param z pngz* easy png ptr to load into
