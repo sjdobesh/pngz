@@ -11,7 +11,8 @@
  * pixel in RGBA8 format.
  */
 typedef struct pixel {
-  unsigned char r, g, b, a; /** channel values */
+  /** channel values */
+  unsigned char r, g, b, a;
 } pixel;
 
 /**
@@ -20,16 +21,20 @@ typedef struct pixel {
  * pixel buffer is [height][width] pixels ([rows][cols])
  */
 typedef struct pngz {
-  char* path; /** default path to load from and save to */
-  union { /** union alias for either height or rows */
+  /** default path to load from and save to */
+  char* path;
+  /** union alias for either height or rows */
+  union { 
     unsigned height;
     unsigned rows;
   };
-  union { /** union alias for either width or cols */
+  /** union alias for either width or cols */
+  union {
     unsigned width;
     unsigned cols;
   };
-  pixel** pixels; /** [height][width] pixel buffer */
+  /** [height][width] pixel buffer */
+  pixel** pixels;
 } pngz;
 
 /* prototypes */
