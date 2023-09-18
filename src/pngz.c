@@ -150,7 +150,7 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
 /**
  * free a pngz ztructs pixels.
  *
- * @param img png* loaded into memory
+ * @param z pngz* with pixels loaded into memory
  * @return exit code, error if you try to free a NULL ptr
  */
 int pngz_free(pngz* z) {
@@ -189,8 +189,8 @@ int pngz_pack_pixels(
 /**
  * unpack pixels into raw byte ptrs.
  *
- * @param bytes_src unpacked pixel byte source
- * @param pixels_dest packed pixel destination
+ * @param pixels_src packed pixel source
+ * @param bytes_dest unpacked byte destination
  * @param rows rows of pixels
  * @param cols cols of pixels (IN PIXELS NOT BYTES)
  * @return exit code
@@ -397,7 +397,7 @@ int pngz_save_as(pngz z, char* path) {
 /**
  * print a pngz ztruct contents.
  *
- * @param p pngz to print
+ * @param z pngz to print
  * @return void
  */
 void pngz_print(pngz z) {
@@ -438,7 +438,8 @@ void print_indent(int indent) {
 /**
  * print a pngz ztruct contents.
  *
- * @param p pngz to print
+ * @param z pngz to print
+ * @param indent int for how much to indent this print 
  * @return void
  */
 void pngz_print_indent(pngz z, int indent) {
@@ -461,6 +462,7 @@ void pngz_print_indent(pngz z, int indent) {
  * print out a single pixels rgba values.
  *
  * @param p unsigned char* to the pixel to print
+ * @param indent int for how much to indent this print 
  * @return void
  *
  */
