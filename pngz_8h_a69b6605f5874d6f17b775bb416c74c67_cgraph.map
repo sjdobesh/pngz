@@ -1,0 +1,11 @@
+<map id="pngz_save" name="pngz_save">
+<area shape="rect" id="Node000001" title="write a png back out to file" alt="" coords="5,55,89,80"/>
+<area shape="rect" id="Node000002" href="$pngz_8c.html#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name" alt="" coords="137,55,241,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,65,121,65,121,70,89,70"/>
+<area shape="rect" id="Node000003" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="298,5,418,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="235,51,296,33,298,38,236,57"/>
+<area shape="rect" id="Node000004" href="$pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="300,55,415,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="241,65,285,65,285,70,241,70"/>
+<area shape="rect" id="Node000005" href="$pngz_8c.html#a105db7e9aa2f8e03cc79e5360c53ac71" title="unpack pixels into raw byte ptrs." alt="" coords="289,104,426,130"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="236,78,298,97,296,102,235,84"/>
+</map>
