@@ -1,6 +1,6 @@
 /* pngz.h
  * samantha jane
- * simple png
+ * easy png
  *--------------------------------------------------------------------------80*/
 
 #ifndef _PNGZ_H_
@@ -16,7 +16,7 @@ typedef struct pixel {
 } pixel;
 
 /**
- * simplified png structure.
+ * easy png structure.
  * always contains RGBA8 color.
  * width and height are in pixels.
  * pixel buffer is [height][width] ([rows][cols])
