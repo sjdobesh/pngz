@@ -35,9 +35,7 @@ obj/
 obj/*
 
 # documentation
-dox/
-dox/*
-.dox/
-.dox/*
 html
 html/*
+latex
+latex/*
