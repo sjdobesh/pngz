@@ -214,6 +214,7 @@ int pngz_unpack_pixels(
  * just indirectly calls the standard pngz_load()
  *
  * @param z pngz* easy png ptr to load into
+ * @param path char* path to read from 
  * @return exit code
  */
 int pngz_load_from(pngz* z, char* path) {
