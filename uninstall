@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "removing library..."
+echo "deleting libpngz.so shared library from /usr/local/lib..."
+sudo rm /usr/local/lib/libpngz.so
+echo "deleting pngz.h header from /usr/local/include..."
+sudo rm /usr/local/include/pngz.h
+echo "done"

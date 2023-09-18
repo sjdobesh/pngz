@@ -2,7 +2,7 @@
 CC := gcc
 
 # library name stem
-STEM := spng
+STEM := pngz
 
 # set directories
 SRC_DIR := src
@@ -28,7 +28,7 @@ SHARED_LIB := $(LIB_DIR)/lib$(STEM).so
 CPPFLAGS := -fpic -MMD -MP
 CFLAGS := -Wall -Wextra -Werror -std=gnu11 -pedantic -Os
 # LDFLAGS :=
-LDLIBS := -lm -lpthread -lpng
+LDLIBS := -lpng
 LIBFLAGS := -shared
 
 # set rules

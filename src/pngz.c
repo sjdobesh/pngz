@@ -221,7 +221,7 @@ int pngz_unpack_pixels(
  * @param z pngz* easy png ptr to load into
  * @return exit code
  */
-int pngz_load_from_(pngz* z, char* path) {
+int pngz_load_from(pngz* z, char* path) {
   z->path = path;
   return pngz_load(z);
 }

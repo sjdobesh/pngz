@@ -62,9 +62,9 @@ int pngz_unpack_pixels(
   unsigned rows, unsigned cols
 );
 int pngz_load(pngz* z);
+int pngz_load_from(pngz* z, char* path);
 int pngz_save(pngz z);
 int pngz_save_as(pngz z, char* path);
-int pngz_load_from(pngz* z, char* path);
 
 /* print */
 void pngz_print(pngz z);
