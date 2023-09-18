@@ -24,6 +24,9 @@ include with `#include "pngz.h"` and link when compiling, including the png head
 gcc prog.c -lpngz -lpng
 ```
 
+## full documentation
+available [here](https://sjdobesh.github.io/pngz/index.html).
+
 ## data structures
 
 ### pngz (simple png)
