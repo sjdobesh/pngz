@@ -264,7 +264,7 @@ $(document).ready(function(){initNavTree('pngz_8c_source.html',''); initResizabl
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> * free a pngz ztructs pixels.</span></div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * @param img png* loaded into memory</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"> * @param z pngz* with pixels loaded into memory</span></div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"> * @return exit code, error if you try to free a NULL ptr</span></div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
@@ -307,8 +307,8 @@ $(document).ready(function(){initNavTree('pngz_8c_source.html',''); initResizabl
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment"> * unpack pixels into raw byte ptrs.</span></div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"> * @param bytes_src unpacked pixel byte source</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment"> * @param pixels_dest packed pixel destination</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment"> * @param pixels_src packed pixel source</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment"> * @param bytes_dest unpacked byte destination</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment"> * @param rows rows of pixels</span></div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"> * @param cols cols of pixels (IN PIXELS NOT BYTES)</span></div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"> * @return exit code</span></div>
@@ -525,7 +525,7 @@ $(document).ready(function(){initNavTree('pngz_8c_source.html',''); initResizabl
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="comment"> * print a pngz ztruct contents.</span></div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="comment"> * @param p pngz to print</span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="comment"> * @param z pngz to print</span></div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="comment"> * @return void</span></div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00403" data-start="{" data-end="}">
@@ -572,43 +572,45 @@ $(document).ready(function(){initNavTree('pngz_8c_source.html',''); initResizabl
 <div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="comment"> * print a pngz ztruct contents.</span></div>
 <div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="comment"> * @param p pngz to print</span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="comment"> * @return void</span></div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00444" data-start="{" data-end="}">
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno"><a class="line" href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">  444</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">pngz_print_indent</a>(<a class="code hl_struct" href="structpngz.html">pngz</a> z, <span class="keywordtype">int</span> indent) {</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>  printf(<span class="stringliteral">&quot;PNGZ [\n&quot;</span>);</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>  printf(<span class="stringliteral">&quot;  row x col : %d x %d\n&quot;</span>, z.<a class="code hl_variable" href="structpngz.html#ad274faf6458b5bd1b985667397bc74a0">height</a>, z.<a class="code hl_variable" href="structpngz.html#af7d1200181d1a9f82e46dd106b1c7d85">width</a>);</div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>  <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="structpngz.html#ae3486543e06db2287709f07fa5086502">pixels</a>) {</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    printf(<span class="stringliteral">&quot;  pixels : loaded\n&quot;</span>);</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    printf(<span class="stringliteral">&quot;  pixels : empty\n&quot;</span>);</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>  }</div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>  printf(<span class="stringliteral">&quot;]\n&quot;</span>);</div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>  <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>}</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="comment"> * @param z pngz to print</span></div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="comment"> * @param indent int for how much to indent this print </span></div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="comment"> * @return void</span></div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00445" data-start="{" data-end="}">
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno"><a class="line" href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">  445</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">pngz_print_indent</a>(<a class="code hl_struct" href="structpngz.html">pngz</a> z, <span class="keywordtype">int</span> indent) {</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>  printf(<span class="stringliteral">&quot;PNGZ [\n&quot;</span>);</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>  printf(<span class="stringliteral">&quot;  row x col : %d x %d\n&quot;</span>, z.<a class="code hl_variable" href="structpngz.html#ad274faf6458b5bd1b985667397bc74a0">height</a>, z.<a class="code hl_variable" href="structpngz.html#af7d1200181d1a9f82e46dd106b1c7d85">width</a>);</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>  <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="structpngz.html#ae3486543e06db2287709f07fa5086502">pixels</a>) {</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    printf(<span class="stringliteral">&quot;  pixels : loaded\n&quot;</span>);</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    printf(<span class="stringliteral">&quot;  pixels : empty\n&quot;</span>);</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>  }</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>  printf(<span class="stringliteral">&quot;]\n&quot;</span>);</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>  <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>}</div>
 </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span><span class="comment"></span> </div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span><span class="comment"> * print out a single pixels rgba values.</span></div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="comment"> * @param p unsigned char* to the pixel to print</span></div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span><span class="comment"> * @return void</span></div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00467" data-start="{" data-end="}">
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno"><a class="line" href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">  467</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">pngz_print_pixel_indent</a>(<a class="code hl_struct" href="structpixel.html">pixel</a> p, <span class="keywordtype">int</span> indent) {</div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
-<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>  printf(</div>
-<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>    <span class="stringliteral">&quot;PIXEL [ #%02X%02X%02X%02X ]\n&quot;</span>,</div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    p.<a class="code hl_variable" href="structpixel.html#a741ba0727d1d3f7a9028804b486f9125">r</a>, p.<a class="code hl_variable" href="structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b">g</a>, p.<a class="code hl_variable" href="structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b">g</a>, p.<a class="code hl_variable" href="structpixel.html#af36cc07c50584bf936973a65b6a1c0e8">a</a></div>
-<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>  );</div>
-<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>  <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>}</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="comment"></span> </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span><span class="comment"> * print out a single pixels rgba values.</span></div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span><span class="comment"> * @param p unsigned char* to the pixel to print</span></div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="comment"> * @param indent int for how much to indent this print </span></div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span><span class="comment"> * @return void</span></div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00469" data-start="{" data-end="}">
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno"><a class="line" href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">  469</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">pngz_print_pixel_indent</a>(<a class="code hl_struct" href="structpixel.html">pixel</a> p, <span class="keywordtype">int</span> indent) {</div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>  <a class="code hl_function" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a>(indent);</div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>  printf(</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>    <span class="stringliteral">&quot;PIXEL [ #%02X%02X%02X%02X ]\n&quot;</span>,</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>    p.<a class="code hl_variable" href="structpixel.html#a741ba0727d1d3f7a9028804b486f9125">r</a>, p.<a class="code hl_variable" href="structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b">g</a>, p.<a class="code hl_variable" href="structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b">g</a>, p.<a class="code hl_variable" href="structpixel.html#af36cc07c50584bf936973a65b6a1c0e8">a</a></div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>  );</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>  <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>}</div>
 </div>
 <div class="ttc" id="apngz_8c_html_a0c004f2a440b956639119bff50f3a32a"><div class="ttname"><a href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a">print_indent</a></div><div class="ttdeci">void print_indent(int indent)</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00431">pngz.c:431</a></div></div>
 <div class="ttc" id="apngz_8c_html_a105db7e9aa2f8e03cc79e5360c53ac71"><div class="ttname"><a href="pngz_8c.html#a105db7e9aa2f8e03cc79e5360c53ac71">pngz_unpack_pixels</a></div><div class="ttdeci">int pngz_unpack_pixels(pixel **pixels_src, unsigned char **bytes_dest, unsigned rows, unsigned cols)</div><div class="ttdoc">unpack pixels into raw byte ptrs.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00198">pngz.c:198</a></div></div>
@@ -616,9 +618,9 @@ $(document).ready(function(){initNavTree('pngz_8c_source.html',''); initResizabl
 <div class="ttc" id="apngz_8c_html_a22abfe1d65981b053fbc8f82e01b6bdd"><div class="ttname"><a href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd">pngz_free_bytes</a></div><div class="ttdeci">int pngz_free_bytes(unsigned char **bytes, unsigned rows)</div><div class="ttdoc">safely free pixel buffer.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00125">pngz.c:125</a></div></div>
 <div class="ttc" id="apngz_8c_html_a22c61527adfd7b0e53fe6971772f497b"><div class="ttname"><a href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b">pngz_alloc_bytes</a></div><div class="ttdeci">unsigned char ** pngz_alloc_bytes(unsigned rows, unsigned cols)</div><div class="ttdoc">allocate raw pixel byte buffer.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00067">pngz.c:67</a></div></div>
 <div class="ttc" id="apngz_8c_html_a3fbec9b62b321d08ae248d4cf2b144e8"><div class="ttname"><a href="pngz_8c.html#a3fbec9b62b321d08ae248d4cf2b144e8">pngz_load_from</a></div><div class="ttdeci">int pngz_load_from(pngz *z, char *path)</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00219">pngz.c:219</a></div></div>
-<div class="ttc" id="apngz_8c_html_a4cfed75396997c3e8662ae070fc948f1"><div class="ttname"><a href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">pngz_print_pixel_indent</a></div><div class="ttdeci">void pngz_print_pixel_indent(pixel p, int indent)</div><div class="ttdoc">print out a single pixels rgba values.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00467">pngz.c:467</a></div></div>
+<div class="ttc" id="apngz_8c_html_a4cfed75396997c3e8662ae070fc948f1"><div class="ttname"><a href="pngz_8c.html#a4cfed75396997c3e8662ae070fc948f1">pngz_print_pixel_indent</a></div><div class="ttdeci">void pngz_print_pixel_indent(pixel p, int indent)</div><div class="ttdoc">print out a single pixels rgba values.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00469">pngz.c:469</a></div></div>
 <div class="ttc" id="apngz_8c_html_a69b6605f5874d6f17b775bb416c74c67"><div class="ttname"><a href="pngz_8c.html#a69b6605f5874d6f17b775bb416c74c67">pngz_save</a></div><div class="ttdeci">int pngz_save(pngz z)</div><div class="ttdoc">write a png back out to file</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00328">pngz.c:328</a></div></div>
-<div class="ttc" id="apngz_8c_html_a79e5b969faa23bd49fb7a144edd02c6d"><div class="ttname"><a href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">pngz_print_indent</a></div><div class="ttdeci">void pngz_print_indent(pngz z, int indent)</div><div class="ttdoc">print a pngz ztruct contents.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00444">pngz.c:444</a></div></div>
+<div class="ttc" id="apngz_8c_html_a79e5b969faa23bd49fb7a144edd02c6d"><div class="ttname"><a href="pngz_8c.html#a79e5b969faa23bd49fb7a144edd02c6d">pngz_print_indent</a></div><div class="ttdeci">void pngz_print_indent(pngz z, int indent)</div><div class="ttdoc">print a pngz ztruct contents.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00445">pngz.c:445</a></div></div>
 <div class="ttc" id="apngz_8c_html_a7ed0aa704996d95835e6bc80899ec379"><div class="ttname"><a href="pngz_8c.html#a7ed0aa704996d95835e6bc80899ec379">pngz_free</a></div><div class="ttdeci">int pngz_free(pngz *z)</div><div class="ttdoc">free a pngz ztructs pixels.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00156">pngz.c:156</a></div></div>
 <div class="ttc" id="apngz_8c_html_a90e2de54530d8531132d10c8541834d9"><div class="ttname"><a href="pngz_8c.html#a90e2de54530d8531132d10c8541834d9">pngz_print_pixel</a></div><div class="ttdeci">void pngz_print_pixel(pixel p)</div><div class="ttdoc">print out a single pixels rgba values in hex.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00422">pngz.c:422</a></div></div>
 <div class="ttc" id="apngz_8c_html_aa7732352c6246abe07bbd28c57fc1d40"><div class="ttname"><a href="pngz_8c.html#aa7732352c6246abe07bbd28c57fc1d40">pngz_free_pixels</a></div><div class="ttdeci">int pngz_free_pixels(pixel **pixels, unsigned rows)</div><div class="ttdoc">safely free pixel buffer.</div><div class="ttdef"><b>Definition</b> <a href="pngz_8c_source.html#l00094">pngz.c:94</a></div></div>
