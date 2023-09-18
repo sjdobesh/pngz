@@ -1,6 +1,6 @@
 # pngz
 
-a simplified interface for the standard `<png.h>` header that handles png io and converts all images to 8bit RGBA pngs for basic pixel manipulation.
+an easy png io interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation.
 
 ## dependencies
 standard png library (`<png.h>`), available through apt. 
@@ -64,14 +64,14 @@ typedef struct pixel {
 
 int main() {
   //load
-  pngz s = {.path = "./image.png"};
-  pngz_load(&s);
-  pngz_print(s);
+  pngz z = {.path = "./image.png"};
+  pngz_load(&z);
+  pngz_print(z);
   // directly edit values
-  s.pixels[0][0].r = 50;
+  z.pixels[0][0].r = 50;
   //save and free
-  pngz_save(s);
-  pngz_free(&s);
+  pngz_save(z);
+  pngz_free(&z);
 }
 ```
 
@@ -84,7 +84,7 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols);
 unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols);
 int pngz_free_pixels(pixel** pixels, unsigned rows);
 int pngz_free_bytes(unsigned char** bytes, unsigned rows);
-int pngz_free(pngz*_s);
+int pngz_free(pngz* z);
 ```
 
 ### load and save
@@ -98,12 +98,12 @@ int pngz_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int pngz_load(pngz*_s);
-int pngz_save(pngz_s);
-int pngz_save_to(pngz_s, char* path);
+int pngz_load(pngz* z);
+int pngz_save(pngz z);
+int pngz_save_to(pngz z, char* path);
 ```
 ### print
 ```c
-void pngz_print(pngz_s);
+void pngz_print(pngz z);
 void pngz_print_pixel(pixel p);
 ```

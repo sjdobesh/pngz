@@ -1,10 +1,10 @@
-/* spng.h
+/* pngz.h
  * samantha jane
  * simple png
  *--------------------------------------------------------------------------80*/
 
-#ifndef _SPNG_H_
-#define _SPNG_H_
+#ifndef _PNGZ_H_
+#define _PNGZ_H_
 
 #include <png.h>
 /**
@@ -30,7 +30,7 @@ typedef struct pixel {
  * width and height are in pixels.
  * pixel buffer is [height][width] ([rows][cols])
  */
-typedef struct spng {
+typedef struct pngz {
   char* path;
   union {
     unsigned height;
@@ -41,48 +41,35 @@ typedef struct spng {
     unsigned cols;
   };
   pixel** pixels;
-} spng;
-
-/**
- * thread parameters for multithreaded image filtering
- */
-typedef struct thread_parameters {
-  spng* i_image; /* reference to the image */
-  pixel** o_buf; /* reference to the output */
-  filter_type f_type; /* enum to determine filtering method */
-  union {
-    pixel (*filter_function) (pixel);
-    pixel (*filter_function) (spng, unsigned, unsigned);
-  unsigned long row_start, row_stop;
-  int thread_id;
-} thread_parameters;
+} pngz;
 
 /* prototypes */
 
 /* allocate & free */
-pixel** spng_alloc_pixels(unsigned rows, unsigned cols);
-unsigned char** spng_alloc_bytes(unsigned rows, unsigned cols);
-int spng_free_pixels(pixel** pixels, unsigned rows);
-int spng_free_bytes(unsigned char** bytes, unsigned rows);
-int spng_free(spng* s);
+pixel** pngz_alloc_pixels(unsigned rows, unsigned cols);
+unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols);
+int pngz_free_pixels(pixel** pixels, unsigned rows);
+int pngz_free_bytes(unsigned char** bytes, unsigned rows);
+int pngz_free(pngz* z);
 
 /* load and save */
-int spng_pack_pixels(
+int pngz_pack_pixels(
   unsigned char** bytes_src, pixel** pixels_dest,
   unsigned rows, unsigned cols
 );
-int spng_unpack_pixels(
+int pngz_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int spng_load(spng* s);
-int spng_save(spng s);
-int spng_save_as(spng s, char* path);
+int pngz_load(pngz* z);
+int pngz_save(pngz z);
+int pngz_save_as(pngz z, char* path);
+int pngz_load_from(pngz* z, char* path);
 
 /* print */
-void spng_print(spng s);
-void spng_print_pixel(pixel p);
-void spng_print_indent(spng s, int indent);
-void spng_print_pixel_indent(pixel p, int indent);
+void pngz_print(pngz z);
+void pngz_print_pixel(pixel p);
+void pngz_print_indent(pngz z, int indent);
+void pngz_print_pixel_indent(pixel p, int indent);
 
 #endif

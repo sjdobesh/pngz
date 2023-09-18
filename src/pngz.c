@@ -1,15 +1,15 @@
 /* pngz.c
  * samantha jane
- * simple png library to handle loading, saving, filtering, and printing.
+ * easy png library to handle png io
  *
  * normal use case:
  *
  * // load in an image and resave it elsewhere
  * pngz z = {.path = "./img.png"};
- * pngz_load(&s");
- * pngz_save(&s");
- * pngz_save_as(s, "./TEST.png");
- * pngz_free(&s);
+ * pngz_load(&z");
+ * pngz_save(&z");
+ * pngz_save_as(z, "./TEST.png");
+ * pngz_free(&z);
  *
  * sources:
  * http://www.libpng.org/pub/png/libpng-manual.txt
@@ -158,8 +158,8 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
  * @param img png* loaded into memory
  * @return exit code, error if you try to free a NULL ptr
  */
-int pngz_free(pngz* s) {
-  return pngz_free_pixels(s->pixels, z->height);
+int pngz_free(pngz* z) {
+  return pngz_free_pixels(z->pixels, z->height);
 }
 
 /* loading and saving *-------------------------------------------------------*/
@@ -219,23 +219,23 @@ int pngz_unpack_pixels(
  * load a pngz object into memory
  *
  *
- * @param p pngz* simple png ptr to load into
+ * @param z pngz* simple png ptr to load into
  * @return exit code
  */
-// pngz zpng_load_from_path(char* path) {
-int pngz_load_from_struct(pngz* z) {
+// pngz pngz_load_from_path(char* path) {
+int pngz_load(pngz* z) {
 
   errno = 0;
 
   /* defaults */
-  z->path = s->path ? s->path : "default.png";
+  z->path = z->path ? z->path : "default.png";
 
   fprintf(stderr, "pngz loading png at '%s'\n", z->path);
 
 
   /* open the file and read into info struct */
   FILE *fp;
-  if(!(fp = fopen(s->path, "rb"))) {
+  if(!(fp = fopen(z->path, "rb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
@@ -317,18 +317,18 @@ int pngz_load_from_struct(pngz* z) {
 /**
  * write a png back out to file
  *
- * @param p pngz* simple png ptr to write to file
+ * @param z pngz* simple png ptr to write to file
  * @return exit code
  */
 int pngz_save(pngz z) {
-  return pngz_save_as(s, s.path);
+  return pngz_save_as(z, z.path);
 }
 
 /**
  * write a png back out to file with a new name
  *
  * @param path char* file path to save to
- * @param p pngz* simple png ptr to write to file
+ * @param z pngz* simple png ptr to write to file
  * @return exit code
  */
 int pngz_save_as(pngz z, char* path) {
@@ -367,7 +367,7 @@ int pngz_save_as(pngz z, char* path) {
   png_set_IHDR(
     png,
     info,
-    s.width, s.height,
+    z.width, z.height,
     8,
     PNG_COLOR_TYPE_RGBA,
     PNG_INTERLACE_NONE,
@@ -375,13 +375,13 @@ int pngz_save_as(pngz z, char* path) {
     PNG_FILTER_TYPE_DEFAULT
   );
   png_write_info(png, info);
-  unsigned char** bytes = pngz_alloc_bytes(s.height, s.width * 4);
-  pngz_unpack_pixels(s.pixels, bytes, s.height, s.width);
+  unsigned char** bytes = pngz_alloc_bytes(z.height, z.width * 4);
+  pngz_unpack_pixels(z.pixels, bytes, z.height, z.width);
   png_write_image(png, bytes);
   png_write_end(png, NULL);
 
   /* clean up */
-  pngz_free_bytes(bytes, s.height);
+  pngz_free_bytes(bytes, z.height);
   png_destroy_write_struct(&png, &info);
   fclose(fp);
   return 0;
@@ -397,8 +397,8 @@ int pngz_save_as(pngz z, char* path) {
  */
 void pngz_print(pngz z) {
   printf("PNGZ [\n");
-  printf("  rows x cols : %d x %d\n", s.rows, s.cols);
-  if (s.pixels) {
+  printf("  rows x cols : %d x %d\n", z.rows, z.cols);
+  if (z.pixels) {
     printf("  pixels : loaded\n");
   } else {
     printf("  pixels : empty\n");
@@ -424,8 +424,7 @@ void pngz_print_pixel(pixel p) {
 
 /* private util function to indent */
 void print_indent(int indent) {
-  int i;
-  for (i = 0; i < indent; i++) {
+  for (int i = 0; i < indent; i++) {
     printf("  ");
   }
   return;
@@ -441,9 +440,9 @@ void pngz_print_indent(pngz z, int indent) {
   print_indent(indent);
   printf("PNGZ [\n");
   print_indent(indent);
-  printf("  row x col : %d x %d\n", s.height, s.width);
+  printf("  row x col : %d x %d\n", z.height, z.width);
   print_indent(indent);
-  if (s.pixels) {
+  if (z.pixels) {
     printf("  pixels : loaded\n");
   } else {
     printf("  pixels : empty\n");
