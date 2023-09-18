@@ -215,14 +215,24 @@ int pngz_unpack_pixels(
   return 0;
 }
 
+/* load a pngz from a path directly passed into the call,
+ * just indirectly calls the standard pngz_load()
+ *
+ * @param z pngz* easy png ptr to load into
+ * @return exit code
+ */
+int pngz_load_from_(pngz* z, char* path) {
+  z->path = path;
+  return pngz_load(z);
+}
+
 /**
  * load a pngz object into memory
  *
  *
- * @param z pngz* simple png ptr to load into
+ * @param z pngz* easy png ptr to load into
  * @return exit code
  */
-// pngz pngz_load_from_path(char* path) {
 int pngz_load(pngz* z) {
 
   errno = 0;
@@ -317,7 +327,7 @@ int pngz_load(pngz* z) {
 /**
  * write a png back out to file
  *
- * @param z pngz* simple png ptr to write to file
+ * @param z pngz* easy png ptr to write to file
  * @return exit code
  */
 int pngz_save(pngz z) {
@@ -328,7 +338,7 @@ int pngz_save(pngz z) {
  * write a png back out to file with a new name
  *
  * @param path char* file path to save to
- * @param z pngz* simple png ptr to write to file
+ * @param z pngz* easy png ptr to write to file
  * @return exit code
  */
 int pngz_save_as(pngz z, char* path) {
