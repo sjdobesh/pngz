@@ -53,11 +53,6 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
       errno = ENOMEM;
       return NULL;
     }
-    /* number pixels for later reference */
-    for (unsigned j = 0; j < cols; j++) {
-      pixels[i][j].row = i;
-      pixels[i][j].col = j;
-    }
   }
   return pixels;
 }
@@ -426,8 +421,8 @@ void pngz_print(pngz z) {
  */
 void pngz_print_pixel(pixel p) {
   printf(
-    "PIXEL [ row x col: *%u, %u), #%02X%02X%02X%02X ]\n",
-    p.row, p.col, p.r, p.g, p.g, p.a
+    "PIXEL [ #%02X%02X%02X%02X ]\n",
+    p.r, p.g, p.g, p.a
   );
   return;
 }
