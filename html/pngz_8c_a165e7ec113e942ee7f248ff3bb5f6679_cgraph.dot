@@ -1,0 +1,16 @@
+digraph "pngz_load"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="pngz_load",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="load a pngz object into memory"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="pngz_alloc_bytes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pngz_8c.html#a3954d462ebff7dd0ef37211c3094d86b",tooltip="allocate raw pixel byte buffer."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="pngz_alloc_pixels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pngz_8c.html#a6ded83ee3ef265fc8c5eb0ce1d9bd037",tooltip="allocate a pixel buffer."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="pngz_free_bytes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd",tooltip="safely free pixel buffer."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="pngz_pack_pixels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c",tooltip="pack pixels with bytes."];
+}

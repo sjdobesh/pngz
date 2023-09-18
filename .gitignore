@@ -30,3 +30,6 @@ dox/
 dox/*
 .dox/
 .dox/*
+
+png/
+png/*
