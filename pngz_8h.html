@@ -172,6 +172,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a165e7ec113e942ee7f248ff3bb5f6679"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz object into memory  <br /></td></tr>
 <tr class="separator:a165e7ec113e942ee7f248ff3bb5f6679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fbec9b62b321d08ae248d4cf2b144e8" id="r_a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pngz_8h.html#a3fbec9b62b321d08ae248d4cf2b144e8">pngz_load_from</a> (<a class="el" href="structpngz.html">pngz</a> *z, char *path)</td></tr>
+<tr class="memdesc:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz from a path directly passed into the call, just indirectly calls the standard <a class="el" href="pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a>  <br /></td></tr>
 <tr class="separator:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69b6605f5874d6f17b775bb416c74c67" id="r_a69b6605f5874d6f17b775bb416c74c67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pngz_8h.html#a69b6605f5874d6f17b775bb416c74c67">pngz_save</a> (<a class="el" href="structpngz.html">pngz</a> z)</td></tr>
 <tr class="memdesc:a69b6605f5874d6f17b775bb416c74c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file  <br /></td></tr>
@@ -502,6 +503,16 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>load a pngz from a path directly passed into the call, just indirectly calls the standard <a class="el" href="pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
+    <tr><td class="paramname">path</td><td>char* path to read from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00220">220</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 <p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00232">pngz_load()</a>.</p>
@@ -510,7 +521,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="pngz_8h_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph.png" border="0" usemap="#apngz_8h_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" alt=""/></div>
 <map name="apngz_8h_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" id="apngz_8h_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,80,118,106"/>
+<area shape="rect" title="load a pngz from a path directly passed into the call, just indirectly calls the standard pngz_load()" alt="" coords="5,80,118,106"/>
 <area shape="rect" href="pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory" alt="" coords="166,80,245,106"/>
 <area shape="poly" title=" " alt="" coords="118,90,150,90,150,96,118,96"/>
 <area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="295,5,415,31"/>

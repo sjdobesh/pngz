@@ -1,5 +1,5 @@
 <map id="pngz_load_from" name="pngz_load_from">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,118,106"/>
+<area shape="rect" id="Node000001" title="load a pngz from a path directly passed into the call, just indirectly calls the standard pngz_load()" alt="" coords="5,80,118,106"/>
 <area shape="rect" id="Node000002" href="$pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory" alt="" coords="166,80,245,106"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,90,150,90,150,96,118,96"/>
 <area shape="rect" id="Node000003" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="295,5,415,31"/>
