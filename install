@@ -5,6 +5,8 @@ echo "copying libpngz.so shared library to /usr/local/lib..."
 sudo cp lib/libpngz.so /usr/local/lib
 echo "copying pngz.h header to /usr/local/include..."
 sudo cp src/pngz.h /usr/local/include
+echo "loading library..."
+sudo ldconfig
 echo "cleaning..."
 make clean
 echo "done"

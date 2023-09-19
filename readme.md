@@ -15,7 +15,7 @@ on windows you can find the download [here](https://gnuwin32.sourceforge.net/pac
 
 ## usage
 the install script compiles a static and shared library into `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
-you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
+you may also need to update `/etc/ld.so.conf` and run `ldconfig` for your system to recognize the library.
 
 ```
 git clone https://sjdobesh.github/pngz.git
