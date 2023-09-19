@@ -23,7 +23,7 @@ cd pngz
 ./install
 ```
 
-include with `#include "pngz.h"` and link when compiling, including the png header dependency.
+include with `#include "pngz.h"` and link when compiling, including the standard `lpng` dependency.
 
 ```
 gcc prog.c -lpngz -lpng
