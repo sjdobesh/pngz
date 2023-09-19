@@ -19,22 +19,28 @@ cd pngz
 ./install
 ```
 
-alternatively, you can compile the libraries with make and copy to a project location.
-```
-make lib
-cp ./lib/libpngz.so ~/yourproject/
-cp ./lib/libpngz.a ~/yourproject/
-```
-
-finally, you can always simply copy `pngz.c` and `pngz.h` to your project.
-```
-cp ./src/pngz.* ~/yourproject/
-```
-
 include with `#include "pngz.h"` and link when compiling, including the png header dependency.
 
 ```
 gcc prog.c -lpngz -lpng
+```
+
+alternatively, you can compile the libraries with `make` and copy to a project location.
+if both static and shared libraries are found, the linker gives preference to linking with the shared library unless the `-static` option is used.
+```
+make lib
+cp ./lib/libpngz.so ~/yourproject/lib/ #shared
+cp ./lib/libpngz.a ~/yourproject/lib/ #static
+cp ./src/pngz.h ~/yourproject/include/
+cd ~/yourproject
+gcc -I./include/ -L./lib/ prog.c -lpngz -lpng
+```
+
+finally, you can always simply copy `pngz.c` and `pngz.h` to your project and compile them into your project.
+```
+cp ./src/pngz.* ~/yourproject/src/
+cd ~/yourproject
+gcc prog.c pngz.c pngz.h
 ```
 
 ## full documentation
