@@ -21,7 +21,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-#include <png.h>
 #include "pngz.h"
 
 
