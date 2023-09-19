@@ -93,6 +93,7 @@ int main() {
 ```
 
 ## functions
+all functions that return type `int` are returning an exit code (0 on success, 1 on failure), and set `errno` for specific failures that can be checked with `perror()`. errors also generate prints to `stderr`.
 
 ### allocate & free
 allocating can be manually done to create pixel buffers from sctach, however `pngz_load()` handles its own allocation.
