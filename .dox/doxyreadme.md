@@ -11,17 +11,36 @@ on windows you can find the download [here](https://gnuwin32.sourceforge.net/pac
 
 ## usage
 the install script compiles a static and shared library into `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
+you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
 
 ```
 git clone https://sjdobesh.github/pngz.git
+cd pngz
 ./install
 ```
-you may also need to run `ldconfig` or update `/etc/ld.so.conf` for your system to recognize the library.
 
 include with `#include "pngz.h"` and link when compiling, including the png header dependency.
 
 ```
 gcc prog.c -lpngz -lpng
+```
+
+alternatively, you can compile the libraries with `make` and copy to a project location.
+if both static and shared libraries are found, the linker gives preference to linking with the shared library unless the `-static` option is used.
+```
+make lib
+cp ./lib/libpngz.so ~/yourproject/lib/ #shared
+cp ./lib/libpngz.a ~/yourproject/lib/ #static
+cp ./src/pngz.h ~/yourproject/include/
+cd ~/yourproject
+gcc -I./include/ -L./lib/ prog.c -lpngz -lpng
+```
+
+finally, you can always simply copy `pngz.c` and `pngz.h` to your project and compile them into your project.
+```
+cp ./src/pngz.* ~/yourproject/src/
+cd ~/yourproject
+gcc prog.c pngz.c pngz.h
 ```
 
 ## example
