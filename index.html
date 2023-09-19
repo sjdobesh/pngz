@@ -106,12 +106,21 @@ dependencies</h1>
 </div><!-- fragment --><p> on windows you can find the download <a href="https://gnuwin32.sourceforge.net/packages/libpng.htm">here</a>, or use <a href="https://learn.microsoft.com/en-us/windows/wsl/install">wsl</a>.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 usage</h1>
-<p>the install script compiles a static and shared library into <code>./lib</code>. the shared library and header are copied to <code>/usr/local/lib</code> and <code>/usr/local/bin</code>.</p>
+<p>the install script compiles a static and shared library into <code>./lib</code>. the shared library and header are copied to <code>/usr/local/lib</code> and <code>/usr/local/bin</code>. you may also need to run <code>ldconfig</code> or update <code>/etc/ld.so.conf</code> for your system to recognize the library.</p>
 <div class="fragment"><div class="line">git clone https://sjdobesh.github/pngz.git</div>
+<div class="line">cd pngz</div>
 <div class="line">./install</div>
-</div><!-- fragment --><p> you may also need to run <code>ldconfig</code> or update <code>/etc/ld.so.conf</code> for your system to recognize the library.</p>
-<p>include with <code>#include "pngz.h"</code> and link when compiling, including the png header dependency.</p>
+</div><!-- fragment --><p>include with <code>#include "pngz.h"</code> and link when compiling, including the png header dependency.</p>
 <div class="fragment"><div class="line">gcc prog.c -lpngz -lpng</div>
+</div><!-- fragment --><p>alternatively, you can compile the libraries with <code>make</code> and copy to a project location. if both static and shared libraries are found, the linker gives preference to linking with the shared library unless the <code>-static</code> option is used. </p><div class="fragment"><div class="line">make lib</div>
+<div class="line">cp ./lib/libpngz.so ~/yourproject/lib/ #shared</div>
+<div class="line">cp ./lib/libpngz.a ~/yourproject/lib/ #static</div>
+<div class="line">cp ./src/pngz.h ~/yourproject/include/</div>
+<div class="line">cd ~/yourproject</div>
+<div class="line">gcc -I./include/ -L./lib/ prog.c -lpngz -lpng</div>
+</div><!-- fragment --><p>finally, you can always simply copy <code><a class="el" href="pngz_8c.html">pngz.c</a></code> and <code><a class="el" href="pngz_8h.html">pngz.h</a></code> to your project and compile them into your project. </p><div class="fragment"><div class="line">cp ./src/pngz.* ~/yourproject/src/</div>
+<div class="line">cd ~/yourproject</div>
+<div class="line">gcc prog.c pngz.c pngz.h</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
 example</h1>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="pngz_8h.html">pngz.h</a>&quot;</span></div>
