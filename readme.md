@@ -2,6 +2,10 @@
 
 an easy png io interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation.
 
+## full documentation
+available [here](https://sjdobesh.github.io/pngz/index.html).
+
+
 ## dependencies
 standard png library (`<png.h>`), available through apt. 
 ```
@@ -42,9 +46,6 @@ cp ./src/pngz.* ~/yourproject/src/
 cd ~/yourproject
 gcc prog.c pngz.c pngz.h
 ```
-
-## full documentation
-available [here](https://sjdobesh.github.io/pngz/index.html).
 
 ## data structures
 
