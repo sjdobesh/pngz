@@ -52,18 +52,19 @@ gcc prog.c pngz.c pngz.h
 ### pngz (simple png)
 ```c
 typedef struct pngz {
-  /* path to load and save to */
+  /** default path to load from and save to */
   char* path;
-  /* dimensions */
-  union {
+  /** union alias for either height or rows */
+  union { 
     unsigned height;
     unsigned rows;
   };
+  /** union alias for either width or cols */
   union {
     unsigned width;
     unsigned cols;
   };
-  /* pixel buffer */
+  /** [height][width] pixel buffer */
   pixel** pixels;
 } pngz;
 ```
@@ -71,7 +72,7 @@ typedef struct pngz {
 ### pixel
 ```c
 typedef struct pixel {
-  /* channel values 0x0-0xFF (0-255) */
+  /** channel values 0x0-0xFF (0-255) */
   unsigned char r, g, b, a;
 } pixel;
 ```
