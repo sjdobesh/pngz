@@ -147,7 +147,7 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
 }
 
 /**
- * free a pngz ztructs pixels.
+ * free a pngz structs pixels.
  *
  * @param z pngz* with pixels loaded into memory
  * @return exit code, error if you try to free a NULL ptr
