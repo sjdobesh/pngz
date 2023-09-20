@@ -30,17 +30,18 @@ gcc prog.c -lpngz -lpng
 ```
 
 alternatively, you can compile the libraries with `make` and copy to a project location.
-if both static and shared libraries are found, the linker gives preference to linking with the shared library unless the `-static` option is used.
+if both static and shared libraries are found, the linker gives preference to linking with the shared library unless the `-Bstatic` option is used.
 ```
 make lib
 cp ./lib/libpngz.so ~/yourproject/lib/ #shared
 cp ./lib/libpngz.a ~/yourproject/lib/ #static
 cp ./src/pngz.h ~/yourproject/include/
 cd ~/yourproject
-gcc -I./include/ -L./lib/ prog.c -lpngz -lpng
+gcc -I./include/ -L./lib/ prog.c -lpngz -lpng #shared
+gcc -I./include/ -L./lib/ -Bstatic prog.c -lpngz -lpng #static
 ```
 
-finally, you can always simply copy `pngz.c` and `pngz.h` to your project and compile them into your project.
+finally, you can always simply copy `pngz.c` and `pngz.h` to your project and compile them with your other files.
 ```
 cp ./src/pngz.* ~/yourproject/src/
 cd ~/yourproject
@@ -97,7 +98,7 @@ int main() {
 all functions that return type `int` are returning an exit code (0 on success, 1 on failure), and set `errno` for specific failures that can be checked with `perror()`. errors also generate prints to `stderr`.
 
 ### allocate & free
-allocating can be manually done to create pixel buffers from sctach, however `pngz_load()` handles its own allocation.
+allocating can be manually done to create pixel buffers from scratch, however `pngz_load()` handles its own allocation.
 ```c
 pixel** pngz_alloc_pixels(unsigned rows, unsigned cols);
 unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols);
