@@ -62,6 +62,6 @@ int main() {
 
 ## further documentation 
 
-[structures](https://sjdobesh.github.io/pngz/html/annotated.html)
+[structures](https://sjdobesh.github.io/pngz/annotated.html)
 
-[functions](https://sjdobesh.github.io/pngz/html/globals_func.html)
+[functions](https://sjdobesh.github.io/pngz/globals_func.html)
