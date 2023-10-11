@@ -50,7 +50,7 @@ gcc prog.c pngz.c pngz.h
 
 ## data structures
 
-### pngz (simple png)
+### pngz ("easy" png)
 ```c
 typedef struct pngz {
   /** default path to load from and save to */
