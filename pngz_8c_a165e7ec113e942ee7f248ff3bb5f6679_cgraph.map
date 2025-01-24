@@ -1,6 +1,6 @@
 <map id="pngz_load" name="pngz_load">
 <area shape="rect" id="Node000001" title="load a pngz object into memory" alt="" coords="5,80,85,106"/>
-<area shape="rect" id="Node000002" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="134,5,255,31"/>
+<area shape="rect" id="Node000002" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="134,5,254,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,77,131,40,142,35,144,40,134,45,68,82"/>
 <area shape="rect" id="Node000003" href="$pngz_8c.html#ad6d01c8772bf2b6c7bef8a7337001415" title="allocate a pixel buffer." alt="" coords="133,55,256,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="85,83,118,78,118,83,86,89"/>
