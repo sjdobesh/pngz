@@ -1,17 +1,39 @@
 # pngz
 
-an easy png io interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation.
+an easy and portable png io interface for the standard `<png.h>` header that converts all images to 8bit RGBA pngs for basic pixel manipulation.
+written as ANSI C (C89)
 
 ## full documentation
 available [here](https://sjdobesh.github.io/pngz/index.html).
 
 
 ## dependencies
-standard png library (`<png.h>`), available through apt. 
+### linux
+standard png library (`<png.h>`) and basic C dev tools (`gcc` and `make`), available through your choice of package manager.
 ```
-sudo apt-get install libpng-dev
+sudo apt-get install libpng-dev build-essential
 ```
-on windows you can find the download [here](https://gnuwin32.sourceforge.net/packages/libpng.htm), or use [wsl](https://learn.microsoft.com/en-us/windows/wsl/install).
+### windows
+get a POSIX compliancy layer like [MSYS2](https://www.msys2.org/) which contains then `pacman` package manager.
+In an admin powershell you can acquire dev tools through the package `base-devel`.
+```
+pacman -S base-devel
+```
+to find a suitable libpng library run `pacman -Ss libpng` to get a list of architectures available.
+here is an example output.
+```
+pacman -Ss libpng
+mingw32/mingw-w64-i686-libpng 1.6.51-1
+    A collection of routines used to create PNG format graphics (mingw-w64)
+mingw64/mingw-w64-x86_64-libpng 1.6.51-1
+    A collection of routines used to create PNG format graphics (mingw-w64)
+ucrt64/mingw-w64-ucrt-x86_64-libpng 1.6.51-1
+    A collection of routines used to create PNG format graphics (mingw-w64)
+clang64/mingw-w64-clang-x86_64-libpng 1.6.51-1
+    A collection of routines used to create PNG format graphics (mingw-w64)
+```
+
+alternatively you could use [wsl](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ## usage
 the install script compiles a static and shared library into `./lib`. the shared library and header are copied to `/usr/local/lib` and `/usr/local/bin`.
@@ -50,22 +72,16 @@ gcc prog.c pngz.c pngz.h
 
 ## data structures
 
-### pngz ("easy" png)
+### pngz ("easy png")
 ```c
 typedef struct pngz {
   /** default path to load from and save to */
   char* path;
-  /** union alias for either height or rows */
-  union { 
-    unsigned height;
-    unsigned rows;
-  };
-  /** union alias for either width or cols */
-  union {
-    unsigned width;
-    unsigned cols;
-  };
-  /** [height][width] pixel buffer */
+  /** png height in pixels (Y domain)*/
+  unsigned height;
+  /** png width in pixels (X domain)*/
+  unsigned width;
+  /** [height][width] pixel buffer (Y, X)*/
   pixel** pixels;
 } pngz;
 ```

@@ -23,17 +23,11 @@ typedef struct pixel {
 typedef struct pngz {
   /** default path to load from and save to */
   char* path;
-  /** union alias for either height or rows */
-  union { 
-    unsigned height;
-    unsigned rows;
-  };
-  /** union alias for either width or cols */
-  union {
-    unsigned width;
-    unsigned cols;
-  };
-  /** [height][width] pixel buffer */
+  /** png height in pixels (Y domain)*/
+  unsigned height;
+  /** png width in pixels (X domain)*/
+  unsigned width;
+  /** [height][width] pixel buffer (Y, X)*/
   pixel** pixels;
 } pngz;
 

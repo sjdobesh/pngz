@@ -37,14 +37,14 @@
 pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
   pixel** pixels;
   errno = 0;
-  /* allocate rows to hold addresses */
+  /* allocate row ptrs (Y) */
   pixels = malloc(sizeof(void *) * rows);
   if (!pixels) {
     fprintf(stderr, "ERROR > allocing pixel buffer rows.\n");
     errno = ENOMEM;
     return NULL;
   }
-  /* allocate each row to hold pixels */
+  /* allocate each row with a column number of pixels (X) */
   for (unsigned i = 0; i < rows; i++) {
     pixels[i] = malloc(sizeof(pixel) * cols);
     if (!pixels[i]) {
@@ -65,13 +65,14 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
  */
 unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
   errno = 0;
-  /* allocate rows to hold addresses */
+  /* allocate row ptrs (Y) */
   unsigned char** bytes = malloc(sizeof(void *) * rows);
   if (!bytes) {
     fprintf(stderr, "ERROR > allocing raw buffer rows.\n");
     errno = ENOMEM;
     return NULL;
   }
+  /* allocate each row with a column number of bytes (X) */
   for (unsigned i = 0; i < rows; i++) {
     bytes[i] = malloc(sizeof(unsigned char) * cols);
     if (!bytes[i]) {
@@ -93,6 +94,7 @@ unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
 int pngz_free_pixels(pixel** pixels, unsigned rows) {
   errno = 0;
   int exit_code = 0;
+  /* deallocate column ptrs (X) */
   for (unsigned i = 0; i < rows; i++) {
     if (pixels[i]) {
       free(pixels[i]);
@@ -103,6 +105,7 @@ int pngz_free_pixels(pixel** pixels, unsigned rows) {
       exit_code = 1;
     }
   }
+  /* deallocate row ptrs (Y) */
   if (pixels) {
     free(pixels);
     pixels = NULL;
@@ -125,6 +128,7 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
   int exit_code;
   errno = 0;
   exit_code = 0;
+  /* deallocate column ptrs (X) */
   for (unsigned i = 0; i < rows; i++) {
     if (bytes[i]) {
       free(bytes[i]);
@@ -135,6 +139,7 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
       exit_code = 1;
     }
   }
+  /* deallocate row ptrs (Y) */
   if (bytes) {
     free(bytes);
     bytes = NULL;
@@ -159,12 +164,12 @@ int pngz_free(pngz* z) {
 /* loading and saving *-------------------------------------------------------*/
 
 /**
- * pack pixels with bytes.
+ * pack bytes into pixels.
  *
  * @param bytes_src unpacked pixel byte source
  * @param pixels_dest packed pixel destination
- * @param rows rows of pixels
- * @param cols cols of pixels (IN PIXELS NOT BYTES)
+ * @param rows rows of pixels (Y)
+ * @param cols cols of pixels (X) (IN PIXELS NOT BYTES)
  * @return exit code
  **/
 int pngz_pack_pixels(
@@ -210,10 +215,10 @@ int pngz_unpack_pixels(
 }
 
 /** load a pngz from a path directly passed into the call,
- * just indirectly calls the standard pngz_load()
+ * just a wrapper for standard pngz_load()
  *
  * @param z pngz* easy png ptr to load into
- * @param path char* path to read from 
+ * @param path char* path to read from
  * @return exit code
  */
 int pngz_load_from(pngz* z, char* path) {
@@ -224,20 +229,14 @@ int pngz_load_from(pngz* z, char* path) {
 /**
  * load a pngz object into memory
  *
- *
  * @param z pngz* easy png ptr to load into
  * @return exit code
  */
 int pngz_load(pngz* z) {
-
   errno = 0;
-
   /* defaults */
   z->path = z->path ? z->path : "default.png";
-
   fprintf(stderr, "pngz loading png at '%s'\n", z->path);
-
-
   /* open the file and read into info struct */
   FILE *fp;
   if(!(fp = fopen(z->path, "rb"))) {
@@ -262,7 +261,6 @@ int pngz_load(pngz* z) {
     errno = EIO;
     return 1;
   }
-
   /* read in png info */
   png_init_io(png, fp);
   png_read_info(png, info);
@@ -270,7 +268,6 @@ int pngz_load(pngz* z) {
   unsigned height = png_get_image_height(png, info);
   unsigned char bit_depth = png_get_bit_depth(png, info);
   unsigned char color_type = png_get_color_type(png, info);
-
   /* convert contents into RGBA8 */
   if (color_type == PNG_COLOR_TYPE_PALETTE) {
     png_set_palette_to_rgb(png);
@@ -301,7 +298,6 @@ int pngz_load(pngz* z) {
     png_set_gray_to_rgb(png);
   }
   png_read_update_info(png, info);
-
   /* malloc pixel buffers */
   unsigned char** byte_ptrs = pngz_alloc_bytes(height, width * 4);
   z->pixels = pngz_alloc_pixels(height, width);
@@ -312,7 +308,6 @@ int pngz_load(pngz* z) {
   pngz_free_bytes(byte_ptrs, height);
   png_destroy_read_struct(&png, &info, NULL);
   fclose(fp);
-
   /* if we got here, pack referenced struct and return */
   z->width  = width;
   z->height = height;
@@ -320,7 +315,7 @@ int pngz_load(pngz* z) {
 }
 
 /**
- * write a png back out to file
+ * write a png back out to file, wrapper for pngz_save_as()
  *
  * @param z pngz* easy png ptr to write to file
  * @return exit code
@@ -337,20 +332,16 @@ int pngz_save(pngz z) {
  * @return exit code
  */
 int pngz_save_as(pngz z, char* path) {
-
   FILE *fp;
   png_structp png;
   png_infop info;
-
   errno = 0;
-
   /* open the file and write info struct */
   if (!(fp = fopen(path, "wb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
   }
-
   if (!(png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
     fprintf(stderr, "ERROR > creating write struct.\n");
     errno = EIO;
@@ -366,7 +357,6 @@ int pngz_save_as(pngz z, char* path) {
     errno = EIO;
     return 1;
   }
-
   /* write to RGBA8 */
   png_init_io(png, fp);
   png_set_IHDR(
@@ -384,7 +374,6 @@ int pngz_save_as(pngz z, char* path) {
   pngz_unpack_pixels(z.pixels, bytes, z.height, z.width);
   png_write_image(png, bytes);
   png_write_end(png, NULL);
-
   /* clean up */
   pngz_free_bytes(bytes, z.height);
   png_destroy_write_struct(&png, &info);
@@ -439,7 +428,7 @@ void print_indent(int indent) {
  * print a pngz ztruct contents.
  *
  * @param z pngz to print
- * @param indent int for how much to indent this print 
+ * @param indent int for how much to indent this print
  * @return void
  */
 void pngz_print_indent(pngz z, int indent) {
@@ -462,7 +451,7 @@ void pngz_print_indent(pngz z, int indent) {
  * print out a single pixels rgba values.
  *
  * @param p unsigned char* to the pixel to print
- * @param indent int for how much to indent this print 
+ * @param indent int for how much to indent this print
  * @return void
  *
  */
