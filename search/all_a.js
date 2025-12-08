@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usage_0',['usage',['../index.html#autotoc_md2',1,'']]]
+  ['width_0',['width',['../structpngz.html#af7d1200181d1a9f82e46dd106b1c7d85',1,'pngz']]]
 ];

@@ -1,5 +1,5 @@
 <map id="pngz_load_from" name="pngz_load_from">
-<area shape="rect" id="Node000001" title="load a pngz from a path directly passed into the call, just indirectly calls the standard pngz_load()" alt="" coords="5,80,118,106"/>
+<area shape="rect" id="Node000001" title="load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()" alt="" coords="5,80,118,106"/>
 <area shape="rect" id="Node000002" href="$pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory" alt="" coords="166,80,245,106"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,90,150,90,150,96,118,96"/>
 <area shape="rect" id="Node000003" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="294,5,415,31"/>
@@ -8,6 +8,6 @@
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="245,83,278,78,279,83,246,89"/>
 <area shape="rect" id="Node000005" href="$pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="297,104,412,130"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="246,97,282,102,281,108,245,102"/>
-<area shape="rect" id="Node000006" href="$pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack pixels with bytes." alt="" coords="293,153,416,179"/>
+<area shape="rect" id="Node000006" href="$pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack bytes into pixels." alt="" coords="293,153,416,179"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="230,104,294,140,305,145,302,149,292,145,227,109"/>
 </map>

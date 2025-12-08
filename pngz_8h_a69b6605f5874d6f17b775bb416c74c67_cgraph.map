@@ -1,5 +1,5 @@
 <map id="pngz_save" name="pngz_save">
-<area shape="rect" id="Node000001" title="write a png back out to file" alt="" coords="5,55,89,80"/>
+<area shape="rect" id="Node000001" title="write a png back out to file, wrapper for pngz_save_as()" alt="" coords="5,55,89,80"/>
 <area shape="rect" id="Node000002" href="$pngz_8c.html#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name" alt="" coords="137,55,241,80"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,65,121,65,121,70,89,70"/>
 <area shape="rect" id="Node000003" href="$pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="298,5,418,31"/>

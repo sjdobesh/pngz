@@ -153,19 +153,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7ed0aa704996d95835e6bc80899ec379"><td class="mdescLeft">&#160;</td><td class="mdescRight">free a pngz structs pixels.  <br /></td></tr>
 <tr class="separator:a7ed0aa704996d95835e6bc80899ec379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2fb5d2a3493c3c815e7587c129f1e6c" id="r_ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2fb5d2a3493c3c815e7587c129f1e6c">pngz_pack_pixels</a> (unsigned char **bytes_src, <a class="el" href="structpixel.html">pixel</a> **pixels_dest, unsigned rows, unsigned cols)</td></tr>
-<tr class="memdesc:ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pack pixels with bytes.  <br /></td></tr>
+<tr class="memdesc:ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pack bytes into pixels.  <br /></td></tr>
 <tr class="separator:ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a105db7e9aa2f8e03cc79e5360c53ac71" id="r_a105db7e9aa2f8e03cc79e5360c53ac71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a105db7e9aa2f8e03cc79e5360c53ac71">pngz_unpack_pixels</a> (<a class="el" href="structpixel.html">pixel</a> **pixels_src, unsigned char **bytes_dest, unsigned rows, unsigned cols)</td></tr>
 <tr class="memdesc:a105db7e9aa2f8e03cc79e5360c53ac71"><td class="mdescLeft">&#160;</td><td class="mdescRight">unpack pixels into raw byte ptrs.  <br /></td></tr>
 <tr class="separator:a105db7e9aa2f8e03cc79e5360c53ac71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fbec9b62b321d08ae248d4cf2b144e8" id="r_a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fbec9b62b321d08ae248d4cf2b144e8">pngz_load_from</a> (<a class="el" href="structpngz.html">pngz</a> *z, char *path)</td></tr>
-<tr class="memdesc:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz from a path directly passed into the call, just indirectly calls the standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a>  <br /></td></tr>
+<tr class="memdesc:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz from a path directly passed into the call, just a wrapper for standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a>  <br /></td></tr>
 <tr class="separator:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a165e7ec113e942ee7f248ff3bb5f6679" id="r_a165e7ec113e942ee7f248ff3bb5f6679"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679">pngz_load</a> (<a class="el" href="structpngz.html">pngz</a> *z)</td></tr>
 <tr class="memdesc:a165e7ec113e942ee7f248ff3bb5f6679"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz object into memory  <br /></td></tr>
 <tr class="separator:a165e7ec113e942ee7f248ff3bb5f6679"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69b6605f5874d6f17b775bb416c74c67" id="r_a69b6605f5874d6f17b775bb416c74c67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69b6605f5874d6f17b775bb416c74c67">pngz_save</a> (<a class="el" href="structpngz.html">pngz</a> z)</td></tr>
-<tr class="memdesc:a69b6605f5874d6f17b775bb416c74c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file  <br /></td></tr>
+<tr class="memdesc:a69b6605f5874d6f17b775bb416c74c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file, wrapper for <a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name">pngz_save_as()</a>  <br /></td></tr>
 <tr class="separator:a69b6605f5874d6f17b775bb416c74c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb5d1eb634f7ac22208d40cc84210b7" id="r_afbb5d1eb634f7ac22208d40cc84210b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7">pngz_save_as</a> (<a class="el" href="structpngz.html">pngz</a> z, char *path)</td></tr>
 <tr class="memdesc:afbb5d1eb634f7ac22208d40cc84210b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file with a new name  <br /></td></tr>
@@ -277,9 +277,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code, error if you try to free a NULL ptr </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00155">155</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00160">160</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00028">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00037">pngz::pixels</a>, and <a class="el" href="pngz_8c_source.html#l00093">pngz_free_pixels()</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, and <a class="el" href="pngz_8c_source.html#l00094">pngz_free_pixels()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -322,7 +322,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00124">124</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00127">127</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>
@@ -355,7 +355,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00093">93</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00094">94</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>
@@ -383,9 +383,9 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00231">231</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00235">235</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00028">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, <a class="el" href="pngz_8h_source.html#l00037">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00066">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00037">pngz_alloc_pixels()</a>, <a class="el" href="pngz_8c_source.html#l00124">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00170">pngz_pack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00033">pngz::width</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00066">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00037">pngz_alloc_pixels()</a>, <a class="el" href="pngz_8c_source.html#l00127">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00175">pngz_pack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -398,7 +398,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="85,83,118,78,118,83,86,89"/>
 <area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="137,104,252,130"/>
 <area shape="poly" title=" " alt="" coords="86,97,122,102,121,108,85,102"/>
-<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack pixels with bytes." alt="" coords="133,153,256,179"/>
+<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack bytes into pixels." alt="" coords="133,153,256,179"/>
 <area shape="poly" title=" " alt="" coords="69,104,134,140,144,145,142,149,131,145,67,109"/>
 </map>
 </div>
@@ -424,7 +424,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>load a pngz from a path directly passed into the call, just indirectly calls the standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a> </p>
+<p>load a pngz from a path directly passed into the call, just a wrapper for standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
@@ -434,15 +434,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00219">219</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00224">224</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00231">pngz_load()</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00235">pngz_load()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="pngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph.png" border="0" usemap="#apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" alt=""/></div>
 <map name="apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" id="apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph">
-<area shape="rect" title="load a pngz from a path directly passed into the call, just indirectly calls the standard pngz_load()" alt="" coords="5,80,118,106"/>
+<area shape="rect" title="load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()" alt="" coords="5,80,118,106"/>
 <area shape="rect" href="pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory" alt="" coords="166,80,245,106"/>
 <area shape="poly" title=" " alt="" coords="118,90,150,90,150,96,118,96"/>
 <area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="294,5,415,31"/>
@@ -451,7 +451,7 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="245,83,278,78,279,83,246,89"/>
 <area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="297,104,412,130"/>
 <area shape="poly" title=" " alt="" coords="246,97,282,102,281,108,245,102"/>
-<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack pixels with bytes." alt="" coords="293,153,416,179"/>
+<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack bytes into pixels." alt="" coords="293,153,416,179"/>
 <area shape="poly" title=" " alt="" coords="230,104,294,140,305,145,302,149,292,145,227,109"/>
 </map>
 </div>
@@ -487,19 +487,19 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>pack pixels with bytes. </p>
+<p>pack bytes into pixels. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bytes_src</td><td>unpacked pixel byte source </td></tr>
     <tr><td class="paramname">pixels_dest</td><td>packed pixel destination </td></tr>
-    <tr><td class="paramname">rows</td><td>rows of pixels </td></tr>
-    <tr><td class="paramname">cols</td><td>cols of pixels (IN PIXELS NOT BYTES) </td></tr>
+    <tr><td class="paramname">rows</td><td>rows of pixels (Y) </td></tr>
+    <tr><td class="paramname">cols</td><td>cols of pixels (X) (IN PIXELS NOT BYTES) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00170">170</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00175">175</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>
@@ -527,9 +527,9 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00403">403</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00392">392</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00034">pngz::cols</a>, <a class="el" href="pngz_8h_source.html#l00037">pngz::pixels</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::rows</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>.</p>
 
 </div>
 </div>
@@ -562,9 +562,9 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00445">445</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00434">434</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00028">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00037">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00431">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00033">pngz::width</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00420">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -602,7 +602,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00422">422</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00411">411</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 <p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
 
@@ -637,9 +637,9 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00469">469</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00458">458</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, <a class="el" href="pngz_8c_source.html#l00431">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, <a class="el" href="pngz_8c_source.html#l00420">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -668,7 +668,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>write a png back out to file </p>
+<p>write a png back out to file, wrapper for <a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name">pngz_save_as()</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">z</td><td>pngz* easy png ptr to write to file </td></tr>
@@ -677,15 +677,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00328">328</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00323">323</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00339">pngz_save_as()</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00334">pngz_save_as()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="pngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph.png" border="0" usemap="#apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph" alt=""/></div>
 <map name="apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph" id="apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph">
-<area shape="rect" title="write a png back out to file" alt="" coords="5,55,89,80"/>
+<area shape="rect" title="write a png back out to file, wrapper for pngz_save_as()" alt="" coords="5,55,89,80"/>
 <area shape="rect" href="pngz_8c.html#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name" alt="" coords="137,55,241,80"/>
 <area shape="poly" title=" " alt="" coords="89,65,121,65,121,70,89,70"/>
 <area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="298,5,418,31"/>
@@ -728,9 +728,9 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00339">339</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00334">334</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00028">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00037">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00066">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00124">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00197">pngz_unpack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00033">pngz::width</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00066">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00127">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00202">pngz_unpack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -789,7 +789,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00197">197</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00202">202</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 <p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
 
@@ -810,7 +810,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00431">431</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00420">420</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>

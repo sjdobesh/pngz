@@ -58,10 +58,8 @@ var NAVTREEINDEX0 =
 "structpixel.html#a9c79e9c4fb3cae6a33592365ddbdbf3b":[4,0,0,2],
 "structpixel.html#af36cc07c50584bf936973a65b6a1c0e8":[4,0,0,0],
 "structpngz.html":[4,0,1],
-"structpngz.html#a11923fed2b21460ad2a4b1b3f139bb09":[4,0,1,2],
-"structpngz.html#a2a718b0e52fd9aa5472d2eab011f5623":[4,0,1,0],
-"structpngz.html#a3464aca78e99b569ff372c961fb3462e":[4,0,1,4],
-"structpngz.html#ad274faf6458b5bd1b985667397bc74a0":[4,0,1,1],
-"structpngz.html#ae3486543e06db2287709f07fa5086502":[4,0,1,3],
-"structpngz.html#af7d1200181d1a9f82e46dd106b1c7d85":[4,0,1,5]
+"structpngz.html#a11923fed2b21460ad2a4b1b3f139bb09":[4,0,1,1],
+"structpngz.html#ad274faf6458b5bd1b985667397bc74a0":[4,0,1,0],
+"structpngz.html#ae3486543e06db2287709f07fa5086502":[4,0,1,2],
+"structpngz.html#af7d1200181d1a9f82e46dd106b1c7d85":[4,0,1,3]
 };

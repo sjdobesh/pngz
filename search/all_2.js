@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['cols_0',['cols',['../structpngz.html#a2a718b0e52fd9aa5472d2eab011f5623',1,'pngz']]]
+  ['dependencies_0',['dependencies',['../index.html#autotoc_md1',1,'']]],
+  ['documentation_1',['further documentation',['../index.html#autotoc_md4',1,'']]],
+  ['doxyreadme_2emd_2',['doxyreadme.md',['../doxyreadme_8md.html',1,'']]]
 ];
