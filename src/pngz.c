@@ -36,6 +36,7 @@
  */
 pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
   pixel** pixels;
+  unsigned i;
   errno = 0;
   /* allocate row ptrs (Y) */
   pixels = malloc(sizeof(void *) * rows);
@@ -45,7 +46,7 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
     return NULL;
   }
   /* allocate each row with a column number of pixels (X) */
-  for (unsigned i = 0; i < rows; i++) {
+  for (i = 0; i < rows; i++) {
     pixels[i] = malloc(sizeof(pixel) * cols);
     if (!pixels[i]) {
       fprintf(stderr, "ERROR > allocing pixel buffer cols.\n");
@@ -64,16 +65,18 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
  * @return a ptr to buffer, returns null and sets errno on failure
  */
 unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
+  unsigned i;
+  unsigned char** bytes;
   errno = 0;
   /* allocate row ptrs (Y) */
-  unsigned char** bytes = malloc(sizeof(void *) * rows);
+  bytes = malloc(sizeof(void *) * rows);
   if (!bytes) {
     fprintf(stderr, "ERROR > allocing raw buffer rows.\n");
     errno = ENOMEM;
     return NULL;
   }
   /* allocate each row with a column number of bytes (X) */
-  for (unsigned i = 0; i < rows; i++) {
+  for (i = 0; i < rows; i++) {
     bytes[i] = malloc(sizeof(unsigned char) * cols);
     if (!bytes[i]) {
       fprintf(stderr, "ERROR > allocing raw buffer cols.\n");
@@ -92,10 +95,11 @@ unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
  * @return exit code
  */
 int pngz_free_pixels(pixel** pixels, unsigned rows) {
-  errno = 0;
+  unsigned i;
   int exit_code = 0;
+  errno = 0;
   /* deallocate column ptrs (X) */
-  for (unsigned i = 0; i < rows; i++) {
+  for (i = 0; i < rows; i++) {
     if (pixels[i]) {
       free(pixels[i]);
       pixels[i] = NULL;
@@ -125,11 +129,11 @@ int pngz_free_pixels(pixel** pixels, unsigned rows) {
  * @return exit code
  */
 int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
-  int exit_code;
+  unsigned i;
+  int exit_code = 0;
   errno = 0;
-  exit_code = 0;
   /* deallocate column ptrs (X) */
-  for (unsigned i = 0; i < rows; i++) {
+  for (i = 0; i < rows; i++) {
     if (bytes[i]) {
       free(bytes[i]);
       bytes[i] = NULL;
@@ -176,14 +180,14 @@ int pngz_pack_pixels(
   unsigned char** bytes_src, pixel** pixels_dest,
   unsigned rows, unsigned cols
 ) {
-  for (unsigned r = 0; r < rows; r++) {
-    for (unsigned c = 0; c < cols; c++) {
-      pixel p = {
-        .r = bytes_src[r][c * 4],
-        .g = bytes_src[r][(c * 4) + 1],
-        .b = bytes_src[r][(c * 4) + 2],
-        .a = bytes_src[r][(c * 4) + 3]
-      };
+  unsigned r, c;
+  pixel p;
+  for (r = 0; r < rows; r++) {
+    for (c = 0; c < cols; c++) {
+      p.r = bytes_src[r][c * 4];
+      p.g = bytes_src[r][(c * 4) + 1];
+      p.b = bytes_src[r][(c * 4) + 2];
+      p.a = bytes_src[r][(c * 4) + 3];
       pixels_dest[r][c] = p;
     }
   }
@@ -203,8 +207,9 @@ int pngz_unpack_pixels(
   pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 ) {
-  for (unsigned r = 0; r < rows; r++) {
-    for (unsigned c = 0; c < cols; c++) {
+  unsigned r, c;
+  for (r = 0; r < rows; r++) {
+    for (c = 0; c < cols; c++) {
       bytes_dest[r][c * 4] = pixels_src[r][c].r;
       bytes_dest[r][(c * 4) + 1] = pixels_src[r][c].g;
       bytes_dest[r][(c * 4) + 2] = pixels_src[r][c].b;
@@ -233,24 +238,27 @@ int pngz_load_from(pngz* z, char* path) {
  * @return exit code
  */
 int pngz_load(pngz* z) {
+  FILE *fp;
+  unsigned width, height;
+  unsigned char bit_depth, color_type;
+  unsigned char** byte_ptrs;
+  png_structp png;
+  png_infop info;
   errno = 0;
   /* defaults */
   z->path = z->path ? z->path : "default.png";
   fprintf(stderr, "pngz loading png at '%s'\n", z->path);
   /* open the file and read into info struct */
-  FILE *fp;
   if(!(fp = fopen(z->path, "rb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
   }
-  png_structp png;
   if (!(png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
     fprintf(stderr, "ERROR > creating read struct.\n");
     errno = EIO;
     return 1;
   }
-  png_infop info;
   if (!(info = png_create_info_struct(png))) {
     fprintf(stderr, "ERROR > creating png info.\n");
     errno = EIO;
@@ -264,10 +272,10 @@ int pngz_load(pngz* z) {
   /* read in png info */
   png_init_io(png, fp);
   png_read_info(png, info);
-  unsigned width = png_get_image_width(png, info);
-  unsigned height = png_get_image_height(png, info);
-  unsigned char bit_depth = png_get_bit_depth(png, info);
-  unsigned char color_type = png_get_color_type(png, info);
+  width = png_get_image_width(png, info);
+  height = png_get_image_height(png, info);
+  bit_depth = png_get_bit_depth(png, info);
+  color_type = png_get_color_type(png, info);
   /* convert contents into RGBA8 */
   if (color_type == PNG_COLOR_TYPE_PALETTE) {
     png_set_palette_to_rgb(png);
@@ -299,7 +307,7 @@ int pngz_load(pngz* z) {
   }
   png_read_update_info(png, info);
   /* malloc pixel buffers */
-  unsigned char** byte_ptrs = pngz_alloc_bytes(height, width * 4);
+  byte_ptrs = pngz_alloc_bytes(height, width * 4);
   z->pixels = pngz_alloc_pixels(height, width);
   /* load into byte buffer, transfer to pixels */
   png_read_image(png, byte_ptrs);
@@ -333,6 +341,7 @@ int pngz_save(pngz z) {
  */
 int pngz_save_as(pngz z, char* path) {
   FILE *fp;
+  unsigned char** bytes;
   png_structp png;
   png_infop info;
   errno = 0;
@@ -370,7 +379,7 @@ int pngz_save_as(pngz z, char* path) {
     PNG_FILTER_TYPE_DEFAULT
   );
   png_write_info(png, info);
-  unsigned char** bytes = pngz_alloc_bytes(z.height, z.width * 4);
+  bytes = pngz_alloc_bytes(z.height, z.width * 4);
   pngz_unpack_pixels(z.pixels, bytes, z.height, z.width);
   png_write_image(png, bytes);
   png_write_end(png, NULL);
@@ -391,7 +400,7 @@ int pngz_save_as(pngz z, char* path) {
  */
 void pngz_print(pngz z) {
   printf("PNGZ [\n");
-  printf("  rows x cols : %d x %d\n", z.rows, z.cols);
+  printf("  rows x cols : %d x %d\n", z.height, z.width);
   if (z.pixels) {
     printf("  pixels : loaded\n");
   } else {
@@ -418,7 +427,8 @@ void pngz_print_pixel(pixel p) {
 
 /* private util function to indent */
 void print_indent(int indent) {
-  for (int i = 0; i < indent; i++) {
+  int i;
+  for (i = 0; i < indent; i++) {
     printf("  ");
   }
   return;
