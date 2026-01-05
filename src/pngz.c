@@ -65,7 +65,7 @@ int PNGZ_AllocPixels(PNGZ_Pixel*** pixels_ptr, const unsigned rows, const unsign
  * @param cols number bytes per row to allocate
  * @return a ptr to buffer, returns null and sets errno on failure
  */
-int PNGZ_AllocBytes(unsigned char*** bytes_ptr, const unsigned rows, const unsigned cols) {
+int PNGZ_AllocBytes(uint8_t*** bytes_ptr, const unsigned rows, const unsigned cols) {
   unsigned i;
   errno = 0;
   /* allocate row ptrs (Y) */
@@ -76,7 +76,7 @@ int PNGZ_AllocBytes(unsigned char*** bytes_ptr, const unsigned rows, const unsig
   }
   /* allocate each row with a column number of bytes (X*4) */
   for (i = 0; i < rows; i++) {
-    if ( ! ((*bytes_ptr)[i] = malloc(sizeof(unsigned char) * cols))) {
+    if ( ! ((*bytes_ptr)[i] = malloc(sizeof(uint8_t) * cols))) {
       fprintf(stderr, "ERROR > allocing byte buffer cols.\n");
       errno = ENOMEM;
       /* if error, undo any allocations that were made */
@@ -132,7 +132,7 @@ int PNGZ_FreePixels(PNGZ_Pixel** pixels, const unsigned rows) {
  * @param rows number of rows to free
  * @return exit code
  */
-int PNGZ_FreeBytes(unsigned char** bytes, const unsigned rows) {
+int PNGZ_FreeBytes(uint8_t ** bytes, const unsigned rows) {
   unsigned i;
   int exit_code = 0;
   errno = 0;
@@ -181,7 +181,7 @@ int PNGZ_Free(PNGZ_Image* z) {
  * @return exit code
  **/
 int PNGZ_BytesToPixels(
-  unsigned char** bytes_src, PNGZ_Pixel** pixels_dest,
+  uint8_t** bytes_src, PNGZ_Pixel** pixels_dest,
   const unsigned rows, const unsigned cols
 ) {
   unsigned r, c;
@@ -221,7 +221,7 @@ int PNGZ_BytesToPixels(
  * @return exit code
  **/
 int PNGZ_PixelsToBytes(
-  PNGZ_Pixel** pixels_src, unsigned char** bytes_dest,
+  PNGZ_Pixel** pixels_src, uint8_t** bytes_dest,
   const unsigned rows, const unsigned cols
 ) {
   unsigned r, c;
@@ -296,8 +296,8 @@ int PNGZ_LoadFrom(PNGZ_Image* z, const char* path) {
 int PNGZ_Load(PNGZ_Image* z) {
   FILE *fp;
   unsigned width, height;
-  unsigned char bit_depth, color_type;
-  unsigned char** byte_ptrs;
+  uint8_t bit_depth, color_type;
+  uint8_t** byte_ptrs;
   png_structp png;
   png_infop info;
   errno = 0;
@@ -396,7 +396,7 @@ int PNGZ_Save(const PNGZ_Image z) {
  */
 int PNGZ_SaveAs(const PNGZ_Image z, const char* path) {
   FILE *fp;
-  unsigned char** bytes;
+  uint8_t** bytes;
   png_structp png;
   png_infop info;
   errno = 0;

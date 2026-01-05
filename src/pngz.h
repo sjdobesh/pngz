@@ -7,12 +7,13 @@
 #define _PNGZ_H_
 
 #include <png.h>
+#include <stdint.h>
 /**
  * pixel in RGBA8 format.
  */
 typedef struct PNGZ_Pixel {
   /** channel values */
-  unsigned char r, g, b, a;
+  uint8_t r, g, b, a;
 } PNGZ_Pixel;
 
 /**
@@ -35,18 +36,18 @@ typedef struct PNGZ_Image {
 
 /* allocate & free */
 int PNGZ_AllocPixels(PNGZ_Pixel*** pixels_ptr, const unsigned rows, const unsigned cols);
-int PNGZ_AllocBytes(unsigned char*** bytes_ptr, const unsigned rows, const unsigned cols);
+int PNGZ_AllocBytes(uint8_t*** bytes_ptr, const unsigned rows, const unsigned cols);
 int PNGZ_FreePixels(PNGZ_Pixel** pixels, const unsigned rows);
-int PNGZ_FreeBytes(unsigned char** bytes, const unsigned rows);
+int PNGZ_FreeBytes(uint8_t** bytes, const unsigned rows);
 int PNGZ_Free(PNGZ_Image* z);
 
 /* load and save */
 int PNGZ_BytesToPixels(
-  unsigned char** bytes_src, PNGZ_Pixel** pixels_dest,
+  uint8_t** bytes_src, PNGZ_Pixel** pixels_dest,
   const unsigned rows, const unsigned cols
 );
 int PNGZ_PixelsToBytes(
-  PNGZ_Pixel** pixels_src, unsigned char** bytes_dest,
+  PNGZ_Pixel** pixels_src, uint8_t** bytes_dest,
   const unsigned rows, const unsigned cols
 );
 int PNGZ_Load(PNGZ_Image* z);
