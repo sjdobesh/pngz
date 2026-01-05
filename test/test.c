@@ -1,11 +1,13 @@
 #include "../src/pngz.h"
 
 int main() {
-  pngz z;
-  pngz_load_from(&z, "./png/Catgun.png");
-  pngz_print(z);
-  pngz_save_as(z, "./png/TEST.png");
-  pngz_free(&z);
+  PNGZ_Image z1, z2;
+  PNGZ_LoadFrom(&z1, "./png/Catgun.png");
+  PNGZ_LoadFrom(&z2, "./png/Catgun.png");
+  PNGZ_PrintImage(z1);
+  PNGZ_Copy(z1, &z2);
+  PNGZ_SaveAs(z1, "./png/TEST.png");
+  PNGZ_Free(&z1);
 
   return 0;
 }

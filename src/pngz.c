@@ -5,19 +5,18 @@
  * normal use case:
  *
  * // load in an image and resave it elsewhere
- * pngz z = {.path = "./img.png"};
- * pngz_load(&z");
- * pngz_save(&z");
- * pngz_save_as(z, "./TEST.png");
- * pngz_free(&z);
+ * PNGZ_Image z = {.path = "./img.png"};
+ * PNGZ_Load(&z");
+ * PNGZ_Save(&z");
+ * PNGZ_SaveAs(z, "./TEST.png");
+ * PNGZ_Free(&z);
  *
- * sources:
+ * sources for libpng :
  * http://www.libpng.org/pub/png/libpng-manual.txt
  * http://zarb.org/~gc/html/libpng.html
  * https://gist.github.com/niw/5963798
  *--------------------------------------------------------------------------80*/
 
-#include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
@@ -34,27 +33,29 @@
  * @param cols number pixels per col to allocate
  * @return exit code, setting errno on failure
  */
-pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
-  pixel** pixels;
+int PNGZ_AllocPixels(PNGZ_Pixel*** pixels_ptr, const unsigned rows, const unsigned cols) {
   unsigned i;
   errno = 0;
   /* allocate row ptrs (Y) */
-  pixels = malloc(sizeof(void *) * rows);
-  if (!pixels) {
+  if ( ! (*pixels_ptr = malloc(sizeof(void *) * rows))) {
     fprintf(stderr, "ERROR > allocing pixel buffer rows.\n");
     errno = ENOMEM;
-    return NULL;
+    return 1;
   }
   /* allocate each row with a column number of pixels (X) */
   for (i = 0; i < rows; i++) {
-    pixels[i] = malloc(sizeof(pixel) * cols);
-    if (!pixels[i]) {
+    if ( ! ((*pixels_ptr)[i] = malloc(sizeof(PNGZ_Pixel) * cols))) {
       fprintf(stderr, "ERROR > allocing pixel buffer cols.\n");
       errno = ENOMEM;
-      return NULL;
+      /* if error, undo any allocations that were made */
+      free (*pixels_ptr);
+      for (; i > 0; i--) {
+        free ((*pixels_ptr)[i]);
+      }
+      return 1;
     }
   }
-  return pixels;
+  return 0;
 }
 
 /**
@@ -64,27 +65,29 @@ pixel** pngz_alloc_pixels(unsigned rows, unsigned cols) {
  * @param cols number bytes per row to allocate
  * @return a ptr to buffer, returns null and sets errno on failure
  */
-unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
+int PNGZ_AllocBytes(unsigned char*** bytes_ptr, const unsigned rows, const unsigned cols) {
   unsigned i;
-  unsigned char** bytes;
   errno = 0;
   /* allocate row ptrs (Y) */
-  bytes = malloc(sizeof(void *) * rows);
-  if (!bytes) {
-    fprintf(stderr, "ERROR > allocing raw buffer rows.\n");
+  if ( ! (*bytes_ptr = malloc(sizeof(void *) * rows))) {
+    fprintf(stderr, "ERROR > allocing byte buffer rows.\n");
     errno = ENOMEM;
-    return NULL;
+    return 1;
   }
-  /* allocate each row with a column number of bytes (X) */
+  /* allocate each row with a column number of bytes (X*4) */
   for (i = 0; i < rows; i++) {
-    bytes[i] = malloc(sizeof(unsigned char) * cols);
-    if (!bytes[i]) {
-      fprintf(stderr, "ERROR > allocing raw buffer cols.\n");
+    if ( ! ((*bytes_ptr)[i] = malloc(sizeof(unsigned char) * cols))) {
+      fprintf(stderr, "ERROR > allocing byte buffer cols.\n");
       errno = ENOMEM;
-      return NULL;
+      /* if error, undo any allocations that were made */
+      free (*bytes_ptr);
+      for (; i > 0; i--) {
+        free ((*bytes_ptr)[i]);
+      }
+      return 1;
     }
   }
-  return bytes;
+  return 0;
 }
 
 /**
@@ -94,7 +97,7 @@ unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols) {
  * @param rows number of rows to free
  * @return exit code
  */
-int pngz_free_pixels(pixel** pixels, unsigned rows) {
+int PNGZ_FreePixels(PNGZ_Pixel** pixels, const unsigned rows) {
   unsigned i;
   int exit_code = 0;
   errno = 0;
@@ -106,6 +109,7 @@ int pngz_free_pixels(pixel** pixels, unsigned rows) {
     } else {
       fprintf(stderr, "ERROR > freeing pixel buffer cols.\n");
       errno = EPERM;
+      /* no early return, keep trying to free other ptrs */
       exit_code = 1;
     }
   }
@@ -128,7 +132,7 @@ int pngz_free_pixels(pixel** pixels, unsigned rows) {
  * @param rows number of rows to free
  * @return exit code
  */
-int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
+int PNGZ_FreeBytes(unsigned char** bytes, const unsigned rows) {
   unsigned i;
   int exit_code = 0;
   errno = 0;
@@ -161,8 +165,8 @@ int pngz_free_bytes(unsigned char** bytes, unsigned rows) {
  * @param z pngz* with pixels loaded into memory
  * @return exit code, error if you try to free a NULL ptr
  */
-int pngz_free(pngz* z) {
-  return pngz_free_pixels(z->pixels, z->height);
+int PNGZ_Free(PNGZ_Image* z) {
+  return PNGZ_FreePixels(z->pixels, z->height);
 }
 
 /* loading and saving *-------------------------------------------------------*/
@@ -176,13 +180,24 @@ int pngz_free(pngz* z) {
  * @param cols cols of pixels (X) (IN PIXELS NOT BYTES)
  * @return exit code
  **/
-int pngz_pack_pixels(
-  unsigned char** bytes_src, pixel** pixels_dest,
-  unsigned rows, unsigned cols
+int PNGZ_BytesToPixels(
+  unsigned char** bytes_src, PNGZ_Pixel** pixels_dest,
+  const unsigned rows, const unsigned cols
 ) {
   unsigned r, c;
-  pixel p;
-  for (r = 0; r < rows; r++) {
+  PNGZ_Pixel p;
+  errno = 0;
+  if (!bytes_src) {
+    fprintf(stderr, "ERROR > unpacking pixels from null source.\n");
+    errno = EPERM;
+    return 1;
+  }
+  if (!pixels_dest) {
+    fprintf(stderr, "ERROR > unpacking pixels to null destination.\n");
+    errno = EPERM;
+    return 1;
+  }
+  for (r = 0; r < rows; r++)
     for (c = 0; c < cols; c++) {
       p.r = bytes_src[r][c * 4];
       p.g = bytes_src[r][(c * 4) + 1];
@@ -190,12 +205,14 @@ int pngz_pack_pixels(
       p.a = bytes_src[r][(c * 4) + 3];
       pixels_dest[r][c] = p;
     }
-  }
   return 0;
 }
 
 /**
  * unpack pixels into raw byte ptrs.
+ * expects adequate space, rows by cols
+ * in the pixel buffer and rows by cols * 4
+ * in the byte buffer
  *
  * @param pixels_src packed pixel source
  * @param bytes_dest unpacked byte destination
@@ -203,17 +220,56 @@ int pngz_pack_pixels(
  * @param cols cols of pixels (IN PIXELS NOT BYTES)
  * @return exit code
  **/
-int pngz_unpack_pixels(
-  pixel** pixels_src, unsigned char** bytes_dest,
-  unsigned rows, unsigned cols
+int PNGZ_PixelsToBytes(
+  PNGZ_Pixel** pixels_src, unsigned char** bytes_dest,
+  const unsigned rows, const unsigned cols
 ) {
   unsigned r, c;
+  errno = 0;
+  if (!pixels_src) {
+    fprintf(stderr, "ERROR > unpacking pixels from null source.\n");
+    errno = EPERM;
+    return 1;
+  }
+  if (!bytes_dest) {
+    fprintf(stderr, "ERROR > unpacking pixels to null destination.\n");
+    errno = EPERM;
+    return 1;
+  }
   for (r = 0; r < rows; r++) {
     for (c = 0; c < cols; c++) {
       bytes_dest[r][c * 4] = pixels_src[r][c].r;
       bytes_dest[r][(c * 4) + 1] = pixels_src[r][c].g;
       bytes_dest[r][(c * 4) + 2] = pixels_src[r][c].b;
       bytes_dest[r][(c * 4) + 3] = pixels_src[r][c].a;
+    }
+  }
+  return 0;
+}
+
+/**
+ * copies the pixel data from one pngz to another.
+ *
+ * @param z_src source pixel buffer, passed by val
+ * @param z_dest destination pixel buffer, passed by ptr
+ * @return exit code
+ */
+int PNGZ_Copy(const PNGZ_Image z_src, PNGZ_Image* z_dest) {
+  unsigned r, c;
+  errno = 0;
+  if (!z_src.pixels) {
+    fprintf(stderr, "ERROR > copying from null source.\n");
+    errno = EPERM;
+    return 1;
+  }
+  if (!z_dest || !(z_dest->pixels)) {
+    fprintf(stderr, "ERROR > copying to null destination.\n");
+    errno = EPERM;
+    return 1;
+  }
+  for (r = 0; r < z_src.height && r < z_dest->height; r++) {
+    for (c = 0; c < z_src.width && c < z_dest->width; c++) {
+      z_dest->pixels[r][c] = z_src.pixels[r][c];
     }
   }
   return 0;
@@ -226,9 +282,9 @@ int pngz_unpack_pixels(
  * @param path char* path to read from
  * @return exit code
  */
-int pngz_load_from(pngz* z, char* path) {
+int PNGZ_LoadFrom(PNGZ_Image* z, const char* path) {
   z->path = path;
-  return pngz_load(z);
+  return PNGZ_Load(z);
 }
 
 /**
@@ -237,7 +293,7 @@ int pngz_load_from(pngz* z, char* path) {
  * @param z pngz* easy png ptr to load into
  * @return exit code
  */
-int pngz_load(pngz* z) {
+int PNGZ_Load(PNGZ_Image* z) {
   FILE *fp;
   unsigned width, height;
   unsigned char bit_depth, color_type;
@@ -249,17 +305,17 @@ int pngz_load(pngz* z) {
   z->path = z->path ? z->path : "default.png";
   fprintf(stderr, "pngz loading png at '%s'\n", z->path);
   /* open the file and read into info struct */
-  if(!(fp = fopen(z->path, "rb"))) {
+  if( ! (fp = fopen(z->path, "rb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
   }
-  if (!(png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
+  if ( ! (png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
     fprintf(stderr, "ERROR > creating read struct.\n");
     errno = EIO;
     return 1;
   }
-  if (!(info = png_create_info_struct(png))) {
+  if ( ! (info = png_create_info_struct(png))) {
     fprintf(stderr, "ERROR > creating png info.\n");
     errno = EIO;
     return 1;
@@ -282,8 +338,7 @@ int pngz_load(pngz* z) {
   }
   if (bit_depth == 16) {
     png_set_strip_16(png);
-  }
-  if (bit_depth < 8) {
+  } else if (bit_depth < 8) {
     if (color_type == PNG_COLOR_TYPE_GRAY) {
       png_set_expand_gray_1_2_4_to_8(png);
     } else {
@@ -307,13 +362,13 @@ int pngz_load(pngz* z) {
   }
   png_read_update_info(png, info);
   /* malloc pixel buffers */
-  byte_ptrs = pngz_alloc_bytes(height, width * 4);
-  z->pixels = pngz_alloc_pixels(height, width);
+  PNGZ_AllocBytes(&byte_ptrs, height, width * 4);
+  PNGZ_AllocPixels(&(z->pixels), height, width);
   /* load into byte buffer, transfer to pixels */
   png_read_image(png, byte_ptrs);
-  pngz_pack_pixels(byte_ptrs, z->pixels, height, width);
+  PNGZ_BytesToPixels(byte_ptrs, z->pixels, height, width);
   /* clean up */
-  pngz_free_bytes(byte_ptrs, height);
+  PNGZ_FreeBytes(byte_ptrs, height);
   png_destroy_read_struct(&png, &info, NULL);
   fclose(fp);
   /* if we got here, pack referenced struct and return */
@@ -328,8 +383,8 @@ int pngz_load(pngz* z) {
  * @param z pngz* easy png ptr to write to file
  * @return exit code
  */
-int pngz_save(pngz z) {
-  return pngz_save_as(z, z.path);
+int PNGZ_Save(const PNGZ_Image z) {
+  return PNGZ_SaveAs(z, z.path);
 }
 
 /**
@@ -339,24 +394,24 @@ int pngz_save(pngz z) {
  * @param z pngz* easy png ptr to write to file
  * @return exit code
  */
-int pngz_save_as(pngz z, char* path) {
+int PNGZ_SaveAs(const PNGZ_Image z, const char* path) {
   FILE *fp;
   unsigned char** bytes;
   png_structp png;
   png_infop info;
   errno = 0;
   /* open the file and write info struct */
-  if (!(fp = fopen(path, "wb"))) {
+  if ( ! (fp = fopen(path, "wb"))) {
     fprintf(stderr, "ERROR > opening file.\n");
     errno = EIO;
     return 1;
   }
-  if (!(png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
+  if ( ! (png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL))) {
     fprintf(stderr, "ERROR > creating write struct.\n");
     errno = EIO;
     return 1;
   }
-  if (!(info = png_create_info_struct(png))) {
+  if ( ! (info = png_create_info_struct(png))) {
     fprintf(stderr, "ERROR > creating info struct.\n");
     errno = EIO;
     return 1;
@@ -379,12 +434,12 @@ int pngz_save_as(pngz z, char* path) {
     PNG_FILTER_TYPE_DEFAULT
   );
   png_write_info(png, info);
-  bytes = pngz_alloc_bytes(z.height, z.width * 4);
-  pngz_unpack_pixels(z.pixels, bytes, z.height, z.width);
+  PNGZ_AllocBytes(&bytes, z.height, z.width * 4);
+  PNGZ_PixelsToBytes(z.pixels, bytes, z.height, z.width);
   png_write_image(png, bytes);
   png_write_end(png, NULL);
   /* clean up */
-  pngz_free_bytes(bytes, z.height);
+  PNGZ_FreeBytes(bytes, z.height);
   png_destroy_write_struct(&png, &info);
   fclose(fp);
   return 0;
@@ -396,9 +451,9 @@ int pngz_save_as(pngz z, char* path) {
  * print a pngz ztruct contents.
  *
  * @param z pngz to print
- * @return void
+ * @return exit code
  */
-void pngz_print(pngz z) {
+int PNGZ_PrintImage(const PNGZ_Image z) {
   printf("PNGZ [\n");
   printf("  rows x cols : %d x %d\n", z.height, z.width);
   if (z.pixels) {
@@ -407,26 +462,26 @@ void pngz_print(pngz z) {
     printf("  pixels : empty\n");
   }
   printf("]\n");
-  return;
+  return 0;
 }
 
 /**
  * print out a single pixels rgba values in hex.
  *
  * @param p unsigned char* to the pixel to print
- * @return void
+ * @return exit code
  *
  */
-void pngz_print_pixel(pixel p) {
+int PNGZ_PrintPixel(const PNGZ_Pixel p) {
   printf(
     "PIXEL [ #%02X%02X%02X%02X ]\n",
     p.r, p.g, p.g, p.a
   );
-  return;
+  return 0;
 }
 
 /* private util function to indent */
-void print_indent(int indent) {
+static void print_indent(const int indent) {
   int i;
   for (i = 0; i < indent; i++) {
     printf("  ");
@@ -439,9 +494,9 @@ void print_indent(int indent) {
  *
  * @param z pngz to print
  * @param indent int for how much to indent this print
- * @return void
+ * @return exit code
  */
-void pngz_print_indent(pngz z, int indent) {
+int PNGZ_PrintImageIndent(const PNGZ_Image z, const int indent) {
   print_indent(indent);
   printf("PNGZ [\n");
   print_indent(indent);
@@ -454,7 +509,7 @@ void pngz_print_indent(pngz z, int indent) {
   }
   print_indent(indent);
   printf("]\n");
-  return;
+  return 0;
 }
 
 /**
@@ -462,14 +517,14 @@ void pngz_print_indent(pngz z, int indent) {
  *
  * @param p unsigned char* to the pixel to print
  * @param indent int for how much to indent this print
- * @return void
+ * @return exit code
  *
  */
-void pngz_print_pixel_indent(pixel p, int indent) {
+int PNGZ_PrintPIxelIndent(const PNGZ_Pixel p, const int indent) {
   print_indent(indent);
   printf(
     "PIXEL [ #%02X%02X%02X%02X ]\n",
     p.r, p.g, p.g, p.a
   );
-  return;
+  return 0;
 }

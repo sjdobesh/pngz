@@ -72,9 +72,9 @@ gcc prog.c pngz.c pngz.h
 
 ## data structures
 
-### pngz ("easy png")
+### image (an "easy" png)
 ```c
-typedef struct pngz {
+typedef struct PNGZ_Image {
   /** default path to load from and save to */
   char* path;
   /** png height in pixels (Y domain)*/
@@ -88,7 +88,7 @@ typedef struct pngz {
 
 ### pixel
 ```c
-typedef struct pixel {
+typedef struct PNGZ_Pixel {
   /** channel values 0x0-0xFF (0-255) */
   unsigned char r, g, b, a;
 } pixel;
@@ -100,47 +100,53 @@ typedef struct pixel {
 
 int main() {
   //load
-  pngz_load_from(&z, "./image.png");
-  pngz_print(z);
+  PNGZ_Image z;
+  PNGZ_LoadFrom(&z, "./image.png");
+  PNGZ_Print(z);
   // directly edit values
   z.pixels[0][0].r = 50;
   //save and free
-  pngz_save_as(z, "./new_image.png");
-  pngz_free(&z);
+  PNGZ_SaveAs(z, "./new_image.png");
+  PNGZ_Free(&z);
 }
 ```
 
 ## functions
-all functions that return type `int` are returning an exit code (0 on success, 1 on failure), and set `errno` for specific failures that can be checked with `perror()`. errors also generate prints to `stderr`.
+all functions return an integer exit code (0 on success, 1 on failure) other than alloc functions which return a ptr that you can check for null, and set `errno` for specific failures that can be checked with `perror()`. errors also generate prints to `stderr`.
+
 
 ### allocate & free
 allocating can be manually done to create pixel buffers from scratch, however `pngz_load()` handles its own allocation.
 ```c
-pixel** pngz_alloc_pixels(unsigned rows, unsigned cols);
-unsigned char** pngz_alloc_bytes(unsigned rows, unsigned cols);
-int pngz_free_pixels(pixel** pixels, unsigned rows);
-int pngz_free_bytes(unsigned char** bytes, unsigned rows);
-int pngz_free(pngz* z);
+PNGZ_Pixel** PNGZ_AllocPixels(unsigned rows, unsigned cols);
+unsigned char** PNGZ_AllocBytes(unsigned rows, unsigned cols);
+int PNGZ_FreePixels(PNGZ_Pixel** pixels, unsigned rows);
+int PNGZ_FreeBytes(unsigned char** bytes, unsigned rows);
+int PNGZ_Free(PNGZ_Image* z);
 ```
 
 ### load and save
 
 ```c
-int pngz_pack_pixels(
-  unsigned char** bytes_src, pixel** pixels_dest,
+/* load and save */
+int PNGZ_BytesToPixels(
+  unsigned char** bytes_src, PNGZ_Pixel** pixels_dest,
   unsigned rows, unsigned cols
 );
-int pngz_unpack_pixels(
-  pixel** pixels_src, unsigned char** bytes_dest,
+int PNGZ_PixelsToBytes(
+  PNGZ_Pixel** pixels_src, unsigned char** bytes_dest,
   unsigned rows, unsigned cols
 );
-int pngz_load(pngz* z);
-int pngz_load_from(pngz* z, char* path);
-int pngz_save(pngz z);
-int pngz_save_to(pngz z, char* path);
+int PNGZ_Load(PNGZ_Image* z);
+int PNGZ_LoadFrom(PNGZ_Image* z, char* path);
+int PNGZ_Save(PNGZ_Image z);
+int PNGZ_SaveAs(PNGZ_Image z, char* path);
+int PNGZ_Copy(PNGZ_Image z_src, PNGZ_Image* z_dest);
 ```
 ### print
 ```c
-void pngz_print(pngz z);
-void pngz_print_pixel(pixel p);
+int PNGZ_PrintImage(PNGZ_Image z);
+int PNGZ_PrintPixel(PNGZ_Pixel p);
+int PNGZ_PrintImageIndent(PNGZ_Image z, int indent);
+int PNGZ_PrintPixelIndent(PNGZ_Pixel p, int indent);
 ```
