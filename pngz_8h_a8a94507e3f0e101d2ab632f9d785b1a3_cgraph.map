@@ -2,12 +2,12 @@
 <area shape="rect" id="Node000001" title="load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()" alt="" coords="5,80,130,106"/>
 <area shape="rect" id="Node000002" href="$pngz_8c.html#a346d8329b718c9c02151ac006cee7f7a" title="load a pngz object into memory" alt="" coords="178,80,272,106"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,90,162,90,162,96,130,96"/>
-<area shape="rect" id="Node000003" href="$pngz_8c.html#a4ef9fc82bd74a206acf97f4076e73237" title="allocate raw pixel byte buffer." alt="" coords="330,5,458,31"/>
+<area shape="rect" id="Node000003" href="$pngz_8c.html#a6ada909bef3bc7c685bfbfa40c4bf1a1" title="allocate raw pixel byte buffer." alt="" coords="330,5,458,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="247,77,319,40,333,34,335,39,321,45,250,82"/>
 <area shape="rect" id="Node000004" href="$pngz_8c.html#a38003d00ed03da7cba90ac8fc51d95bf" title="allocate a pixel buffer." alt="" coords="330,55,459,80"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="272,83,314,77,315,82,273,88"/>
-<area shape="rect" id="Node000005" href="$pngz_8c.html#a583cc08fbd1b5a1aab6e2df2ae5b9c4d" title="pack bytes into pixels." alt="" coords="320,104,468,130"/>
+<area shape="rect" id="Node000005" href="$pngz_8c.html#a3db914957ca970d80092fafde2249f86" title="pack bytes into pixels." alt="" coords="320,104,468,130"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="273,97,305,102,304,107,272,102"/>
-<area shape="rect" id="Node000006" href="$pngz_8c.html#aa42c792e1fad28bba7fe65564d550cfd" title="safely free pixel buffer." alt="" coords="332,153,456,179"/>
+<area shape="rect" id="Node000006" href="$pngz_8c.html#aeb61135c035124eab347224292b61c7f" title="safely free pixel buffer." alt="" coords="332,153,456,179"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="250,104,321,140,335,145,333,150,319,145,248,109"/>
 </map>
