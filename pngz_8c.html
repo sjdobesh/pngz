@@ -107,8 +107,7 @@ $(function(){initNavTree('pngz_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">pngz.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;pthread.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;errno.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="pngz_8h_source.html">pngz.h</a>&quot;</code><br />
@@ -117,19 +116,17 @@ Include dependency graph for pngz.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="pngz_8c__incl.png" border="0" usemap="#apngz_8c" alt=""/></div>
 <map name="apngz_8c" id="apngz_8c">
-<area shape="rect" title=" " alt="" coords="191,5,249,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,80,105"/>
-<area shape="poly" title=" " alt="" coords="191,34,88,75,86,70,189,29"/>
-<area shape="rect" title=" " alt="" coords="103,79,166,105"/>
-<area shape="poly" title=" " alt="" coords="207,34,162,71,159,67,204,29"/>
-<area shape="rect" title=" " alt="" coords="190,79,250,105"/>
-<area shape="poly" title=" " alt="" coords="222,31,222,63,217,63,217,31"/>
-<area shape="rect" title=" " alt="" coords="274,79,334,105"/>
-<area shape="poly" title=" " alt="" coords="236,30,280,67,276,71,232,34"/>
-<area shape="rect" href="pngz_8h.html" title=" " alt="" coords="359,79,417,105"/>
-<area shape="poly" title=" " alt="" coords="249,29,346,70,344,75,247,34"/>
-<area shape="rect" title=" " alt="" coords="362,153,414,178"/>
-<area shape="poly" title=" " alt="" coords="390,105,390,137,385,137,385,105"/>
+<area shape="rect" title=" " alt="" coords="134,5,192,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,68,105"/>
+<area shape="poly" title=" " alt="" coords="143,34,72,73,70,69,140,29"/>
+<area shape="rect" title=" " alt="" coords="92,79,152,105"/>
+<area shape="poly" title=" " alt="" coords="159,33,139,67,134,64,154,30"/>
+<area shape="rect" title=" " alt="" coords="176,79,236,105"/>
+<area shape="poly" title=" " alt="" coords="172,30,193,64,189,67,168,33"/>
+<area shape="rect" href="pngz_8h.html" title=" " alt="" coords="261,79,319,105"/>
+<area shape="poly" title=" " alt="" coords="186,29,256,69,254,73,183,34"/>
+<area shape="rect" title=" " alt="" coords="264,153,316,178"/>
+<area shape="poly" title=" " alt="" coords="292,105,292,137,287,137,287,105"/>
 </map>
 </div>
 </div>
@@ -137,70 +134,76 @@ Include dependency graph for pngz.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad6d01c8772bf2b6c7bef8a7337001415" id="r_ad6d01c8772bf2b6c7bef8a7337001415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpixel.html">pixel</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6d01c8772bf2b6c7bef8a7337001415">pngz_alloc_pixels</a> (unsigned rows, unsigned cols)</td></tr>
-<tr class="memdesc:ad6d01c8772bf2b6c7bef8a7337001415"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate a pixel buffer.  <br /></td></tr>
-<tr class="separator:ad6d01c8772bf2b6c7bef8a7337001415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22c61527adfd7b0e53fe6971772f497b" id="r_a22c61527adfd7b0e53fe6971772f497b"><td class="memItemLeft" align="right" valign="top">unsigned char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22c61527adfd7b0e53fe6971772f497b">pngz_alloc_bytes</a> (unsigned rows, unsigned cols)</td></tr>
-<tr class="memdesc:a22c61527adfd7b0e53fe6971772f497b"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate raw pixel byte buffer.  <br /></td></tr>
-<tr class="separator:a22c61527adfd7b0e53fe6971772f497b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7732352c6246abe07bbd28c57fc1d40" id="r_aa7732352c6246abe07bbd28c57fc1d40"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7732352c6246abe07bbd28c57fc1d40">pngz_free_pixels</a> (<a class="el" href="structpixel.html">pixel</a> **pixels, unsigned rows)</td></tr>
-<tr class="memdesc:aa7732352c6246abe07bbd28c57fc1d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely free pixel buffer.  <br /></td></tr>
-<tr class="separator:aa7732352c6246abe07bbd28c57fc1d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22abfe1d65981b053fbc8f82e01b6bdd" id="r_a22abfe1d65981b053fbc8f82e01b6bdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22abfe1d65981b053fbc8f82e01b6bdd">pngz_free_bytes</a> (unsigned char **bytes, unsigned rows)</td></tr>
-<tr class="memdesc:a22abfe1d65981b053fbc8f82e01b6bdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely free pixel buffer.  <br /></td></tr>
-<tr class="separator:a22abfe1d65981b053fbc8f82e01b6bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed0aa704996d95835e6bc80899ec379" id="r_a7ed0aa704996d95835e6bc80899ec379"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed0aa704996d95835e6bc80899ec379">pngz_free</a> (<a class="el" href="structpngz.html">pngz</a> *z)</td></tr>
-<tr class="memdesc:a7ed0aa704996d95835e6bc80899ec379"><td class="mdescLeft">&#160;</td><td class="mdescRight">free a pngz structs pixels.  <br /></td></tr>
-<tr class="separator:a7ed0aa704996d95835e6bc80899ec379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2fb5d2a3493c3c815e7587c129f1e6c" id="r_ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2fb5d2a3493c3c815e7587c129f1e6c">pngz_pack_pixels</a> (unsigned char **bytes_src, <a class="el" href="structpixel.html">pixel</a> **pixels_dest, unsigned rows, unsigned cols)</td></tr>
-<tr class="memdesc:ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pack bytes into pixels.  <br /></td></tr>
-<tr class="separator:ae2fb5d2a3493c3c815e7587c129f1e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a105db7e9aa2f8e03cc79e5360c53ac71" id="r_a105db7e9aa2f8e03cc79e5360c53ac71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a105db7e9aa2f8e03cc79e5360c53ac71">pngz_unpack_pixels</a> (<a class="el" href="structpixel.html">pixel</a> **pixels_src, unsigned char **bytes_dest, unsigned rows, unsigned cols)</td></tr>
-<tr class="memdesc:a105db7e9aa2f8e03cc79e5360c53ac71"><td class="mdescLeft">&#160;</td><td class="mdescRight">unpack pixels into raw byte ptrs.  <br /></td></tr>
-<tr class="separator:a105db7e9aa2f8e03cc79e5360c53ac71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fbec9b62b321d08ae248d4cf2b144e8" id="r_a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fbec9b62b321d08ae248d4cf2b144e8">pngz_load_from</a> (<a class="el" href="structpngz.html">pngz</a> *z, char *path)</td></tr>
-<tr class="memdesc:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz from a path directly passed into the call, just a wrapper for standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a>  <br /></td></tr>
-<tr class="separator:a3fbec9b62b321d08ae248d4cf2b144e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a165e7ec113e942ee7f248ff3bb5f6679" id="r_a165e7ec113e942ee7f248ff3bb5f6679"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679">pngz_load</a> (<a class="el" href="structpngz.html">pngz</a> *z)</td></tr>
-<tr class="memdesc:a165e7ec113e942ee7f248ff3bb5f6679"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz object into memory  <br /></td></tr>
-<tr class="separator:a165e7ec113e942ee7f248ff3bb5f6679"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b6605f5874d6f17b775bb416c74c67" id="r_a69b6605f5874d6f17b775bb416c74c67"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69b6605f5874d6f17b775bb416c74c67">pngz_save</a> (<a class="el" href="structpngz.html">pngz</a> z)</td></tr>
-<tr class="memdesc:a69b6605f5874d6f17b775bb416c74c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file, wrapper for <a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name">pngz_save_as()</a>  <br /></td></tr>
-<tr class="separator:a69b6605f5874d6f17b775bb416c74c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbb5d1eb634f7ac22208d40cc84210b7" id="r_afbb5d1eb634f7ac22208d40cc84210b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7">pngz_save_as</a> (<a class="el" href="structpngz.html">pngz</a> z, char *path)</td></tr>
-<tr class="memdesc:afbb5d1eb634f7ac22208d40cc84210b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file with a new name  <br /></td></tr>
-<tr class="separator:afbb5d1eb634f7ac22208d40cc84210b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae40a6f0edff212aa57e11cf887b2ad70" id="r_ae40a6f0edff212aa57e11cf887b2ad70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae40a6f0edff212aa57e11cf887b2ad70">pngz_print</a> (<a class="el" href="structpngz.html">pngz</a> z)</td></tr>
-<tr class="memdesc:ae40a6f0edff212aa57e11cf887b2ad70"><td class="mdescLeft">&#160;</td><td class="mdescRight">print a pngz ztruct contents.  <br /></td></tr>
-<tr class="separator:ae40a6f0edff212aa57e11cf887b2ad70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90e2de54530d8531132d10c8541834d9" id="r_a90e2de54530d8531132d10c8541834d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e2de54530d8531132d10c8541834d9">pngz_print_pixel</a> (<a class="el" href="structpixel.html">pixel</a> p)</td></tr>
-<tr class="memdesc:a90e2de54530d8531132d10c8541834d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">print out a single pixels rgba values in hex.  <br /></td></tr>
-<tr class="separator:a90e2de54530d8531132d10c8541834d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c004f2a440b956639119bff50f3a32a" id="r_a0c004f2a440b956639119bff50f3a32a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c004f2a440b956639119bff50f3a32a">print_indent</a> (int indent)</td></tr>
-<tr class="separator:a0c004f2a440b956639119bff50f3a32a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e5b969faa23bd49fb7a144edd02c6d" id="r_a79e5b969faa23bd49fb7a144edd02c6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e5b969faa23bd49fb7a144edd02c6d">pngz_print_indent</a> (<a class="el" href="structpngz.html">pngz</a> z, int indent)</td></tr>
-<tr class="memdesc:a79e5b969faa23bd49fb7a144edd02c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">print a pngz ztruct contents.  <br /></td></tr>
-<tr class="separator:a79e5b969faa23bd49fb7a144edd02c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cfed75396997c3e8662ae070fc948f1" id="r_a4cfed75396997c3e8662ae070fc948f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cfed75396997c3e8662ae070fc948f1">pngz_print_pixel_indent</a> (<a class="el" href="structpixel.html">pixel</a> p, int indent)</td></tr>
-<tr class="memdesc:a4cfed75396997c3e8662ae070fc948f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">print out a single pixels rgba values.  <br /></td></tr>
-<tr class="separator:a4cfed75396997c3e8662ae070fc948f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38003d00ed03da7cba90ac8fc51d95bf" id="r_a38003d00ed03da7cba90ac8fc51d95bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38003d00ed03da7cba90ac8fc51d95bf">PNGZ_AllocPixels</a> (<a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> ***pixels_ptr, const unsigned rows, const unsigned cols)</td></tr>
+<tr class="memdesc:a38003d00ed03da7cba90ac8fc51d95bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate a pixel buffer.  <br /></td></tr>
+<tr class="separator:a38003d00ed03da7cba90ac8fc51d95bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef9fc82bd74a206acf97f4076e73237" id="r_a4ef9fc82bd74a206acf97f4076e73237"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ef9fc82bd74a206acf97f4076e73237">PNGZ_AllocBytes</a> (unsigned char ***bytes_ptr, const unsigned rows, const unsigned cols)</td></tr>
+<tr class="memdesc:a4ef9fc82bd74a206acf97f4076e73237"><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate raw pixel byte buffer.  <br /></td></tr>
+<tr class="separator:a4ef9fc82bd74a206acf97f4076e73237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484fe11cffa823513c29429b33cbd77a" id="r_a484fe11cffa823513c29429b33cbd77a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a484fe11cffa823513c29429b33cbd77a">PNGZ_FreePixels</a> (<a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **pixels, const unsigned rows)</td></tr>
+<tr class="memdesc:a484fe11cffa823513c29429b33cbd77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely free pixel buffer.  <br /></td></tr>
+<tr class="separator:a484fe11cffa823513c29429b33cbd77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa42c792e1fad28bba7fe65564d550cfd" id="r_aa42c792e1fad28bba7fe65564d550cfd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa42c792e1fad28bba7fe65564d550cfd">PNGZ_FreeBytes</a> (unsigned char **bytes, const unsigned rows)</td></tr>
+<tr class="memdesc:aa42c792e1fad28bba7fe65564d550cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">safely free pixel buffer.  <br /></td></tr>
+<tr class="separator:aa42c792e1fad28bba7fe65564d550cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add4f498a824b6acb6d804bdbeff479d9" id="r_add4f498a824b6acb6d804bdbeff479d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add4f498a824b6acb6d804bdbeff479d9">PNGZ_Free</a> (<a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *z)</td></tr>
+<tr class="memdesc:add4f498a824b6acb6d804bdbeff479d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">free a pngz structs pixels.  <br /></td></tr>
+<tr class="separator:add4f498a824b6acb6d804bdbeff479d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583cc08fbd1b5a1aab6e2df2ae5b9c4d" id="r_a583cc08fbd1b5a1aab6e2df2ae5b9c4d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a583cc08fbd1b5a1aab6e2df2ae5b9c4d">PNGZ_BytesToPixels</a> (unsigned char **bytes_src, <a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **pixels_dest, const unsigned rows, const unsigned cols)</td></tr>
+<tr class="memdesc:a583cc08fbd1b5a1aab6e2df2ae5b9c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">pack bytes into pixels.  <br /></td></tr>
+<tr class="separator:a583cc08fbd1b5a1aab6e2df2ae5b9c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89c40930877b8e356c4c8e4172f45ac4" id="r_a89c40930877b8e356c4c8e4172f45ac4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89c40930877b8e356c4c8e4172f45ac4">PNGZ_PixelsToBytes</a> (<a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **pixels_src, unsigned char **bytes_dest, const unsigned rows, const unsigned cols)</td></tr>
+<tr class="memdesc:a89c40930877b8e356c4c8e4172f45ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">unpack pixels into raw byte ptrs.  <br /></td></tr>
+<tr class="separator:a89c40930877b8e356c4c8e4172f45ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5844f467a00b637bf45d1da43eb5ae4f" id="r_a5844f467a00b637bf45d1da43eb5ae4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5844f467a00b637bf45d1da43eb5ae4f">PNGZ_Copy</a> (const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> z_src, <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *z_dest)</td></tr>
+<tr class="memdesc:a5844f467a00b637bf45d1da43eb5ae4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">copies the pixel data from one pngz to another.  <br /></td></tr>
+<tr class="separator:a5844f467a00b637bf45d1da43eb5ae4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a94507e3f0e101d2ab632f9d785b1a3" id="r_a8a94507e3f0e101d2ab632f9d785b1a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a94507e3f0e101d2ab632f9d785b1a3">PNGZ_LoadFrom</a> (<a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *z, const char *path)</td></tr>
+<tr class="memdesc:a8a94507e3f0e101d2ab632f9d785b1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()  <br /></td></tr>
+<tr class="separator:a8a94507e3f0e101d2ab632f9d785b1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346d8329b718c9c02151ac006cee7f7a" id="r_a346d8329b718c9c02151ac006cee7f7a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a346d8329b718c9c02151ac006cee7f7a">PNGZ_Load</a> (<a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *z)</td></tr>
+<tr class="memdesc:a346d8329b718c9c02151ac006cee7f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">load a pngz object into memory  <br /></td></tr>
+<tr class="separator:a346d8329b718c9c02151ac006cee7f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad347946a2e0991e92bd76d15c66e810a" id="r_ad347946a2e0991e92bd76d15c66e810a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad347946a2e0991e92bd76d15c66e810a">PNGZ_Save</a> (const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> z)</td></tr>
+<tr class="memdesc:ad347946a2e0991e92bd76d15c66e810a"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file, wrapper for pngz_save_as()  <br /></td></tr>
+<tr class="separator:ad347946a2e0991e92bd76d15c66e810a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addbc002fdd256f0face6c0027ac7fb9a" id="r_addbc002fdd256f0face6c0027ac7fb9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addbc002fdd256f0face6c0027ac7fb9a">PNGZ_SaveAs</a> (const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> z, const char *path)</td></tr>
+<tr class="memdesc:addbc002fdd256f0face6c0027ac7fb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a png back out to file with a new name  <br /></td></tr>
+<tr class="separator:addbc002fdd256f0face6c0027ac7fb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9aa23184b5503a234b0003580f8fe4" id="r_a3f9aa23184b5503a234b0003580f8fe4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f9aa23184b5503a234b0003580f8fe4">PNGZ_PrintImage</a> (const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> z)</td></tr>
+<tr class="memdesc:a3f9aa23184b5503a234b0003580f8fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">print a pngz ztruct contents.  <br /></td></tr>
+<tr class="separator:a3f9aa23184b5503a234b0003580f8fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcf2501e3ec3b1dfab8add6b3048c3e" id="r_a4fcf2501e3ec3b1dfab8add6b3048c3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fcf2501e3ec3b1dfab8add6b3048c3e">PNGZ_PrintPixel</a> (const <a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> p)</td></tr>
+<tr class="memdesc:a4fcf2501e3ec3b1dfab8add6b3048c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">print out a single pixels rgba values in hex.  <br /></td></tr>
+<tr class="separator:a4fcf2501e3ec3b1dfab8add6b3048c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932c22c926de0599b97c1c1d3a45c697" id="r_a932c22c926de0599b97c1c1d3a45c697"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a932c22c926de0599b97c1c1d3a45c697">PNGZ_PrintImageIndent</a> (const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> z, const int indent)</td></tr>
+<tr class="memdesc:a932c22c926de0599b97c1c1d3a45c697"><td class="mdescLeft">&#160;</td><td class="mdescRight">print a pngz ztruct contents.  <br /></td></tr>
+<tr class="separator:a932c22c926de0599b97c1c1d3a45c697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fbce59041bced495248abfbec27a9bc" id="r_a0fbce59041bced495248abfbec27a9bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fbce59041bced495248abfbec27a9bc">PNGZ_PrintPIxelIndent</a> (const <a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> p, const int indent)</td></tr>
+<tr class="memdesc:a0fbce59041bced495248abfbec27a9bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">print out a single pixels rgba values.  <br /></td></tr>
+<tr class="separator:a0fbce59041bced495248abfbec27a9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a22c61527adfd7b0e53fe6971772f497b" name="a22c61527adfd7b0e53fe6971772f497b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22c61527adfd7b0e53fe6971772f497b">&#9670;&#160;</a></span>pngz_alloc_bytes()</h2>
+<a id="a4ef9fc82bd74a206acf97f4076e73237" name="a4ef9fc82bd74a206acf97f4076e73237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef9fc82bd74a206acf97f4076e73237">&#9670;&#160;</a></span>PNGZ_AllocBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char ** pngz_alloc_bytes </td>
+          <td class="memname">int PNGZ_AllocBytes </td>
           <td>(</td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+          <td class="paramtype">unsigned char ***</td>          <td class="paramname"><span class="paramname"><em>bytes_ptr</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -215,25 +218,30 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a ptr to buffer, returns null and sets errno on failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00067">67</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00068">68</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>
-<a id="ad6d01c8772bf2b6c7bef8a7337001415" name="ad6d01c8772bf2b6c7bef8a7337001415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6d01c8772bf2b6c7bef8a7337001415">&#9670;&#160;</a></span>pngz_alloc_pixels()</h2>
+<a id="a38003d00ed03da7cba90ac8fc51d95bf" name="a38003d00ed03da7cba90ac8fc51d95bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38003d00ed03da7cba90ac8fc51d95bf">&#9670;&#160;</a></span>PNGZ_AllocPixels()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structpixel.html">pixel</a> ** pngz_alloc_pixels </td>
+          <td class="memname">int PNGZ_AllocPixels </td>
           <td>(</td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> ***</td>          <td class="paramname"><span class="paramname"><em>pixels_ptr</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -249,240 +257,35 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code, setting errno on failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00037">37</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00036">36</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>
-<a id="a7ed0aa704996d95835e6bc80899ec379" name="a7ed0aa704996d95835e6bc80899ec379"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed0aa704996d95835e6bc80899ec379">&#9670;&#160;</a></span>pngz_free()</h2>
+<a id="a583cc08fbd1b5a1aab6e2df2ae5b9c4d" name="a583cc08fbd1b5a1aab6e2df2ae5b9c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583cc08fbd1b5a1aab6e2df2ae5b9c4d">&#9670;&#160;</a></span>PNGZ_BytesToPixels()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int pngz_free </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>free a pngz structs pixels. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">z</td><td>pngz* with pixels loaded into memory </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code, error if you try to free a NULL ptr </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00164">164</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, and <a class="el" href="pngz_8c_source.html#l00097">pngz_free_pixels()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="pngz_8c_a7ed0aa704996d95835e6bc80899ec379_cgraph.png" border="0" usemap="#apngz_8c_a7ed0aa704996d95835e6bc80899ec379_cgraph" alt=""/></div>
-<map name="apngz_8c_a7ed0aa704996d95835e6bc80899ec379_cgraph" id="apngz_8c_a7ed0aa704996d95835e6bc80899ec379_cgraph">
-<area shape="rect" title="free a pngz structs pixels." alt="" coords="5,5,83,31"/>
-<area shape="rect" href="pngz_8c.html#aa7732352c6246abe07bbd28c57fc1d40" title="safely free pixel buffer." alt="" coords="131,5,248,31"/>
-<area shape="poly" title=" " alt="" coords="83,16,115,16,115,21,83,21"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a22abfe1d65981b053fbc8f82e01b6bdd" name="a22abfe1d65981b053fbc8f82e01b6bdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22abfe1d65981b053fbc8f82e01b6bdd">&#9670;&#160;</a></span>pngz_free_bytes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_free_bytes </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>safely free pixel buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bytes</td><td>2D pixel bytes of size [rows][cols * 4] </td></tr>
-    <tr><td class="paramname">rows</td><td>number of rows to free </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00131">131</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-</div>
-</div>
-<a id="aa7732352c6246abe07bbd28c57fc1d40" name="aa7732352c6246abe07bbd28c57fc1d40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7732352c6246abe07bbd28c57fc1d40">&#9670;&#160;</a></span>pngz_free_pixels()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_free_pixels </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structpixel.html">pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>safely free pixel buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pixels</td><td>2D pixel ptr of size [rows][cols] </td></tr>
-    <tr><td class="paramname">rows</td><td>number of rows to free </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00097">97</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-</div>
-</div>
-<a id="a165e7ec113e942ee7f248ff3bb5f6679" name="a165e7ec113e942ee7f248ff3bb5f6679"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a165e7ec113e942ee7f248ff3bb5f6679">&#9670;&#160;</a></span>pngz_load()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_load </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>load a pngz object into memory </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00240">240</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00067">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00037">pngz_alloc_pixels()</a>, <a class="el" href="pngz_8c_source.html#l00131">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00179">pngz_pack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="pngz_8c_a165e7ec113e942ee7f248ff3bb5f6679_cgraph.png" border="0" usemap="#apngz_8c_a165e7ec113e942ee7f248ff3bb5f6679_cgraph" alt=""/></div>
-<map name="apngz_8c_a165e7ec113e942ee7f248ff3bb5f6679_cgraph" id="apngz_8c_a165e7ec113e942ee7f248ff3bb5f6679_cgraph">
-<area shape="rect" title="load a pngz object into memory" alt="" coords="5,80,85,106"/>
-<area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="134,5,254,31"/>
-<area shape="poly" title=" " alt="" coords="66,77,131,40,142,35,144,40,134,45,68,82"/>
-<area shape="rect" href="pngz_8c.html#ad6d01c8772bf2b6c7bef8a7337001415" title="allocate a pixel buffer." alt="" coords="133,55,256,80"/>
-<area shape="poly" title=" " alt="" coords="85,83,118,78,118,83,86,89"/>
-<area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="137,104,252,130"/>
-<area shape="poly" title=" " alt="" coords="86,97,122,102,121,108,85,102"/>
-<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack bytes into pixels." alt="" coords="133,153,256,179"/>
-<area shape="poly" title=" " alt="" coords="69,104,134,140,144,145,142,149,131,145,67,109"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a3fbec9b62b321d08ae248d4cf2b144e8" name="a3fbec9b62b321d08ae248d4cf2b144e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fbec9b62b321d08ae248d4cf2b144e8">&#9670;&#160;</a></span>pngz_load_from()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_load_from </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>load a pngz from a path directly passed into the call, just a wrapper for standard <a class="el" href="#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory">pngz_load()</a> </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
-    <tr><td class="paramname">path</td><td>char* path to read from </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00229">229</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00240">pngz_load()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="pngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph.png" border="0" usemap="#apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" alt=""/></div>
-<map name="apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph" id="apngz_8c_a3fbec9b62b321d08ae248d4cf2b144e8_cgraph">
-<area shape="rect" title="load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()" alt="" coords="5,80,118,106"/>
-<area shape="rect" href="pngz_8c.html#a165e7ec113e942ee7f248ff3bb5f6679" title="load a pngz object into memory" alt="" coords="166,80,245,106"/>
-<area shape="poly" title=" " alt="" coords="118,90,150,90,150,96,118,96"/>
-<area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="294,5,415,31"/>
-<area shape="poly" title=" " alt="" coords="226,77,292,40,302,35,305,40,294,45,229,82"/>
-<area shape="rect" href="pngz_8c.html#ad6d01c8772bf2b6c7bef8a7337001415" title="allocate a pixel buffer." alt="" coords="294,55,416,80"/>
-<area shape="poly" title=" " alt="" coords="245,83,278,78,279,83,246,89"/>
-<area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="297,104,412,130"/>
-<area shape="poly" title=" " alt="" coords="246,97,282,102,281,108,245,102"/>
-<area shape="rect" href="pngz_8c.html#ae2fb5d2a3493c3c815e7587c129f1e6c" title="pack bytes into pixels." alt="" coords="293,153,416,179"/>
-<area shape="poly" title=" " alt="" coords="230,104,294,140,305,145,302,149,292,145,227,109"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae2fb5d2a3493c3c815e7587c129f1e6c" name="ae2fb5d2a3493c3c815e7587c129f1e6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2fb5d2a3493c3c815e7587c129f1e6c">&#9670;&#160;</a></span>pngz_pack_pixels()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_pack_pixels </td>
+          <td class="memname">int PNGZ_BytesToPixels </td>
           <td>(</td>
           <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>bytes_src</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structpixel.html">pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels_dest</em></span>, </td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels_dest</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -499,22 +302,310 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00179">179</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00183">183</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::b</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::b</a>, <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::r</a>.</p>
 
 </div>
 </div>
-<a id="ae40a6f0edff212aa57e11cf887b2ad70" name="ae40a6f0edff212aa57e11cf887b2ad70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae40a6f0edff212aa57e11cf887b2ad70">&#9670;&#160;</a></span>pngz_print()</h2>
+<a id="a5844f467a00b637bf45d1da43eb5ae4f" name="a5844f467a00b637bf45d1da43eb5ae4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5844f467a00b637bf45d1da43eb5ae4f">&#9670;&#160;</a></span>PNGZ_Copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void pngz_print </td>
+          <td class="memname">int PNGZ_Copy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a></td>          <td class="paramname"><span class="paramname"><em>z_src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *</td>          <td class="paramname"><span class="paramname"><em>z_dest</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>copies the pixel data from one pngz to another. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z_src</td><td>source pixel buffer, passed by val </td></tr>
+    <tr><td class="paramname">z_dest</td><td>destination pixel buffer, passed by ptr </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00257">257</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, and <a class="el" href="pngz_8h_source.html#l00031">PNGZ_Image::width</a>.</p>
+
+</div>
+</div>
+<a id="add4f498a824b6acb6d804bdbeff479d9" name="add4f498a824b6acb6d804bdbeff479d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add4f498a824b6acb6d804bdbeff479d9">&#9670;&#160;</a></span>PNGZ_Free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_Free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>free a pngz structs pixels. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>pngz* with pixels loaded into memory </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code, error if you try to free a NULL ptr </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00168">168</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, and <a class="el" href="pngz_8c_source.html#l00100">PNGZ_FreePixels()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="pngz_8c_add4f498a824b6acb6d804bdbeff479d9_cgraph.png" border="0" usemap="#apngz_8c_add4f498a824b6acb6d804bdbeff479d9_cgraph" alt=""/></div>
+<map name="apngz_8c_add4f498a824b6acb6d804bdbeff479d9_cgraph" id="apngz_8c_add4f498a824b6acb6d804bdbeff479d9_cgraph">
+<area shape="rect" title="free a pngz structs pixels." alt="" coords="5,5,97,31"/>
+<area shape="rect" href="pngz_8c.html#a484fe11cffa823513c29429b33cbd77a" title="safely free pixel buffer." alt="" coords="145,5,271,31"/>
+<area shape="poly" title=" " alt="" coords="97,16,129,16,129,21,97,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa42c792e1fad28bba7fe65564d550cfd" name="aa42c792e1fad28bba7fe65564d550cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa42c792e1fad28bba7fe65564d550cfd">&#9670;&#160;</a></span>PNGZ_FreeBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_FreeBytes </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>safely free pixel buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>2D pixel bytes of size [rows][cols * 4] </td></tr>
+    <tr><td class="paramname">rows</td><td>number of rows to free </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00135">135</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+</div>
+</div>
+<a id="a484fe11cffa823513c29429b33cbd77a" name="a484fe11cffa823513c29429b33cbd77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484fe11cffa823513c29429b33cbd77a">&#9670;&#160;</a></span>PNGZ_FreePixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_FreePixels </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>safely free pixel buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixels</td><td>2D pixel ptr of size [rows][cols] </td></tr>
+    <tr><td class="paramname">rows</td><td>number of rows to free </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00100">100</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+</div>
+</div>
+<a id="a346d8329b718c9c02151ac006cee7f7a" name="a346d8329b718c9c02151ac006cee7f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a346d8329b718c9c02151ac006cee7f7a">&#9670;&#160;</a></span>PNGZ_Load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_Load </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>load a pngz object into memory </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00296">296</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00025">PNGZ_Image::path</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, <a class="el" href="pngz_8c_source.html#l00068">PNGZ_AllocBytes()</a>, <a class="el" href="pngz_8c_source.html#l00036">PNGZ_AllocPixels()</a>, <a class="el" href="pngz_8c_source.html#l00183">PNGZ_BytesToPixels()</a>, <a class="el" href="pngz_8c_source.html#l00135">PNGZ_FreeBytes()</a>, and <a class="el" href="pngz_8h_source.html#l00031">PNGZ_Image::width</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="pngz_8c_a346d8329b718c9c02151ac006cee7f7a_cgraph.png" border="0" usemap="#apngz_8c_a346d8329b718c9c02151ac006cee7f7a_cgraph" alt=""/></div>
+<map name="apngz_8c_a346d8329b718c9c02151ac006cee7f7a_cgraph" id="apngz_8c_a346d8329b718c9c02151ac006cee7f7a_cgraph">
+<area shape="rect" title="load a pngz object into memory" alt="" coords="5,80,100,106"/>
+<area shape="rect" href="pngz_8c.html#a4ef9fc82bd74a206acf97f4076e73237" title="allocate raw pixel byte buffer." alt="" coords="158,5,286,31"/>
+<area shape="poly" title=" " alt="" coords="75,77,147,40,160,34,162,39,149,45,77,82"/>
+<area shape="rect" href="pngz_8c.html#a38003d00ed03da7cba90ac8fc51d95bf" title="allocate a pixel buffer." alt="" coords="157,55,286,80"/>
+<area shape="poly" title=" " alt="" coords="100,83,142,77,143,82,101,88"/>
+<area shape="rect" href="pngz_8c.html#a583cc08fbd1b5a1aab6e2df2ae5b9c4d" title="pack bytes into pixels." alt="" coords="148,104,296,130"/>
+<area shape="poly" title=" " alt="" coords="101,97,133,102,132,107,100,102"/>
+<area shape="rect" href="pngz_8c.html#aa42c792e1fad28bba7fe65564d550cfd" title="safely free pixel buffer." alt="" coords="160,153,284,179"/>
+<area shape="poly" title=" " alt="" coords="78,104,149,140,163,145,161,150,147,145,76,109"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8a94507e3f0e101d2ab632f9d785b1a3" name="a8a94507e3f0e101d2ab632f9d785b1a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a94507e3f0e101d2ab632f9d785b1a3">&#9670;&#160;</a></span>PNGZ_LoadFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_LoadFrom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Image.html">PNGZ_Image</a> *</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load() </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">z</td><td>pngz* easy png ptr to load into </td></tr>
+    <tr><td class="paramname">path</td><td>char* path to read from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00285">285</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">PNGZ_Image::path</a>, and <a class="el" href="pngz_8c_source.html#l00296">PNGZ_Load()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="pngz_8c_a8a94507e3f0e101d2ab632f9d785b1a3_cgraph.png" border="0" usemap="#apngz_8c_a8a94507e3f0e101d2ab632f9d785b1a3_cgraph" alt=""/></div>
+<map name="apngz_8c_a8a94507e3f0e101d2ab632f9d785b1a3_cgraph" id="apngz_8c_a8a94507e3f0e101d2ab632f9d785b1a3_cgraph">
+<area shape="rect" title="load a pngz from a path directly passed into the call, just a wrapper for standard pngz_load()" alt="" coords="5,80,130,106"/>
+<area shape="rect" href="pngz_8c.html#a346d8329b718c9c02151ac006cee7f7a" title="load a pngz object into memory" alt="" coords="178,80,272,106"/>
+<area shape="poly" title=" " alt="" coords="130,90,162,90,162,96,130,96"/>
+<area shape="rect" href="pngz_8c.html#a4ef9fc82bd74a206acf97f4076e73237" title="allocate raw pixel byte buffer." alt="" coords="330,5,458,31"/>
+<area shape="poly" title=" " alt="" coords="247,77,319,40,333,34,335,39,321,45,250,82"/>
+<area shape="rect" href="pngz_8c.html#a38003d00ed03da7cba90ac8fc51d95bf" title="allocate a pixel buffer." alt="" coords="330,55,459,80"/>
+<area shape="poly" title=" " alt="" coords="272,83,314,77,315,82,273,88"/>
+<area shape="rect" href="pngz_8c.html#a583cc08fbd1b5a1aab6e2df2ae5b9c4d" title="pack bytes into pixels." alt="" coords="320,104,468,130"/>
+<area shape="poly" title=" " alt="" coords="273,97,305,102,304,107,272,102"/>
+<area shape="rect" href="pngz_8c.html#aa42c792e1fad28bba7fe65564d550cfd" title="safely free pixel buffer." alt="" coords="332,153,456,179"/>
+<area shape="poly" title=" " alt="" coords="250,104,321,140,335,145,333,150,319,145,248,109"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a89c40930877b8e356c4c8e4172f45ac4" name="a89c40930877b8e356c4c8e4172f45ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89c40930877b8e356c4c8e4172f45ac4">&#9670;&#160;</a></span>PNGZ_PixelsToBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_PixelsToBytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels_src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>bytes_dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>unpack pixels into raw byte ptrs. </p>
+<p>expects adequate space, rows by cols in the pixel buffer and rows by cols * 4 in the byte buffer</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pixels_src</td><td>packed pixel source </td></tr>
+    <tr><td class="paramname">bytes_dest</td><td>unpacked byte destination </td></tr>
+    <tr><td class="paramname">rows</td><td>rows of pixels </td></tr>
+    <tr><td class="paramname">cols</td><td>cols of pixels (IN PIXELS NOT BYTES) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00223">223</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::r</a>.</p>
+
+</div>
+</div>
+<a id="a3f9aa23184b5503a234b0003580f8fe4" name="a3f9aa23184b5503a234b0003580f8fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f9aa23184b5503a234b0003580f8fe4">&#9670;&#160;</a></span>PNGZ_PrintImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PNGZ_PrintImage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -527,29 +618,29 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00401">401</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00456">456</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, and <a class="el" href="pngz_8h_source.html#l00031">PNGZ_Image::width</a>.</p>
 
 </div>
 </div>
-<a id="a79e5b969faa23bd49fb7a144edd02c6d" name="a79e5b969faa23bd49fb7a144edd02c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79e5b969faa23bd49fb7a144edd02c6d">&#9670;&#160;</a></span>pngz_print_indent()</h2>
+<a id="a932c22c926de0599b97c1c1d3a45c697" name="a932c22c926de0599b97c1c1d3a45c697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932c22c926de0599b97c1c1d3a45c697">&#9670;&#160;</a></span>PNGZ_PrintImageIndent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void pngz_print_indent </td>
+          <td class="memname">int PNGZ_PrintImageIndent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span>&#160;)</td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -562,34 +653,24 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00444">444</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00499">499</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00429">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="pngz_8c_a79e5b969faa23bd49fb7a144edd02c6d_cgraph.png" border="0" usemap="#apngz_8c_a79e5b969faa23bd49fb7a144edd02c6d_cgraph" alt=""/></div>
-<map name="apngz_8c_a79e5b969faa23bd49fb7a144edd02c6d_cgraph" id="apngz_8c_a79e5b969faa23bd49fb7a144edd02c6d_cgraph">
-<area shape="rect" title="print a pngz ztruct contents." alt="" coords="5,5,128,31"/>
-<area shape="rect" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a" title=" " alt="" coords="176,5,264,31"/>
-<area shape="poly" title=" " alt="" coords="128,16,160,16,160,21,128,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, and <a class="el" href="pngz_8h_source.html#l00031">PNGZ_Image::width</a>.</p>
 
 </div>
 </div>
-<a id="a90e2de54530d8531132d10c8541834d9" name="a90e2de54530d8531132d10c8541834d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e2de54530d8531132d10c8541834d9">&#9670;&#160;</a></span>pngz_print_pixel()</h2>
+<a id="a4fcf2501e3ec3b1dfab8add6b3048c3e" name="a4fcf2501e3ec3b1dfab8add6b3048c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fcf2501e3ec3b1dfab8add6b3048c3e">&#9670;&#160;</a></span>PNGZ_PrintPixel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void pngz_print_pixel </td>
+          <td class="memname">int PNGZ_PrintPixel </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpixel.html">pixel</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -602,29 +683,29 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00420">420</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00475">475</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::r</a>.</p>
 
 </div>
 </div>
-<a id="a4cfed75396997c3e8662ae070fc948f1" name="a4cfed75396997c3e8662ae070fc948f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cfed75396997c3e8662ae070fc948f1">&#9670;&#160;</a></span>pngz_print_pixel_indent()</h2>
+<a id="a0fbce59041bced495248abfbec27a9bc" name="a0fbce59041bced495248abfbec27a9bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fbce59041bced495248abfbec27a9bc">&#9670;&#160;</a></span>PNGZ_PrintPIxelIndent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void pngz_print_pixel_indent </td>
+          <td class="memname">int PNGZ_PrintPIxelIndent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpixel.html">pixel</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Pixel.html">PNGZ_Pixel</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span>&#160;)</td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -637,40 +718,30 @@ Here is the call graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00468">468</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00523">523</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">pixel::g</a>, <a class="el" href="pngz_8c_source.html#l00429">print_indent()</a>, and <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="pngz_8c_a4cfed75396997c3e8662ae070fc948f1_cgraph.png" border="0" usemap="#apngz_8c_a4cfed75396997c3e8662ae070fc948f1_cgraph" alt=""/></div>
-<map name="apngz_8c_a4cfed75396997c3e8662ae070fc948f1_cgraph" id="apngz_8c_a4cfed75396997c3e8662ae070fc948f1_cgraph">
-<area shape="rect" title="print out a single pixels rgba values." alt="" coords="5,5,161,31"/>
-<area shape="rect" href="pngz_8c.html#a0c004f2a440b956639119bff50f3a32a" title=" " alt="" coords="209,5,297,31"/>
-<area shape="poly" title=" " alt="" coords="161,16,193,16,193,21,161,21"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::a</a>, <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::g</a>, and <a class="el" href="pngz_8h_source.html#l00015">PNGZ_Pixel::r</a>.</p>
 
 </div>
 </div>
-<a id="a69b6605f5874d6f17b775bb416c74c67" name="a69b6605f5874d6f17b775bb416c74c67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69b6605f5874d6f17b775bb416c74c67">&#9670;&#160;</a></span>pngz_save()</h2>
+<a id="ad347946a2e0991e92bd76d15c66e810a" name="ad347946a2e0991e92bd76d15c66e810a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad347946a2e0991e92bd76d15c66e810a">&#9670;&#160;</a></span>PNGZ_Save()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int pngz_save </td>
+          <td class="memname">int PNGZ_Save </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>write a png back out to file, wrapper for <a class="el" href="#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name">pngz_save_as()</a> </p>
+<p>write a png back out to file, wrapper for pngz_save_as() </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">z</td><td>pngz* easy png ptr to write to file </td></tr>
@@ -679,43 +750,43 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00331">331</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00386">386</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">pngz::path</a>, and <a class="el" href="pngz_8c_source.html#l00342">pngz_save_as()</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00025">PNGZ_Image::path</a>, and <a class="el" href="pngz_8c_source.html#l00397">PNGZ_SaveAs()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="pngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph.png" border="0" usemap="#apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph" alt=""/></div>
-<map name="apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph" id="apngz_8c_a69b6605f5874d6f17b775bb416c74c67_cgraph">
-<area shape="rect" title="write a png back out to file, wrapper for pngz_save_as()" alt="" coords="5,55,89,80"/>
-<area shape="rect" href="pngz_8c.html#afbb5d1eb634f7ac22208d40cc84210b7" title="write a png back out to file with a new name" alt="" coords="137,55,241,80"/>
-<area shape="poly" title=" " alt="" coords="89,65,121,65,121,70,89,70"/>
-<area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="298,5,418,31"/>
-<area shape="poly" title=" " alt="" coords="235,51,296,33,298,38,236,57"/>
-<area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="300,55,415,80"/>
-<area shape="poly" title=" " alt="" coords="241,65,285,65,285,70,241,70"/>
-<area shape="rect" href="pngz_8c.html#a105db7e9aa2f8e03cc79e5360c53ac71" title="unpack pixels into raw byte ptrs." alt="" coords="289,104,426,130"/>
-<area shape="poly" title=" " alt="" coords="236,78,298,97,296,102,235,84"/>
+<div class="center"><img src="pngz_8c_ad347946a2e0991e92bd76d15c66e810a_cgraph.png" border="0" usemap="#apngz_8c_ad347946a2e0991e92bd76d15c66e810a_cgraph" alt=""/></div>
+<map name="apngz_8c_ad347946a2e0991e92bd76d15c66e810a_cgraph" id="apngz_8c_ad347946a2e0991e92bd76d15c66e810a_cgraph">
+<area shape="rect" title="write a png back out to file, wrapper for pngz_save_as()" alt="" coords="5,55,101,80"/>
+<area shape="rect" href="pngz_8c.html#addbc002fdd256f0face6c0027ac7fb9a" title="write a png back out to file with a new name" alt="" coords="149,55,260,80"/>
+<area shape="poly" title=" " alt="" coords="101,65,133,65,133,70,101,70"/>
+<area shape="rect" href="pngz_8c.html#a4ef9fc82bd74a206acf97f4076e73237" title="allocate raw pixel byte buffer." alt="" coords="318,5,446,31"/>
+<area shape="poly" title=" " alt="" coords="253,51,318,33,319,38,254,57"/>
+<area shape="rect" href="pngz_8c.html#aa42c792e1fad28bba7fe65564d550cfd" title="safely free pixel buffer." alt="" coords="320,55,444,80"/>
+<area shape="poly" title=" " alt="" coords="261,65,304,65,304,70,261,70"/>
+<area shape="rect" href="pngz_8c.html#a89c40930877b8e356c4c8e4172f45ac4" title="unpack pixels into raw byte ptrs." alt="" coords="308,104,456,130"/>
+<area shape="poly" title=" " alt="" coords="254,78,319,97,318,102,253,84"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="afbb5d1eb634f7ac22208d40cc84210b7" name="afbb5d1eb634f7ac22208d40cc84210b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbb5d1eb634f7ac22208d40cc84210b7">&#9670;&#160;</a></span>pngz_save_as()</h2>
+<a id="addbc002fdd256f0face6c0027ac7fb9a" name="addbc002fdd256f0face6c0027ac7fb9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addbc002fdd256f0face6c0027ac7fb9a">&#9670;&#160;</a></span>PNGZ_SaveAs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int pngz_save_as </td>
+          <td class="memname">int PNGZ_SaveAs </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structpngz.html">pngz</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="structPNGZ__Image.html">PNGZ_Image</a></td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -730,89 +801,23 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00342">342</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00397">397</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00027">pngz::height</a>, <a class="el" href="pngz_8h_source.html#l00031">pngz::pixels</a>, <a class="el" href="pngz_8c_source.html#l00067">pngz_alloc_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00131">pngz_free_bytes()</a>, <a class="el" href="pngz_8c_source.html#l00206">pngz_unpack_pixels()</a>, and <a class="el" href="pngz_8h_source.html#l00029">pngz::width</a>.</p>
+<p class="reference">References <a class="el" href="pngz_8h_source.html#l00029">PNGZ_Image::height</a>, <a class="el" href="pngz_8h_source.html#l00027">PNGZ_Image::pixels</a>, <a class="el" href="pngz_8c_source.html#l00068">PNGZ_AllocBytes()</a>, <a class="el" href="pngz_8c_source.html#l00135">PNGZ_FreeBytes()</a>, <a class="el" href="pngz_8c_source.html#l00223">PNGZ_PixelsToBytes()</a>, and <a class="el" href="pngz_8h_source.html#l00031">PNGZ_Image::width</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="pngz_8c_afbb5d1eb634f7ac22208d40cc84210b7_cgraph.png" border="0" usemap="#apngz_8c_afbb5d1eb634f7ac22208d40cc84210b7_cgraph" alt=""/></div>
-<map name="apngz_8c_afbb5d1eb634f7ac22208d40cc84210b7_cgraph" id="apngz_8c_afbb5d1eb634f7ac22208d40cc84210b7_cgraph">
-<area shape="rect" title="write a png back out to file with a new name" alt="" coords="5,55,110,80"/>
-<area shape="rect" href="pngz_8c.html#a22c61527adfd7b0e53fe6971772f497b" title="allocate raw pixel byte buffer." alt="" coords="166,5,286,31"/>
-<area shape="poly" title=" " alt="" coords="103,51,165,33,166,38,105,57"/>
-<area shape="rect" href="pngz_8c.html#a22abfe1d65981b053fbc8f82e01b6bdd" title="safely free pixel buffer." alt="" coords="169,55,284,80"/>
-<area shape="poly" title=" " alt="" coords="110,65,153,65,153,70,110,70"/>
-<area shape="rect" href="pngz_8c.html#a105db7e9aa2f8e03cc79e5360c53ac71" title="unpack pixels into raw byte ptrs." alt="" coords="158,104,295,130"/>
-<area shape="poly" title=" " alt="" coords="105,78,166,97,165,102,103,84"/>
+<div class="center"><img src="pngz_8c_addbc002fdd256f0face6c0027ac7fb9a_cgraph.png" border="0" usemap="#apngz_8c_addbc002fdd256f0face6c0027ac7fb9a_cgraph" alt=""/></div>
+<map name="apngz_8c_addbc002fdd256f0face6c0027ac7fb9a_cgraph" id="apngz_8c_addbc002fdd256f0face6c0027ac7fb9a_cgraph">
+<area shape="rect" title="write a png back out to file with a new name" alt="" coords="5,55,117,80"/>
+<area shape="rect" href="pngz_8c.html#a4ef9fc82bd74a206acf97f4076e73237" title="allocate raw pixel byte buffer." alt="" coords="175,5,302,31"/>
+<area shape="poly" title=" " alt="" coords="109,51,175,33,176,38,111,57"/>
+<area shape="rect" href="pngz_8c.html#aa42c792e1fad28bba7fe65564d550cfd" title="safely free pixel buffer." alt="" coords="177,55,301,80"/>
+<area shape="poly" title=" " alt="" coords="117,65,161,65,161,70,117,70"/>
+<area shape="rect" href="pngz_8c.html#a89c40930877b8e356c4c8e4172f45ac4" title="unpack pixels into raw byte ptrs." alt="" coords="165,104,313,130"/>
+<area shape="poly" title=" " alt="" coords="111,78,176,97,175,102,109,84"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a105db7e9aa2f8e03cc79e5360c53ac71" name="a105db7e9aa2f8e03cc79e5360c53ac71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a105db7e9aa2f8e03cc79e5360c53ac71">&#9670;&#160;</a></span>pngz_unpack_pixels()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int pngz_unpack_pixels </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structpixel.html">pixel</a> **</td>          <td class="paramname"><span class="paramname"><em>pixels_src</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned char **</td>          <td class="paramname"><span class="paramname"><em>bytes_dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>cols</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>unpack pixels into raw byte ptrs. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pixels_src</td><td>packed pixel source </td></tr>
-    <tr><td class="paramname">bytes_dest</td><td>unpacked byte destination </td></tr>
-    <tr><td class="paramname">rows</td><td>rows of pixels </td></tr>
-    <tr><td class="paramname">cols</td><td>cols of pixels (IN PIXELS NOT BYTES) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>exit code </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00206">206</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
-
-<p class="reference">References <a class="el" href="pngz_8h_source.html#l00015">pixel::r</a>.</p>
-
-</div>
-</div>
-<a id="a0c004f2a440b956639119bff50f3a32a" name="a0c004f2a440b956639119bff50f3a32a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c004f2a440b956639119bff50f3a32a">&#9670;&#160;</a></span>print_indent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_indent </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>indent</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="pngz_8c_source.html#l00429">429</a> of file <a class="el" href="pngz_8c_source.html">pngz.c</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['path_0',['path',['../structpngz.html#a11923fed2b21460ad2a4b1b3f139bb09',1,'pngz']]],
-  ['pixels_1',['pixels',['../structpngz.html#ae3486543e06db2287709f07fa5086502',1,'pngz']]]
+  ['path_0',['path',['../structPNGZ__Image.html#ac6671bde8d0c99335facc4dc6b69526c',1,'PNGZ_Image']]],
+  ['pixels_1',['pixels',['../structPNGZ__Image.html#a2e2515811cea70c98ebcd21905f07a8f',1,'PNGZ_Image']]]
 ];

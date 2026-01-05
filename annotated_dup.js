@@ -1,5 +1,5 @@
 var annotated_dup =
 [
-    [ "pixel", "structpixel.html", "structpixel" ],
-    [ "pngz", "structpngz.html", "structpngz" ]
+    [ "PNGZ_Image", "structPNGZ__Image.html", "structPNGZ__Image" ],
+    [ "PNGZ_Pixel", "structPNGZ__Pixel.html", "structPNGZ__Pixel" ]
 ];
