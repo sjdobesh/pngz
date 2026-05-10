@@ -1,12 +1,26 @@
 #!/usr/bin/env bash
-echo "compiling library..."
+echo "[ compiling library... ]"
+echo "make lib" 
 make lib
-echo "copying libpngz.so shared library to /usr/local/lib..."
+echo
+echo "[ copying libpngz.a static library to /usr/local/lib... ]"
+echo "sudo cp lib/libpngz.a /usr/local/lib"
+sudo cp lib/libpngz.a /usr/local/lib
+echo
+echo "[ copying libpngz.so shared library to /usr/local/lib... ]"
+echo "sudo cp lib/libpngz.so /usr/local/lib"
 sudo cp lib/libpngz.so /usr/local/lib
-echo "copying pngz.h header to /usr/local/include..."
+echo
+echo "[ copying pngz.h header to /usr/local/include... ]"
+echo "sudo cp src/pngz.h /usr/local/include"
 sudo cp src/pngz.h /usr/local/include
-echo "loading library..."
+echo
+echo "[ loading library... ]"
+echo "sudo ldconfig"
 sudo ldconfig
-echo "cleaning..."
+echo
+echo "[ cleaning... ]"
+echo "make clean"
 make clean
-echo "done"
+echo
+echo "[ done ]"

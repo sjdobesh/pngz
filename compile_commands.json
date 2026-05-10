@@ -1,0 +1,22 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-fpic",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c89",
+      "-pedantic",
+      "-Os",
+      "-c",
+      "-Isrc",
+      "-o",
+      "obj/test.o",
+      "test/test.c"
+    ],
+    "directory": "/home/valentine/projects/pngz",
+    "file": "/home/valentine/projects/pngz/test/test.c",
+    "output": "/home/valentine/projects/pngz/obj/test.o"
+  }
+]

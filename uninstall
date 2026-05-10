@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
-echo "removing library..."
-echo "deleting libpngz.so shared library from /usr/local/lib..."
+echo "[ removing library components... ]"
+echo
+echo "[ deleting libpngz.so shared library from /usr/local/lib... ]"
+echo "[ sudo rm /usr/local/lib/libpngz.so ]"
 sudo rm /usr/local/lib/libpngz.so
-echo "deleting pngz.h header from /usr/local/include..."
+echo
+echo "[ deleting libpngz.a shared library from /usr/local/lib... ]"
+echo "[ sudo rm /usr/local/lib/libpngz.a ]"
+sudo rm /usr/local/lib/libpngz.a
+echo
+echo "[ deleting pngz.h header from /usr/local/include... ]"
+echo "[ sudo rm /usr/local/include/pngz.h ]"
 sudo rm /usr/local/include/pngz.h
-echo "done"
+echo
+echo "[ done ]"
